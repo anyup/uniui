@@ -9,8 +9,8 @@
           </view>
         </view>
         <view class="au-updater-modalBtn-box">
-          <button v-if="!isForce" class="au-updater-modal-btn au-updater-gray-outline" hover-class="au-updater-outline-hover" @click="closeModal">下次更新</button>
-          <button class="au-updater-modal-btn au-updater-primary" hover-class="au-updater-primary-hover" @click="confirmModal">立即更新</button>
+          <view class="au-updater-modal-btn default" @click="closeModal">下次更新</view>
+          <view class="au-updater-modal-btn primary" @click="confirmModal">立即更新</view>
         </view>
       </view>
     </view>
@@ -19,19 +19,17 @@
 </template>
 
 <script>
-import { Http } from '../../http'
+import { Http } from '@anyup/core'
 
 export default {
   name: 'AuUpdater',
   components: {},
   props: {
     auto: {
-      required: false,
       type: Boolean,
       default: false
     },
     reqUrl: {
-      required: true,
       type: String,
       default: ''
     },
@@ -50,10 +48,6 @@ export default {
       default() {
         return {}
       }
-    },
-    reqCodeKey: {
-      type: String,
-      default: 'currentVersion'
     },
     isForce: {
       type: Boolean,
@@ -77,7 +71,7 @@ export default {
     }
   },
   mounted() {
-    this.http = new Http().setHeader(reqHeader)
+    this.http = new Http().setHeader(this.reqHeader)
     if (this.auto) {
       this.checkUpdate()
     }
@@ -104,13 +98,9 @@ export default {
     },
     // 检测更新
     checkUpdate() {
-      // #ifdef APP-PLUS
-      let versionCode = plus.runtime.versionCode
-      reqParam[reqCodeKey] = versionCode
-      this.http.request(this.reqUrl, reqParam).then(res => {
-        this.$emit('result', res)
+      this.http.request(this.reqUrl, this.reqParam, { method: this.reqMethod }).then(res => {
+        this.$emit('result', { data: res, ref: this })
       })
-      // #endif
     }
   }
 }
@@ -187,186 +177,42 @@ export default {
   justify-content: space-between;
 }
 
-.au-updater-flex-column {
-  flex-direction: column;
-}
-
 .au-updater-modal-btn {
-  flex: 1;
-  width: 46%;
-  height: 76rpx;
-  line-height: 76rpx;
   position: relative;
-  border-radius: 10rpx;
+  border: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 24rpx 28rpx;
+  z-index: 1;
+  box-sizing: border-box;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
   font-size: 28rpx;
-  overflow: visible;
-  margin-left: 0;
-  margin-right: 0;
-  white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
+  -webkit-appearance: none;
+  border-radius: 5px;
+  width: 40%;
 }
 
-.au-updater-modal-btn + .au-updater-modal-btn {
-  margin-left: 30rpx;
+.au-updater-modal-btn.default {
+  border: 1px solid #ecedf0;
+  color: #606266;
+  border-color: #ecedf0;
+  background-color: #fff;
 }
 
-.au-updater-modal-btn::after {
-  content: '';
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  -webkit-transform: scale(0.5, 0.5);
-  transform: scale(0.5, 0.5);
-  left: 0;
-  top: 0;
-  border-radius: 20rpx;
-}
-
-.au-updater-primary {
-  background: #16a98c;
+.au-updater-modal-btn.primary {
+  border-color: #2979ff;
+  background-color: #2979ff;
   color: #fff;
 }
 
-.au-updater-primary-hover {
-  background: rgba(22, 169, 140, 0.7);
-  color: #e5e5e5;
-}
-
-.au-updater-primary-outline {
-  color: #16a98c;
-  background: none;
-}
-
-.au-updater-primary-outline::after {
-  border: 1px solid #16a98c;
-}
-
-.au-updater-danger {
-  background: #ed3f14;
-  color: #fff;
-}
-
-.au-updater-danger-hover {
-  background: #d53912;
-  color: #e5e5e5;
-}
-
-.au-updater-danger-outline {
-  color: #ed3f14;
-  background: none;
-}
-
-.au-updater-danger-outline::after {
-  border: 1px solid #ed3f14;
-}
-
-.au-updater-red {
-  background: #e41f19;
-  color: #fff;
-}
-
-.au-updater-red-hover {
-  background: #c51a15;
-  color: #e5e5e5;
-}
-
-.au-updater-red-outline {
-  color: #e41f19;
-  background: none;
-}
-
-.au-updater-red-outline::after {
-  border: 1px solid #e41f19;
-}
-
-.au-updater-warning {
-  background: #ff7900;
-  color: #fff;
-}
-
-.au-updater-warning-hover {
-  background: #e56d00;
-  color: #e5e5e5;
-}
-
-.au-updater-warning-outline {
-  color: #ff7900;
-  background: none;
-}
-
-.au-updater-warning-outline::after {
-  border: 1px solid #ff7900;
-}
-
-.au-updater-green {
-  background: #19be6b;
-  color: #fff;
-}
-
-.au-updater-green-hover {
-  background: #16ab60;
-  color: #e5e5e5;
-}
-
-.au-updater-green-outline {
-  color: #19be6b;
-  background: none;
-}
-
-.au-updater-green-outline::after {
-  border: 1px solid #19be6b;
-}
-
-.au-updater-white {
-  background: #fff;
-  color: #333;
-}
-
-.au-updater-white-hover {
-  background: #f7f7f9;
-  color: #666;
-}
-
-.au-updater-white-outline {
-  color: #333;
-  background: none;
-}
-
-.au-updater-white-outline::after {
-  border: 1px solid #333;
-}
-
-.au-updater-gray {
-  background: #ededed;
-  color: #999;
-}
-
-.au-updater-gray-hover {
-  background: #d5d5d5;
-  color: #898989;
-}
-
-.au-updater-gray-outline {
-  color: #999;
-  background: none;
-}
-
-.au-updater-gray-outline::after {
-  border: 1px solid #999;
-}
-
-.au-updater-outline-hover {
-  opacity: 0.6;
-}
-
-.au-updater-circle-btn {
-  border-radius: 40rpx !important;
-}
-
-.au-updater-circle-btn::after {
-  border-radius: 80rpx !important;
+.au-updater-modal-btn:hover {
+  opacity: 0.7;
 }
 </style>

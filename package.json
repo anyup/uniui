@@ -1,6 +1,6 @@
 {
   "name": "@anyup/core",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "uniapp request library for uniapp",
   "main": "dist/core.cjs.js",
   "module": "dist/core.esm.js",
@@ -8,7 +8,8 @@
   "scripts": {
     "clean": "rimraf ./dist",
     "dev": "set NODE_ENV=development&&rollup -c -w",
-    "build": "npm run clean && set NODE_ENV=production&&rollup -c"
+    "build": "npm run clean && set NODE_ENV=production&&rollup -c",
+    "pub": "npm publish --access=public"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19.0.0",

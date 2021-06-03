@@ -5,8 +5,6 @@
     <au-loading :visible="loading"></au-loading>
     <!--toast提示-->
     <au-toast ref="toast"></au-toast>
-    <!-- update版本更新 -->
-    <au-updater ref="updater" v-if="isConfig('updater')" :auto="autoUpdate"></au-updater>
   </view>
 </template>
 
@@ -15,6 +13,11 @@ export default {
   name: 'AuLayout',
   components: {},
   props: {
+    // 是否显示页面
+    pageShow: {
+      type: Boolean,
+      default: true
+    },
     // 背景色值
     bgColor: {
       type: String,
@@ -26,21 +29,6 @@ export default {
       default() {
         return {}
       }
-    },
-    // 是否检测登录
-    checkLogin: {
-      type: Boolean,
-      default: true
-    },
-    // 配置项 逗号分隔拼接字符串：networkbar,updater
-    config: {
-      type: String,
-      default: ''
-    },
-    // 是否自动检测版本更新
-    autoUpdate: {
-      type: Boolean,
-      default: false
     },
     // 点击次数
     clickTimes: {
@@ -67,9 +55,6 @@ export default {
     styles() {
       const bg = { 'background-color': this.bgColor }
       return { ...bg, ...this.customStyle }
-    },
-    pageShow() {
-      return !this.checkLogin || (this.checkLogin && this.g_token)
     }
   },
   watch: {
@@ -77,24 +62,14 @@ export default {
       deep: true,
       handler: function (newValue) {
         if (newValue && newValue.title) {
-          this.toast(newValue.title, newValue.icon)
+          this.showToast(newValue.title, newValue.icon)
         }
       }
     }
   },
   methods: {
-    // 是否有此配置项
-    isConfig(key) {
-      return this.config.indexOf(key) > -1
-    },
-    // 检测版本更新
-    checkUpdate(showtip = false) {
-      if (this.isConfig('updater')) {
-        this.$refs.updater.checkUpdate(showtip)
-      }
-    },
     // toast提示
-    toast(title, icon, options = {}) {
+    showToast(title, icon, options = {}) {
       let { content = '', duration = 2000 } = options
       this.$refs.toast.show({ title, icon, content, duration })
     },
@@ -105,7 +80,7 @@ export default {
       return function (e) {
         times++
         timeId && clearTimeout(timeId)
-        if (times === clickTimes) {
+        if (times === this.clickTimes) {
           this.$emit('page-click')
         }
         timeId = setTimeout(() => {

@@ -6,12 +6,12 @@
 
 #### 安装教程
 
-- ``npm install @anyup/uni``
+- ``npm install @anyup/core``
 
 #### 使用说明
 
 ```js
-import { Http } from '@anyup/uni'
+import { Http } from '@anyup/core'
 const http = new Http().setBaseURL(baseURL).setHeader(header)
 
 http.interceptors.request.use(

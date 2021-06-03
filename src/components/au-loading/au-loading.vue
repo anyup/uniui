@@ -2,7 +2,7 @@
   <view @touchmove.stop.prevent>
     <view class="au-loading-init" v-if="visible">
       <view class="au-loading-center"></view>
-      <view class="au-loading-tips">{{ text }}</view>
+      <view v-if="text" class="au-loading-tips">{{ text }}</view>
     </view>
     <view class="au-loading-mask" :class="[visible ? 'au-mask-show' : '']"></view>
   </view>
@@ -72,13 +72,13 @@ export default {
   vertical-align: middle;
   clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%);
   animation: rotate 1s linear infinite;
-  margin-bottom: 36rpx;
 }
 
 .au-loading-tips {
   text-align: center;
   padding: 0 20rpx;
   box-sizing: border-box;
+  margin-top: 36rpx;
 }
 
 @-webkit-keyframes rotate {

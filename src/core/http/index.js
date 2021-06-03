@@ -96,7 +96,7 @@ class Http {
             response = ret === undefined ? response : ret
           }
           if (!isPromise(response)) {
-            response = Promise[type === 0 ? 'resolve' : 'reject'](data)
+            response = Promise[type === 0 ? 'resolve' : 'reject'](response)
           }
           response
             .then(d => {
