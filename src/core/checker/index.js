@@ -39,10 +39,10 @@ const checker = {
           isNo = true
           ruleItem = ruleItem.slice(1)
         }
-        if (!form[`_${ruleItem}`]) {
+        if (!checker[`_${ruleItem}`]) {
           return 'Not Found Function'
         }
-        let isError = form[`_${ruleItem}`](checkValue, extraItem, formData)
+        let isError = checker[`_${ruleItem}`](checkValue, extraItem, formData)
         isError = isNo ? !isError : isError
         if (isError) {
           return typeof isError === 'string' ? isError : msg
@@ -121,7 +121,7 @@ const checker = {
   },
   _isChinese: function (value) {
     let reg = /.*[\u4e00-\u9fa5]+.*$/
-    return value !== '' && reg.test(value) && !form._isSpecial(value) && !form._isEmoji(value)
+    return value !== '' && reg.test(value) && !checker._isSpecial(value) && !checker._isEmoji(value)
   },
   _isEnglish: function (value) {
     return /^[a-zA-Z]*$/.test(value)
@@ -134,14 +134,14 @@ const checker = {
     //英文或者数字
     let reg = /.*[\u4e00-\u9fa5]+.*$/
     let result = true
-    if (reg.test(value) || form._isSpecial(value) || form._isEmoji(value)) {
+    if (reg.test(value) || checker._isSpecial(value) || checker._isEmoji(value)) {
       result = false
     }
     return result
   },
   _isEnOrNo20: function (value) {
     //20位数字或字母
-    return form._isEnOrNo(value) && value.length === 20
+    return checker._isEnOrNo(value) && value.length === 20
   },
   _isSpecial: function (value) {
     //是否包含特殊字符
