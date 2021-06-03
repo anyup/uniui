@@ -3,34 +3,12 @@
  * 基于 Promise 对象实现更简单的 request 使用方式，支持请求和响应拦截
  * @author qiaomingxing
  */
-declare var uni: any
-
 const CONTENT_TYPE = {
   JSON: { 'Content-Type': 'application/json;charset=UTF-8' },
   URLENCODED: { 'Content-Type': 'application/x-www-form-urlencoded' }
 }
 
-export class Http {
-  config: {
-    baseURL: string
-    header: { 'Content-Type': string }
-    data: {}
-    method: string
-    dataType: string
-    responseType: string
-    success(): any
-    fail(): any
-    complete(): any
-  }
-  interceptors: {
-    response: {
-      use(handler: any, onerror: any): any
-      handler?: any
-      onerror?: any
-      p?: any
-    }
-    request: { use(handler: any): any; handler?: any; onerror?: any; p?: any }
-  }
+class Http {
   constructor() {
     this.config = {
       baseURL: '',
@@ -118,9 +96,7 @@ export class Http {
             response = ret === undefined ? response : ret
           }
           if (!isPromise(response)) {
-            // response = Promise[type === 0 ? 'resolve' : 'reject'](data)
-            let resType = type === 0 ? 'resolve' : 'reject'
-            response = Promise[resType](data)
+            response = Promise[type === 0 ? 'resolve' : 'reject'](data)
           }
           response
             .then(d => {
@@ -244,3 +220,5 @@ function wrap(interceptor) {
     }
   })
 }
+
+export { Http }
