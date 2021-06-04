@@ -1,6 +1,6 @@
 {
   "name": "@anyup/core",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "uniapp request library for uniapp",
   "main": "dist/core.cjs.js",
   "module": "dist/core.esm.js",

@@ -100,7 +100,6 @@ export default {
   height: 100%;
   box-sizing: border-box;
   color: $u-main-color;
-  overflow-y: auto;
 
   .pop-wrap {
     padding: 0 20rpx;
