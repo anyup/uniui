@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { Http } from '@anyup/core'
+import { Http } from '../../core/http'
 
 export default {
   name: 'AuUpdater',

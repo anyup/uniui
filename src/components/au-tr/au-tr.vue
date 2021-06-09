@@ -11,7 +11,6 @@
 /**
  * tr 表格行标签
  * @description 表格组件一般用于展示大量结构化数据的场景（搭配<au-table>使用）
- * @tutorial https://www.uviewui.com/components/table.html
  * @example <au-tr></au-tr>
  */
 export default {
