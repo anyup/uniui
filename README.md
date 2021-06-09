@@ -1,17 +1,17 @@
-# anyup-core
+# anyup-uni-ui
 
 #### 介绍
 
-- anyup-core uniapp、vue类库，致力于方便、快捷开发应用
+- anyup ui uniapp、vue类库，致力于方便、快捷开发应用
 
 #### 安装教程
 
-- ``npm install @anyup/core``
+- ``npm install @anyup/uni-ui``
 
 #### 使用说明
 
 ```js
-import { Http } from '@anyup/core'
+import { Http } from '@anyup/uni-ui'
 const http = new Http().setBaseURL(baseURL).setHeader(header)
 
 http.interceptors.request.use(
