@@ -1,36 +1,36 @@
-$au-type-primary: #2979ff;
-$au-type-primary-light: #ecf5ff;
-$au-type-primary-disabled: #a0cfff;
-$au-type-primary-dark: #2b85e4;
+$is-type-primary: #2979ff;
+$is-type-primary-light: #ecf5ff;
+$is-type-primary-disabled: #a0cfff;
+$is-type-primary-dark: #2b85e4;
 
-$au-type-warning: #ff9900;
-$au-type-warning-disabled: #fcbd71;
-$au-type-warning-dark: #f29100;
-$au-type-warning-light: #fdf6ec;
+$is-type-warning: #ff9900;
+$is-type-warning-disabled: #fcbd71;
+$is-type-warning-dark: #f29100;
+$is-type-warning-light: #fdf6ec;
 
-$au-type-success: #19be6b;
-$au-type-success-disabled: #71d5a1;
-$au-type-success-dark: #18b566;
-$au-type-success-light: #dbf1e1;
+$is-type-success: #19be6b;
+$is-type-success-disabled: #71d5a1;
+$is-type-success-dark: #18b566;
+$is-type-success-light: #dbf1e1;
 
-$au-type-error: #fa3534;
-$au-type-error-disabled: #fab6b6;
-$au-type-error-dark: #dd6161;
-$au-type-error-light: #fef0f0;
+$is-type-error: #fa3534;
+$is-type-error-disabled: #fab6b6;
+$is-type-error-dark: #dd6161;
+$is-type-error-light: #fef0f0;
 
-$au-type-info: #909399;
-$au-type-info-disabled: #c8c9cc;
-$au-type-info-dark: #82848a;
-$au-type-info-light: #f4f4f5;
+$is-type-info: #909399;
+$is-type-info-disabled: #c8c9cc;
+$is-type-info-dark: #82848a;
+$is-type-info-light: #f4f4f5;
 // 文字颜色
-$au-main-color: #303133;
-$au-content-color: #606266;
-$au-tips-color: #909399;
-$au-light-color: #c0c4cc;
+$is-main-color: #303133;
+$is-content-color: #606266;
+$is-tips-color: #909399;
+$is-light-color: #c0c4cc;
 // 边框颜色
-$au-border-color: #e4e7ed;
+$is-border-color: #e4e7ed;
 // 背景颜色
-$au-bg-color: #f3f4f6;
+$is-bg-color: #f3f4f6;
 // 定义变量
 $rate: 2;
 $unit: rpx;
@@ -50,7 +50,7 @@ $radius-min: 0;
 $radius-max: 10;
 $radius-step: 1;
 
-.au-page-wrapper {
+.is-page-wrapper {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -58,125 +58,125 @@ $radius-step: 1;
 }
 
 /* 盒子模型 */
-.au-box {
+.is-box {
   box-sizing: border-box;
 }
 
 /* 布局 */
-.au-flex {
+.is-flex {
   display: flex;
   flex-direction: row;
 }
 
-.au-flex-center {
+.is-flex-center {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.au-flex-1 {
+.is-flex-1 {
   flex: 1;
 }
 
-.au-block {
+.is-block {
   display: block;
 }
 
-.au-inline-block {
+.is-inline-block {
   display: inline-block;
 }
 
-.au-flex-row {
+.is-flex-row {
   flex-direction: row;
 }
 
-.au-flex-column {
+.is-flex-column {
   flex-direction: column;
 }
 
-.au-justify-end {
+.is-justify-end {
   justify-content: flex-end;
 }
 
-.au-justify-center {
+.is-justify-center {
   justify-content: center;
 }
 
-.au-justify-start {
+.is-justify-start {
   justify-content: flex-start;
 }
 
-.au-justify-between {
+.is-justify-between {
   justify-content: space-between;
 }
 
-.au-justify-around {
+.is-justify-around {
   justify-content: space-around;
 }
 
-.au-align-start {
+.is-align-start {
   align-items: flex-start;
 }
 
-.au-align-center {
+.is-align-center {
   align-items: center;
 }
 
-.au-align-end {
+.is-align-end {
   align-items: flex-end;
 }
 
-.au-align-stretch {
+.is-align-stretch {
   align-items: stretch;
 }
 
-.au-auto-center {
+.is-auto-center {
   margin: 0 auto;
 }
 
 /* 颜色 */
-.au-white {
+.is-white {
   color: #fff;
 }
 
-.au-bg-white {
+.is-bg-white {
   background-color: #fff;
 }
 
 /* 字体 */
-.au-font-normal {
+.is-font-normal {
   font-weight: normal;
 }
 
-.au-font-light {
+.is-font-light {
   font-weight: 300;
 }
 
-.au-font-bold {
+.is-font-bold {
   font-weight: 700;
 }
 
-.au-font-italic {
+.is-font-italic {
   font-style: italic;
 }
 
-.au-text-left {
+.is-text-left {
   text-align: left;
 }
 
-.au-text-right {
+.is-text-right {
   text-align: right;
 }
 
-.au-text-center {
+.is-text-center {
   text-align: center;
 }
 
-.au-text-underline {
+.is-text-underline {
   text-decoration: underline;
 }
 
-.au-text-oneline {
+.is-text-oneline {
   max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -190,37 +190,37 @@ a {
   text-decoration: none;
 }
 
-.au-a {
+.is-a {
   text-decoration: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   color: inherit;
 }
 
-.au-a:active {
+.is-a:active {
   background-color: #ececec;
 }
-.au-p {
+.is-p {
   font-size: 32 + $unit;
-  color: $au-main-color;
+  color: $is-main-color;
   line-height: 2;
   margin-bottom: 30 + $unit;
   text-align: justify;
 }
 
-.au-h1,
-.au-h2,
-.au-h3,
-.au-h4,
-.au-h5,
-.au-h6 {
-  color: $au-main-color;
+.is-h1,
+.is-h2,
+.is-h3,
+.is-h4,
+.is-h5,
+.is-h6 {
+  color: $is-main-color;
   font-weight: normal;
 }
 
 /*字体大小*/
 @for $i from $font-min through $font-max {
   @if $i % $font-step == 0 {
-    .au-font-#{$i} {
+    .is-font-#{$i} {
       width: $i * $rate + $unit !important;
     }
   }
@@ -230,76 +230,76 @@ a {
 @for $i from $width-min through $width-max {
   // 只要能被10除尽的数
   @if $i % $width-step == 0 {
-    .au-width-#{$i} {
+    .is-width-#{$i} {
       width: $i + 0% !important;
     }
 
-    .au-width-#{$i}px {
+    .is-width-#{$i}px {
       width: $i * $rate + $unit !important;
     }
   }
 }
 
 /* 位置 定位 */
-.au-floatr {
+.is-floatr {
   float: right;
 }
 
-.au-floatl {
+.is-floatl {
   float: left;
 }
 
-.au-absolute {
+.is-absolute {
   position: absolute;
 }
 
-.au-relative {
+.is-relative {
   position: relative;
 }
 
-.au-fixed {
+.is-fixed {
   position: fixed;
 }
 
 /* 圆角 */
-.au-circle {
+.is-circle {
   border-radius: 50%;
 }
 
 /* 含有阴影 */
-.au-shadow {
+.is-shadow {
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);
 }
 
 /* 四周含有阴影 */
-.au-shadow-all {
+.is-shadow-all {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 /* 含有边框 */
-.au-border {
-  border: 1px solid $au-border-color;
+.is-border {
+  border: 1px solid $is-border-color;
 }
 
 /* 徽标 */
-.au-badge-border {
-  border: 1px solid $au-border-color;
+.is-badge-border {
+  border: 1px solid $is-border-color;
   padding: 6 + $unit 6 + $unit;
 }
 
 /* 圆角 border-radius */
-.au-radius {
+.is-radius {
   border-radius: 8px;
 }
 
-/* 圆角 au-radius-1, au-radius-top-1 */
+/* 圆角 is-radius-1, is-radius-top-1 */
 @for $i from $radius-min through $radius-max {
   @if $i % $radius-step == 0 {
-    .au-radius-#{$i} {
+    .is-radius-#{$i} {
       border-radius: $i + px;
     }
 
-    .au-radius-top-#{$i} {
+    .is-radius-top-#{$i} {
       border-top-left-radius: $i + px;
       border-top-right-radius: $i + px;
     }
@@ -307,8 +307,8 @@ a {
 }
 
 /* 边框 border 1px */
-.au-borderb:before {
-  border-bottom: 1px solid $au-border-color;
+.is-borderb:before {
+  border-bottom: 1px solid $is-border-color;
   content: '';
   display: block;
   width: 100%;
@@ -318,8 +318,8 @@ a {
   -webkit-transform-origin: left bottom;
 }
 
-.au-bordert:before {
-  border-top: 1px solid $au-border-color;
+.is-bordert:before {
+  border-top: 1px solid $is-border-color;
   content: '';
   display: block;
   width: 100%;
@@ -329,8 +329,8 @@ a {
   -webkit-transform-origin: left top;
 }
 
-.au-borderl:before {
-  border-left: 1px solid $au-border-color;
+.is-borderl:before {
+  border-left: 1px solid $is-border-color;
   content: '';
   display: block;
   bottom: 0;
@@ -340,8 +340,8 @@ a {
   -webkit-transform-origin: left top;
 }
 
-.au-borderr:before {
-  border-right: 1px solid $au-border-color;
+.is-borderr:before {
+  border-right: 1px solid $is-border-color;
   content: '';
   display: block;
   bottom: 0;
@@ -351,18 +351,18 @@ a {
   -webkit-transform-origin: right top;
 }
 
-.au-bordert,
-.au-borderl,
-.au-borderb,
-.au-borderr,
-.au-bordertb,
-.au-bordera,
-.au-border-radius {
+.is-bordert,
+.is-borderl,
+.is-borderb,
+.is-borderr,
+.is-bordertb,
+.is-bordera,
+.is-border-radius {
   position: relative;
 }
 
-.au-bordertb:before {
-  border-top: 1px solid $au-border-color;
+.is-bordertb:before {
+  border-top: 1px solid $is-border-color;
   content: '';
   display: block;
   width: 100%;
@@ -372,8 +372,8 @@ a {
   -webkit-transform-origin: left top;
 }
 
-.au-bordertb:after {
-  border-bottom: 1px solid $au-border-color;
+.is-bordertb:after {
+  border-bottom: 1px solid $is-border-color;
   content: '';
   display: block;
   width: 100%;
@@ -383,14 +383,14 @@ a {
   -webkit-transform-origin: left bottom;
 }
 
-.au-bordera:before {
+.is-bordera:before {
   content: '';
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  border: 1px solid $au-border-color;
+  border: 1px solid $is-border-color;
   -webkit-transform-origin: 0 0;
   padding: 1px;
   -webkit-box-sizing: border-box;
@@ -399,14 +399,14 @@ a {
   pointer-events: none;
 }
 
-.au-border-radius:before {
+.is-border-radius:before {
   content: '';
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  border: 1px solid $au-border-color;
+  border: 1px solid $is-border-color;
   -webkit-transform-origin: 0 0;
   padding: 1px;
   -webkit-box-sizing: border-box;
@@ -416,22 +416,22 @@ a {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
-  .au-bordert:before,
-  .au-borderr:before,
-  .au-borderb:before,
-  .au-borderl:before,
-  .au-bordertb:before,
-  .au-bordertb:after {
+  .is-bordert:before,
+  .is-borderr:before,
+  .is-borderb:before,
+  .is-borderl:before,
+  .is-bordertb:before,
+  .is-bordertb:after {
     -webkit-transform: scaleY(0.5);
   }
 
-  .au-bordera:before {
+  .is-bordera:before {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
   }
 
-  .au-border-radius:before {
+  .is-border-radius:before {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
@@ -439,22 +439,22 @@ a {
   }
 }
 @media screen and (-webkit-min-device-pixel-ratio: 3) {
-  .au-bordert:before,
-  .au-borderr:before,
-  .au-borderb:before,
-  .au-borderl:before,
-  .au-bordertb:before,
-  .au-bordertb:after {
+  .is-bordert:before,
+  .is-borderr:before,
+  .is-borderb:before,
+  .is-borderl:before,
+  .is-bordertb:before,
+  .is-bordertb:after {
     -webkit-transform: scaleY(0.3333);
   }
 
-  .au-bordera:before {
+  .is-bordera:before {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.3333);
   }
 
-  .au-border-radius:before {
+  .is-border-radius:before {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.3333);
@@ -465,45 +465,45 @@ a {
 // 定义内外边距，历遍1-80
 @for $i from $min through $max {
   @if $i % $step == 0 {
-    // 得出：au-mg-i
-    .au-mg-#{$i} {
+    // 得出：is-mg-i
+    .is-mg-#{$i} {
       margin: $i * $rate + $unit !important;
     }
 
-    // 得出：au-mgtb-i
-    .au-mgtb-#{$i} {
+    // 得出：is-mgtb-i
+    .is-mgtb-#{$i} {
       margin: $i * $rate + $unit 0 !important;
     }
 
-    // 得出：au-mglr-i
-    .au-mglr-#{$i} {
+    // 得出：is-mglr-i
+    .is-mglr-#{$i} {
       margin: 0 $i * $rate + $unit 0 !important;
     }
 
-    // 得出：au-pd-i
-    .au-pd-#{$i} {
+    // 得出：is-pd-i
+    .is-pd-#{$i} {
       padding: $i * $rate + $unit !important;
     }
 
-    // 得出：au-pdtb-i
-    .au-pdtb-#{$i} {
+    // 得出：is-pdtb-i
+    .is-pdtb-#{$i} {
       padding: $i * $rate + $unit 0 !important;
     }
 
-    // 得出：au-pdlr-i
-    .au-pdlr-#{$i} {
+    // 得出：is-pdlr-i
+    .is-pdlr-#{$i} {
       padding: 0 $i * $rate + $unit 0 !important;
     }
 
     @each $short, $long in l left, t top, r right, b bottom {
-      // 缩写版，结果如： au-mgl-i
+      // 缩写版，结果如： is-mgl-i
       // 定义外边距
-      .au-mg#{$short}-#{$i} {
+      .is-mg#{$short}-#{$i} {
         margin-#{$long}: $i * $rate + $unit !important;
       }
 
       // 定义内边距
-      .au-pd#{$short}-#{$i} {
+      .is-pd#{$short}-#{$i} {
         padding-#{$long}: $i * $rate + $unit !important;
       }
     }
@@ -511,12 +511,12 @@ a {
 }
 
 /* start 按钮  */
-.au-btn {
+.is-btn {
   display: block;
   position: relative;
   text-align: center;
   background-color: #fff;
-  color: $au-main-color;
+  color: $is-main-color;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -webkit-background-clip: padding-box;
@@ -566,72 +566,72 @@ a {
 
   &.primary {
     color: #ffffff;
-    border-color: $au-type-primary;
-    background-color: $au-type-primary;
+    border-color: $is-type-primary;
+    background-color: $is-type-primary;
     &.disabled {
       color: #ffffff !important;
-      border-color: $au-type-primary-disabled !important;
-      background-color: $au-type-primary-disabled !important;
+      border-color: $is-type-primary-disabled !important;
+      background-color: $is-type-primary-disabled !important;
     }
     &.plain {
-      color: $au-type-primary !important;
-      border-color: $au-type-primary-disabled !important;
-      background-color: $au-type-primary-light !important;
+      color: $is-type-primary !important;
+      border-color: $is-type-primary-disabled !important;
+      background-color: $is-type-primary-light !important;
     }
   }
 
   &.success {
     color: #ffffff;
-    border-color: $au-type-success;
-    background-color: $au-type-success;
+    border-color: $is-type-success;
+    background-color: $is-type-success;
     &.disabled {
       color: #ffffff !important;
-      border-color: $au-type-success-disabled !important;
-      background-color: $au-type-success-disabled !important;
+      border-color: $is-type-success-disabled !important;
+      background-color: $is-type-success-disabled !important;
     }
     &.plain {
-      color: $au-type-success !important;
-      border-color: $au-type-success-disabled !important;
-      background-color: $au-type-success-light !important;
+      color: $is-type-success !important;
+      border-color: $is-type-success-disabled !important;
+      background-color: $is-type-success-light !important;
     }
   }
 
   &.error {
     color: #ffffff;
-    border-color: $au-type-error;
-    background-color: $au-type-error;
+    border-color: $is-type-error;
+    background-color: $is-type-error;
     &.disabled {
       color: #ffffff !important;
-      border-color: $au-type-error-disabled !important;
-      background-color: $au-type-error-disabled !important;
+      border-color: $is-type-error-disabled !important;
+      background-color: $is-type-error-disabled !important;
     }
     &.plain {
-      color: $au-type-error !important;
-      border-color: $au-type-error-disabled !important;
-      background-color: $au-type-error-light !important;
+      color: $is-type-error !important;
+      border-color: $is-type-error-disabled !important;
+      background-color: $is-type-error-light !important;
     }
   }
 
   &.warning {
     color: #ffffff;
-    border-color: $au-type-warning;
-    background-color: $au-type-warning;
+    border-color: $is-type-warning;
+    background-color: $is-type-warning;
     &.disabled {
       color: #ffffff !important;
-      border-color: $au-type-warning-disabled !important;
-      background-color: $au-type-warning-disabled !important;
+      border-color: $is-type-warning-disabled !important;
+      background-color: $is-type-warning-disabled !important;
     }
     &.plain {
-      color: $au-type-warning !important;
-      border-color: $au-type-warning-disabled !important;
-      background-color: $au-type-warning-light !important;
+      color: $is-type-warning !important;
+      border-color: $is-type-warning-disabled !important;
+      background-color: $is-type-warning-light !important;
     }
   }
 }
 /* ent 按钮  */
 
 /* start 边线  */
-.au-divide {
+.is-divide {
   height: 1px;
   text-align: center;
   background-color: #efeff4;
@@ -640,7 +640,7 @@ a {
 /* ent 边线  */
 
 /* start table表格  */
-.au-table {
+.is-table {
   background-color: #fff;
   position: relative;
   width: 100%;
@@ -648,7 +648,7 @@ a {
   flex-direction: column;
 }
 
-.au-table:after {
+.is-table:after {
   position: absolute;
   z-index: 10;
   right: 0;
@@ -661,7 +661,7 @@ a {
   background-color: #c8c7cc;
 }
 
-.au-table:before {
+.is-table:before {
   position: absolute;
   z-index: 10;
   right: 0;
@@ -674,13 +674,13 @@ a {
   background-color: #c8c7cc;
 }
 
-.au-tr {
+.is-tr {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.au-tr:after {
+.is-tr:after {
   position: absolute;
   z-index: 10;
   right: 0;
@@ -693,11 +693,11 @@ a {
   background-color: #c8c7cc;
 }
 
-.au-table.even .au-td {
+.is-table.even .is-td {
   flex: 1;
 }
 
-.au-td {
+.is-td {
   margin: 15 + $unit 0;
   padding: 0 10 + $unit;
   height: 70 + $unit;
