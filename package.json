@@ -1,10 +1,10 @@
 {
-  "name": "@anyup/core",
-  "version": "0.0.4",
+  "name": "@anyup/uni-ui",
+  "version": "0.0.1",
   "description": "uniapp request library for uniapp",
-  "main": "dist/core.cjs.js",
-  "module": "dist/core.esm.js",
-  "browser": "dist/core.umd.js",
+  "main": "dist/anyup.cjs.js",
+  "module": "dist/anyup.esm.js",
+  "browser": "dist/anyup.umd.js",
   "scripts": {
     "clean": "rimraf ./dist",
     "dev": "set NODE_ENV=development&&rollup -c -w",

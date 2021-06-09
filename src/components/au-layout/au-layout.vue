@@ -100,33 +100,5 @@ export default {
   height: 100%;
   box-sizing: border-box;
   color: $u-main-color;
-
-  .pop-wrap {
-    padding: 0 20rpx;
-    text-align: left;
-    position: relative;
-  }
-
-  .pop-title {
-    height: 100rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36rpx;
-    font-weight: 500;
-  }
-
-  .icon-clear {
-    position: absolute;
-    left: 20rpx;
-    top: 28rpx;
-  }
-
-  .log-item {
-    color: #666;
-    padding: 10rpx 0;
-    border-bottom: 1px solid #eee;
-    word-break: break-all;
-  }
 }
 </style>

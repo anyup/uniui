@@ -30,13 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// 定义混入指令，用于在非nvue环境下的flex定义，因为nvue没有display属性，会报错
-@mixin vue-flex($direction: row) {
-  /* #ifndef APP-NVUE */
-  display: flex;
-  flex-direction: $direction;
-  /* #endif */
-}
+@import '../../css/mixin.scss';
 
 .au-tr {
   @include vue-flex;

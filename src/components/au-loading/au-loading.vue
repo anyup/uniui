@@ -70,7 +70,7 @@ export default {
   margin: 0 6px;
   display: inline-block;
   vertical-align: middle;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
   animation: rotate 1s linear infinite;
 }
 
