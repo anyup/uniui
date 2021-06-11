@@ -206,4 +206,4 @@ const checker = {
   }
 }
 
-export { checker }
+export default checker

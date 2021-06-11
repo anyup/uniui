@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'auicon-iconfont'; /* Project id 2606037 */
+  src: url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAU0AAsAAAAAC5wAAATmAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHFQGZACDXgqITId6ATYCJAMcCxAABCAFhUEHgRAbdgpRVE7CZD8PbHBCDeskKo8QQw3DRu+j3rqGepj//0TwtPY6b3fvLsQyCkHGcquAUDOpalMhKxO2rf7z5L2moKNCPnUMPph4ZtI6+XMhnQa+u3UC77stW3PGjUFFmHbk5oEU+r9vig8rkBeDHmA1T/f3a6uCJ20bsde2EQqRGHcQ+7uI34GnM7GkklSTqKaoIbRbxHPtIGYA/tcIdFhSxXm96fqA9jN7omDOldYzCPPGM9FhUGWdSoEotFE1cHpVxD9upF/Of/DbzRTHVqKKxlZl2p1OPdhZ8N8bfhJJk1zLn3zsrgI6PdHSUCFjbnLu+F7F/1H2TXMu6oCuX5wDerRJ6r2hZjrZr/03n+yiynhFrXvo0f2kTv2Veqh/Xo1EXYh9yVxvpNbESezN4GT2TuIEe79wKvbfmCDX4Umku2qowXv3oB8QlwFIKwR7zl9knZY+vbt7YlR4VJhvWFRIpK9XVGxMJK0sOyGvqEuAs7RokYbm1IUReXhemR0kFezVKwOT8NevMZV8+xaTiTdv4k4ohG2XyYRdxWH7a6yM39uuiEiWkVoDSbUDpxSsDQ2loQj9a2YC20ESO3FyO4bbsyqUaxHe1u2sA+qSFMr0KuFE//DIwMJcGH76Tb0qJxpmpMWF/SFCuS8/UO9Jd0/PyW7uK7tVOIH1KstyBEn01/GH4eRATuz0LElgcNJbJJ3ozGx/f6itt3ci4t7Q0N6+E/vUCH5ADtdqA7mgriAuyX5kY2PAz4tx4+/i3o/HXfyV+1UwIwbY4YANiPkpYqGJIKMBMqNPLSjSADQL03wJ2IK4H948xpZRpSVUOfO3nEUJVAlb/tfYxF5SSpWxwJ9yxr2UvZQtPwZo5wULYoQvXICNiOUZSoSNFy4YGzf/DNjcvW3lCFVmKy62lVE/MeFMbCumyn6m4kL2dWlN3LEGDGhpzTrtMDaaTQ+OPUzuTrmTlnY35REZOY7jmrEcx9fXgcrW5lqVgJc8bQ+6jl4Pag+8gd4IzOYjk3OTcpJykwF0kaah5FBxOJQdWxpgK0INLMfXxw8NaElL8fnxw16Vqc8AEmaYrgO1+2pq9tUe6LJBOhDvbCNBA8TadBAGtreDGLuJjYUMINnWiYNEAaE8f7M++3+ddeQRfd4m+AD0yb86lO+b32LmRHxfFQAtqcifXG7QP6aO5p3M/FF28/xiJfxmp+J/1eclGPb3IBLrm2k+c1Jlzd9iYwpaWgk2haYoqNbUVAw0TkQ03Zk69A78C8IDvmBquHIioTemZSBpjEHWa5Ze2KtQ6XQCar3OQYdZ9NmdBl2URWnHjCkCwqiHkPQ4hGzUP1rhxQgqI7Ex1RD7BB0uBH/JThPx8V47RCwhC6kSRa6VbcSSuv1oYDHiC7uRkwoWAVUJP/WiKPa0wtysHDDtQIqi7o84nDnrI4mNXKQlNhXcjYTQeCDSPvHEFJLkvc3O5qAnmLSWULcmQpgEsSBKaSuKOE2x8yfqbkulpo2ixBvisNMRmKhaLQoyv5BIjNXM8qBcWXKq0w9INalyCYUPyzjWjuhxNjRLRzQJNTWLIwIna+gAvJOPcAmT0CDxbSsbN8VVRebwlLwj46CDdoUmUuQoUUUdTbTpfHxkexq0F3FBDc7uibBU+/BRzimO+YbdMnManCdEt5om0cSgtEZ1AAAA') format('woff2');
+}
+
+.auicon-iconfont {
+  font-family: 'auicon-iconfont' !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.auicon-iconfont-info-circle:before {
+  content: '\e64a';
+}
+
+.auicon-iconfont-fail-circle:before {
+  content: '\e614';
+}
+
+.auicon-iconfont-success-circle:before {
+  content: '\e62a';
+}
+
+.auicon-iconfont-info-circle-fill:before {
+  content: '\e94a';
+}
+
+.auicon-iconfont-fail-circle-fill:before {
+  content: '\e689';
+}
+
+.auicon-iconfont-success-circle-fill:before {
+  content: '\e77b';
+}

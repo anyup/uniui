@@ -221,4 +221,4 @@ function wrap(interceptor) {
   })
 }
 
-export { Http }
+export default Http

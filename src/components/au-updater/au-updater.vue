@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { Http } from '../../core/http'
+import { Http } from '../../../index'
 
 export default {
   name: 'AuUpdater',

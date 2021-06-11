@@ -2,7 +2,7 @@
   <view v-if="pageShow" class="au-layout" :style="[styles]" @click="clickWrapper">
     <slot></slot>
     <!-- loading -->
-    <au-loading :visible="loading"></au-loading>
+    <au-loading :visible="g_loading"></au-loading>
     <!--toast提示-->
     <au-toast ref="toast"></au-toast>
   </view>
@@ -34,18 +34,6 @@ export default {
     clickTimes: {
       type: Number,
       default: 10
-    },
-    // loading
-    loading: {
-      type: Boolean,
-      default: false
-    },
-    // toast
-    toast: {
-      type: Object,
-      default() {
-        return {}
-      }
     }
   },
   data() {
@@ -57,22 +45,7 @@ export default {
       return { ...bg, ...this.customStyle }
     }
   },
-  watch: {
-    toast: {
-      deep: true,
-      handler: function (newValue) {
-        if (newValue && newValue.title) {
-          this.showToast(newValue.title, newValue.icon)
-        }
-      }
-    }
-  },
   methods: {
-    // toast提示
-    showToast(title, icon, options = {}) {
-      let { content = '', duration = 2000 } = options
-      this.$refs.toast.show({ title, icon, content, duration })
-    },
     // 区域点击
     clickWrapper: (function () {
       let times = 0
