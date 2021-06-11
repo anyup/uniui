@@ -1,5 +1,5 @@
 {
-  "name": "@anyup/uni-ui",
+  "name": "@anyup/uniui",
   "version": "0.0.1",
   "description": "uniapp request library for uniapp",
   "main": "dist/anyup.cjs.js",

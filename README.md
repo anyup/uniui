@@ -1,4 +1,4 @@
-# anyup-uni-ui
+# anyup-uniui
 
 #### 介绍
 
@@ -6,12 +6,12 @@
 
 #### 安装教程
 
-- ``npm install @anyup/uni-ui``
+- ``npm install @anyup/uniui``
 
 #### 使用说明
 
 ```js
-import { Http } from '@anyup/uni-ui'
+import { Http } from '@anyup/uniui'
 const http = new Http().setBaseURL(baseURL).setHeader(header)
 
 http.interceptors.request.use(
