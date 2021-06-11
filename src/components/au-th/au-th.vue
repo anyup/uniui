@@ -35,7 +35,7 @@ export default {
     this.parent = false
   },
   mounted() {
-    this.parent = this.$u.$parent.call(this, 'au-table')
+    this.parent = this.$au.$parent.call(this, 'au-table')
     if (this.parent) {
       // 将父组件的相关参数，合并到本组件
       let style = {}
