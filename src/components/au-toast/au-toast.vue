@@ -24,7 +24,7 @@ export default {
     }
   },
   watch: {
-    g_toast: {
+    g_au_toast: {
       deep: true,
       handler: function (newValue) {
         if (newValue && newValue.title) {

@@ -2,7 +2,7 @@
   <view v-if="pageShow" class="au-layout" :style="[styles]" @click="clickWrapper">
     <slot></slot>
     <!-- loading -->
-    <au-loading :visible="g_loading"></au-loading>
+    <au-loading :visible="g_au_loading"></au-loading>
     <!--toast提示-->
     <au-toast ref="toast"></au-toast>
   </view>

@@ -1,6 +1,5 @@
 import Mixin from './src/mixin/mixin.js'
-import baseModule from './src/store/baseModule.js'
-import useGetters from './src/store/useGetters'
+import useStore from './src/store/useStore'
 
 import checker from './src/core/checker'
 import Http from './src/core/http'
@@ -51,6 +50,6 @@ const install = Vue => {
   Vue.prototype.$au = $au
 }
 
-export { Http, Push, Mixin, Tips, checker, baseModule, useGetters }
+export { Http, Push, Mixin, Tips, checker, useStore }
 
 export default { install }

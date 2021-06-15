@@ -17,14 +17,14 @@ class Tips {
    * @param {String} 加载框id 和loaded保持一致
    */
   loading() {
-    this.store.commit('anyup/$commit', { loading: true })
+    this.store.commit('anyup/$commit', { au_loading: true })
   }
   /**
    * 隐藏Loading加载框
    * @param {String} 加载框id 和loading保持一致
    */
   loaded() {
-    this.store.commit('anyup/$commit', { loading: false })
+    this.store.commit('anyup/$commit', { au_loading: false })
   }
   /**
    * toast提示
@@ -34,7 +34,7 @@ class Tips {
     if (Boolean(title) === false) {
       return
     }
-    this.store.commit('anyup/$commit', { toast: { title, icon } })
+    this.store.commit('anyup/$commit', { au_toast: { title, icon } })
   }
   /**
    * 弹出确认框
