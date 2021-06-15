@@ -21,7 +21,7 @@ class Mixin {
       },
       methods: {},
       onReachBottom() {
-        uni.$emit('onReachBottom')
+        uni.$emit('onLoadMore')
       }
     }
   }
