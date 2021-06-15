@@ -1,9 +1,16 @@
 /**
  * 公共提示Tips JS工具类
  */
+import Vue from 'vue'
+
 class Tips {
   constructor(store) {
-    this.store = store
+    if (Tips.instance) {
+      return Tips.instance
+    }
+    this.store = store || new Vue().$store
+    Tips.instance = this
+    return Tips.instance
   }
   /**
    * 显示Loading加载框
