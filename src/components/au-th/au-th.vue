@@ -1,7 +1,7 @@
 <template>
   <view class="au-th" :style="[thStyle]" @click="$emit('click')">
     <slot></slot>
-    <text v-if="sort !== 'none'" class="au-sort" :class="sort"></text>
+    <text v-if="sort" class="au-sort" :class="sort"></text>
   </view>
 </template>
 
@@ -20,10 +20,10 @@ export default {
       type: [Number, String],
       default: ''
     },
-    // 是否显示排序 desc:倒序,asc:正序
+    // 是否显示排序 desc:倒序,asc:正序,none:不排序
     sort: {
       type: String,
-      default: 'none'
+      default: ''
     }
   },
   data() {

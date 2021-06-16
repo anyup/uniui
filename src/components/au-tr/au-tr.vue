@@ -38,6 +38,7 @@ export default {
 
 .au-tr-fixed {
   position: fixed;
+  top: var(--window-top);
   left: 0;
   right: 0;
   z-index: 991;
