@@ -27,4 +27,4 @@ class Mixin {
   }
 }
 
-export default Mixin
+export { Mixin }

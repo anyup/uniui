@@ -69,4 +69,4 @@ class Push {
   }
 }
 
-export default Push
+export { Push }

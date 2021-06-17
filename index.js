@@ -1,26 +1,27 @@
-import Mixin from './src/mixin/mixin.js'
+// class
+import { Http } from './src/core/class/http'
+import { Push } from './src/core/class/push'
+import { Mixin } from './src/core/class/mixin'
+import { Tips } from './src/core/class/tips'
+
 import useStore from './src/store/useStore'
+import checker from './src/core/checker/checker'
 
-import checker from './src/core/checker'
-import Http from './src/core/http'
-import Push from './src/core/push'
-import Tips from './src/core/tips/index'
-
-// util
-import $parent from './src/core/util/$parent'
-import debounce from './src/core/util/debounce'
-import deepClone from './src/core/util/deepClone'
-import deepMerge from './src/core/util/deepMerge'
-import groupBy from './src/core/util/groupBy'
-import guid from './src/core/util/guid'
-import pagination from './src/core/util/pagination'
-import random from './src/core/util/random'
-import route from './src/core/util/route'
-import { sys, os } from './src/core/util/sys'
-import throttle from './src/core/util/throttle'
-import timeFormat from './src/core/util/timeFormat'
-import timeFrom from './src/core/util/timeFrom'
-import trim from './src/core/util/trim'
+// function
+import $parent from './src/core/function/$parent'
+import debounce from './src/core/function/debounce'
+import deepClone from './src/core/function/deepClone'
+import deepMerge from './src/core/function/deepMerge'
+import groupBy from './src/core/function/groupBy'
+import guid from './src/core/function/guid'
+import pagination from './src/core/function/pagination'
+import random from './src/core/function/random'
+import route from './src/core/function/route'
+import { sys, os } from './src/core/function/sys'
+import throttle from './src/core/function/throttle'
+import timeFormat from './src/core/function/timeFormat'
+import timeFrom from './src/core/function/timeFrom'
+import trim from './src/core/function/trim'
 
 const $au = {
   $parent,
@@ -52,6 +53,9 @@ const install = Vue => {
   Vue.filter('timeFrom', (timestamp, format) => {
     return timeFrom(timestamp, format)
   })
+
+  Vue.mixin(new Mixin(Vue.prototype.$store).init())
+  Vue.prototype.$tips = new Tips(Vue.prototype.$store)
   Vue.prototype.$au = $au
 }
 

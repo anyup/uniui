@@ -66,4 +66,4 @@ class Tips {
   }
 }
 
-export default Tips
+export { Tips }
