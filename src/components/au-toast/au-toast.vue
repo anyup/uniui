@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'auToast',
+  name: 'au-toast',
   props: {},
   data() {
     return {

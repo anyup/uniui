@@ -5,7 +5,7 @@
         <view class="au-updater-modal-title">{{ modalTitle }}</view>
         <view class="au-updater-modal-content">
           <view class="is-text-left">
-            <view v-for="(item, index) in modalContent" :key="index">{{ item }}</view>
+            <view v-for="(item, index) in modalContent" :key="index" class="is-mgt-5">{{ item }}</view>
           </view>
         </view>
         <view class="au-updater-modalBtn-box">
@@ -22,7 +22,7 @@
 import { Http } from '../../../index'
 
 export default {
-  name: 'AuUpdater',
+  name: 'au-updater',
   components: {},
   props: {
     auto: {
@@ -106,7 +106,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .au-updater-modal-box {
   position: fixed;
   left: 50%;
@@ -200,15 +200,15 @@ export default {
 }
 
 .au-updater-modal-btn.default {
-  border: 1px solid #ecedf0;
-  color: #606266;
-  border-color: #ecedf0;
+  border: 1px solid $is-border-color;
+  color: $is-main-color;
+  border-color: $is-border-color;
   background-color: #fff;
 }
 
 .au-updater-modal-btn.primary {
-  border-color: #2979ff;
-  background-color: #2979ff;
+  border-color: $is-type-primary;
+  background-color: $is-type-primary;
   color: #fff;
 }
 

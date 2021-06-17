@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'AuLoading',
+  name: 'au-loading',
   props: {
     text: {
       type: String,

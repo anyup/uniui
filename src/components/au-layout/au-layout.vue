@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'AuLayout',
+  name: 'au-layout',
   components: {},
   props: {
     // 是否显示页面
