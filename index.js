@@ -11,26 +11,33 @@ import $parent from './src/core/util/$parent'
 import debounce from './src/core/util/debounce'
 import deepClone from './src/core/util/deepClone'
 import deepMerge from './src/core/util/deepMerge'
+import groupBy from './src/core/util/groupBy'
 import guid from './src/core/util/guid'
+import pagination from './src/core/util/pagination'
 import random from './src/core/util/random'
+import route from './src/core/util/route'
+import { sys, os } from './src/core/util/sys'
 import throttle from './src/core/util/throttle'
-import trim from './src/core/util/trim'
 import timeFormat from './src/core/util/timeFormat'
 import timeFrom from './src/core/util/timeFrom'
-import groupBy from './src/core/util/groupBy'
+import trim from './src/core/util/trim'
 
 const $au = {
   $parent,
   debounce,
   deepClone,
   deepMerge,
+  groupBy,
   guid,
+  pagination,
   random,
+  route,
+  sys,
+  os,
   throttle,
-  trim,
   timeFormat,
   timeFrom,
-  groupBy
+  trim
 }
 
 const install = Vue => {
@@ -45,10 +52,6 @@ const install = Vue => {
   Vue.filter('timeFrom', (timestamp, format) => {
     return timeFrom(timestamp, format)
   })
-  // 获取设备信息，挂载到$au的sys(system的缩写)属性中，
-  // 同时把安卓和ios平台的名称"ios"和"android"挂到$au.os中，方便取用
-  $au.sys = uni.getSystemInfoSync()
-  $au.os = $au.sys.platform
   Vue.prototype.$au = $au
 }
 
