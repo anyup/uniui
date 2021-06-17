@@ -17,6 +17,7 @@ import throttle from './src/core/util/throttle'
 import trim from './src/core/util/trim'
 import timeFormat from './src/core/util/timeFormat'
 import timeFrom from './src/core/util/timeFrom'
+import groupBy from './src/core/util/groupBy'
 
 const $au = {
   $parent,
@@ -28,7 +29,8 @@ const $au = {
   throttle,
   trim,
   timeFormat,
-  timeFrom
+  timeFrom,
+  groupBy
 }
 
 const install = Vue => {
