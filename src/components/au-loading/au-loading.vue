@@ -56,21 +56,22 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  font-size: 26rpx;
+  font-size: 30rpx;
   color: #fff;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 10rpx;
 }
 
 .au-loading-center {
-  width: 50rpx;
-  height: 50rpx;
+  width: 60rpx;
+  height: 60rpx;
   border: 3px solid #fff;
+  border-color: #ffffff #ffffff #ffffff #8f8d8e;
   border-radius: 50%;
   margin: 0 6px;
   display: inline-block;
   vertical-align: middle;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
+  /* clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%); */
   animation: rotate 1s linear infinite;
 }
 
