@@ -53,10 +53,11 @@ const install = Vue => {
   Vue.filter('timeFrom', (timestamp, format) => {
     return timeFrom(timestamp, format)
   })
-
-  Vue.mixin(new Mixin(Vue.prototype.$store).init())
-  Vue.prototype.$tips = new Tips(Vue.prototype.$store)
   Vue.prototype.$au = $au
+  if (Vue.prototype.$store) {
+    Vue.mixin(new Mixin(Vue.prototype.$store).init())
+    Vue.prototype.$tips = new Tips(Vue.prototype.$store)
+  }
 }
 
 export { Http, Push, Mixin, Tips, checker, useStore }
