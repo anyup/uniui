@@ -103,7 +103,6 @@ export default {
   position: relative;
   font-size: 28rpx;
   width: 100%;
-  height: 100%;
   box-sizing: border-box;
   color: $u-main-color;
 }
