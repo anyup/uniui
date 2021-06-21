@@ -29,24 +29,15 @@ export default {
       type: Boolean,
       default: false
     },
-    reqUrl: {
-      type: String,
-      default: ''
-    },
-    reqParam: {
+    request: {
       type: Object,
       default() {
-        return {}
-      }
-    },
-    reqMethod: {
-      type: String,
-      default: 'POST'
-    },
-    reqHeader: {
-      type: Object,
-      default() {
-        return {}
+        return {
+          header: '',
+          url: '',
+          params: '',
+          method: ''
+        }
       }
     },
     isForce: {
@@ -71,7 +62,7 @@ export default {
     }
   },
   mounted() {
-    this.http = new Http().setHeader(this.reqHeader)
+    this.http = new Http().setHeader(this.request.header)
     if (this.auto) {
       this.checkUpdate()
     }
@@ -98,7 +89,7 @@ export default {
     },
     // 检测更新
     checkUpdate() {
-      this.http.request(this.reqUrl, this.reqParam, { method: this.reqMethod }).then(res => {
+      this.http.request(this.request.url, this.request.params, { method: this.request.method }).then(res => {
         this.$emit('result', { data: res, ref: this })
       })
     }

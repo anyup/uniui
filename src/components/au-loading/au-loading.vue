@@ -66,7 +66,7 @@ export default {
   width: 60rpx;
   height: 60rpx;
   border: 3px solid #fff;
-  border-color: #ffffff #ffffff #ffffff #8f8d8e;
+  border-color: #ffffff #8f8d8e #8f8d8e #8f8d8e;
   border-radius: 50%;
   margin: 0 6px;
   display: inline-block;

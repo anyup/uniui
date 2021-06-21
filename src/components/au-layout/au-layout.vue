@@ -2,9 +2,12 @@
   <view v-if="pageShow" class="au-layout" :style="[styles]" @click="clickWrapper">
     <slot></slot>
     <!-- loading -->
-    <au-loading :visible="g_au_loading" :text="loadingText"></au-loading>
+    <au-loading :visible="auLoading" :text="loadingText"></au-loading>
     <!--toast提示-->
-    <au-toast ref="toast"></au-toast>
+    <au-toast ref="toast" :toast="auToast"></au-toast>
+    <!-- #ifdef APP-PLUS -->
+    <au-updater v-bind="$attrs" v-on="$listeners"> </au-updater>
+    <!-- #endif -->
   </view>
 </template>
 
@@ -39,6 +42,25 @@ export default {
     loadingText: {
       type: String,
       default: ''
+    },
+    // 是否显示加载框
+    loading: {
+      typd: Boolean,
+      default: false
+    },
+    // 是否显示toast
+    toast: {
+      type: Object,
+      default() {
+        return { title: '操作成功', icon: 'none', content: '', duration: 2000 }
+      }
+    },
+    // updater 请求配置
+    updaterReauest: {
+      type: Object,
+      default() {
+        return { header: '', url: '', params: '', method: '' }
+      }
     }
   },
   data() {
@@ -48,6 +70,12 @@ export default {
     styles() {
       const bg = { 'background-color': this.bgColor }
       return { ...bg, ...this.customStyle }
+    },
+    auToast() {
+      return typeof this.g_au_toast === 'undefined' ? this.toast : this.g_au_toast
+    },
+    auLoading() {
+      return typeof this.g_au_loading === 'undefined' ? this.loading : this.g_au_loading
     }
   },
   methods: {

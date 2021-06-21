@@ -9,7 +9,14 @@
 <script>
 export default {
   name: 'au-toast',
-  props: {},
+  props: {
+    toast: {
+      type: Object,
+      default() {
+        return { title: 'SUCCESS', icon: 'none', content: '', duration: 2000 }
+      }
+    }
+  },
   data() {
     return {
       timer: null,
@@ -24,11 +31,10 @@ export default {
     }
   },
   watch: {
-    g_au_toast: {
+    toast: {
       deep: true,
       handler: function (newValue) {
         if (newValue && newValue.title) {
-          this.show(newValue.title, newValue.icon)
           let { title, icon, content = '', duration = 2000 } = newValue
           this.show({ title, icon, content, duration })
         }
@@ -36,7 +42,7 @@ export default {
     }
   },
   methods: {
-    show: function (options) {
+    show(options) {
       let { duration = 2000, icon = 'none' } = options
       clearTimeout(this.timer)
       this.visible = true
