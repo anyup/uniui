@@ -1,5 +1,5 @@
 /**
- * 公共提示Tips JS工具类
+ * Vuex Store JS工具类
  */
 import Vue from 'vue'
 
@@ -27,6 +27,12 @@ class Store {
 
   set(name, value, method = 'anyup/$commit') {
     this.store.commit(method, { [name]: value })
+    return this
+  }
+
+  reset() {
+    this.set('token', '').set('user', {})
+    uni.clearStorageSync()
   }
 }
 
