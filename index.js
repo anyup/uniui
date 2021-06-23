@@ -3,6 +3,7 @@ import { Http } from './src/core/class/http'
 import { Push } from './src/core/class/push'
 import { Mixin } from './src/core/class/mixin'
 import { Tips } from './src/core/class/tips'
+import { Store } from './src/core/class/store'
 
 import useStore from './src/store/useStore'
 import checker from './src/core/checker/checker'
@@ -57,6 +58,7 @@ const install = Vue => {
   if (Vue.prototype.$store) {
     Vue.mixin(new Mixin(Vue.prototype.$store).init())
     Vue.prototype.$tips = new Tips(Vue.prototype.$store)
+    Vue.prototype.$au.store = new Store(Vue.prototype.$store)
   }
 }
 

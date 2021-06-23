@@ -72,10 +72,10 @@ export default {
       return { ...bg, ...this.customStyle }
     },
     auToast() {
-      return typeof this.g_au_toast === 'undefined' ? this.toast : this.g_au_toast
+      return typeof this.g_toast === 'undefined' ? this.toast : this.g_toast
     },
     auLoading() {
-      return typeof this.g_au_loading === 'undefined' ? this.loading : this.g_au_loading
+      return typeof this.g_loading === 'undefined' ? this.loading : this.g_loading
     }
   },
   methods: {

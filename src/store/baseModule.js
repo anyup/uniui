@@ -2,7 +2,7 @@ let storageData = {}
 
 try {
   // 尝试获取本地是否存在lifeData变量，第一次启动APP时是不存在的
-  storageData = uni.getStorageSync('anyup_data')
+  storageData = uni.getStorageSync('anyup_data') || {}
 } catch (e) {}
 
 // 需要永久存储，且下次APP启动需要取出的，在state中的变量名
@@ -25,14 +25,14 @@ const saveStorageData = function (key, value) {
 const anyup = {
   namespaced: true,
   state: {
-    au_user: storageData.user ? storageData.user : {},
-    au_token: storageData.token ? storageData.token : '',
-    au_result: {}, // 页面返回信息
-    au_bundle: '', // 页面携带信息
-    au_loading: false, // 页面加载
-    au_toast: {}, // 弹窗
-    au_checkedUpdate: false, // App检测更新标记,false:未检测,true:已检测
-    au_forceUpdate: false // App强制检测更新,false:不强制更新,true:强制更新
+    user: storageData.user ? storageData.user : {},
+    token: storageData.token ? storageData.token : '',
+    result: {}, // 页面返回信息
+    bundle: '', // 页面携带信息
+    loading: false, // 页面加载
+    toast: {}, // 弹窗
+    checkedUpdate: false, // App检测更新标记,false:未检测,true:已检测
+    forceUpdate: false // App强制检测更新,false:不强制更新,true:强制更新
   },
   mutations: {
     $commit(state, payload) {
@@ -55,6 +55,11 @@ const anyup = {
       }
       // 保存变量到本地，见顶部函数定义
       saveStorageData(saveKey, state[saveKey])
+    }
+  },
+  actions: {
+    $dispatch({ commit }, payload) {
+      commit('$commit', payload)
     }
   }
 }
