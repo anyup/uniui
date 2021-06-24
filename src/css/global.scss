@@ -151,6 +151,14 @@ $radius-step: 1;
   text-overflow: ellipsis;
 }
 
+.is-text-twoline {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+
 /* 元素*/
 /* 模拟 a 的点击效果 */
 a {

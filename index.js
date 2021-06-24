@@ -62,6 +62,6 @@ const install = Vue => {
   }
 }
 
-export { Http, Push, Mixin, Tips, Store, checker, useStore }
+export { Http, Push, Mixin, Tips, Store, checker, useStore, $au }
 
 export default { install }
