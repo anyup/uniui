@@ -24,7 +24,7 @@ import timeFormat from './src/core/function/timeFormat'
 import timeFrom from './src/core/function/timeFrom'
 import trim from './src/core/function/trim'
 
-const $au = {
+const _u = {
   $parent,
   debounce,
   deepClone,
@@ -43,25 +43,14 @@ const $au = {
 }
 
 const install = Vue => {
-  // 时间格式化，同时两个名称，date和timeFormat
-  Vue.filter('timeFormat', (timestamp, format) => {
-    return timeFormat(timestamp, format)
-  })
-  Vue.filter('date', (timestamp, format) => {
-    return timeFormat(timestamp, format)
-  })
-  // 将多久以前的方法，注入到全局过滤器
-  Vue.filter('timeFrom', (timestamp, format) => {
-    return timeFrom(timestamp, format)
-  })
-  Vue.prototype.$au = $au
+  Vue.prototype.$_u = _u
   if (Vue.prototype.$store) {
     Vue.mixin(new Mixin(Vue.prototype.$store).init())
     Vue.prototype.$tips = new Tips(Vue.prototype.$store)
-    Vue.prototype.$au.store = new Store(Vue.prototype.$store)
+    Vue.prototype.$_u.store = new Store(Vue.prototype.$store)
   }
 }
 
-export { Http, Push, Mixin, Tips, Store, checker, useStore, $au }
+export { Http, Push, Mixin, Tips, Store, checker, useStore, _u }
 
 export default { install }
