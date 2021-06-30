@@ -9,8 +9,8 @@
           </view>
         </view>
         <view class="au-updater-modalBtn-box">
-          <view class="au-updater-modal-btn default" @click="closeModal">下次更新</view>
-          <view class="au-updater-modal-btn primary" @click="confirmModal">立即更新</view>
+          <view class="au-updater-modal-btn default" @click="closeModal">{{ cancelText }}</view>
+          <view class="au-updater-modal-btn primary" @click="confirmModal">{{ confirmText }}</view>
         </view>
       </view>
     </view>
@@ -51,6 +51,14 @@ export default {
     modalTitle: {
       type: String,
       default: '版本更新'
+    },
+    confirmText: {
+      type: String,
+      default: '立即更新'
+    },
+    cancelText: {
+      type: String,
+      default: '下次更新'
     }
   },
   data() {
