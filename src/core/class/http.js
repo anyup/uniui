@@ -92,6 +92,8 @@ class Http {
             if (type !== 0) {
               response.request = options
             }
+            // 统一添加请求信息
+            response.request = options
             let ret = handler.call(responseInterceptor, response, Promise)
             response = ret === undefined ? response : ret
           }
