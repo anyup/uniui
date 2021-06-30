@@ -34,12 +34,12 @@ class Router {
     let query = ''
     if (/.*\/.*\?.*=.*/.test(url)) {
       // object对象转为get类型的参数
-      query = uni.$u.queryParams(params, false)
+      query = uni.$_u.queryParams(params, false)
       // 因为已有get参数,所以后面拼接的参数需要带上"&"隔开
       return (url += '&' + query)
     } else {
       // 直接拼接参数，因为此处url中没有后面的query参数，也就没有"?/&"之类的符号
-      query = uni.$u.queryParams(params)
+      query = uni.$_u.queryParams(params)
       return (url += query)
     }
   }
@@ -54,7 +54,7 @@ class Router {
       mergeConfig.url = this.mixinParam(options, params)
       mergeConfig.type = 'navigateTo'
     } else {
-      mergeConfig = uni.$u.deepClone(options, this.config)
+      mergeConfig = uni.$_u.deepClone(options, this.config)
       // 否则正常使用mergeConfig中的url和params进行拼接
       mergeConfig.url = this.mixinParam(options.url, options.params)
     }
@@ -65,12 +65,12 @@ class Router {
     // params参数也带给拦截器
     mergeConfig.params = params
     // 合并内外部参数
-    mergeConfig = uni.$u.deepMerge(this.config, mergeConfig)
+    mergeConfig = uni.$_u.deepMerge(this.config, mergeConfig)
     // 判断用户是否定义了拦截器
-    if (typeof uni.$u.routeIntercept === 'function') {
+    if (typeof uni.$_u.routeIntercept === 'function') {
       // 定一个promise，根据用户执行resolve(true)或者resolve(false)来决定是否进行路由跳转
       const isNext = await new Promise((resolve, reject) => {
-        uni.$u.routeIntercept(mergeConfig, resolve)
+        uni.$_u.routeIntercept(mergeConfig, resolve)
       })
       // 如果isNext为true，则执行路由跳转
       isNext && this.openPage(mergeConfig)

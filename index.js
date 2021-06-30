@@ -16,6 +16,7 @@ import deepMerge from './src/core/function/deepMerge'
 import groupBy from './src/core/function/groupBy'
 import guid from './src/core/function/guid'
 import pagination from './src/core/function/pagination'
+import queryParams from './src/core/function/queryParams'
 import random from './src/core/function/random'
 import route from './src/core/function/route'
 import { sys, os } from './src/core/function/sys'
@@ -32,6 +33,7 @@ const _u = {
   groupBy,
   guid,
   pagination,
+  queryParams,
   random,
   route,
   sys,
