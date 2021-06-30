@@ -144,20 +144,41 @@ $radius-step: 1;
   text-decoration: underline;
 }
 
-.is-text-oneline {
-  max-width: 100%;
+/* start--文本行数限制--start */
+.is-line-1 {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.is-text-twoline {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
+.is-line-2 {
   -webkit-line-clamp: 2;
 }
+
+.is-line-3 {
+  -webkit-line-clamp: 3;
+}
+
+.is-line-4 {
+  -webkit-line-clamp: 4;
+}
+
+.is-line-5 {
+  -webkit-line-clamp: 5;
+}
+
+.is-line-2,
+.is-line-3,
+.is-line-4,
+.is-line-5 {
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; // 弹性伸缩盒
+  -webkit-box-orient: vertical; // 设置伸缩盒子元素排列方式
+}
+
+/* end--文本行数限制--end */
 
 /* 元素*/
 /* 模拟 a 的点击效果 */
