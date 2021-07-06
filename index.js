@@ -1,9 +1,10 @@
 // class
 import { Http } from './src/core/class/http'
-import { Push } from './src/core/class/push'
 import { Mixin } from './src/core/class/mixin'
-import { Tips } from './src/core/class/tips'
+import { Pager } from './src/core/class/pager'
+import { Push } from './src/core/class/push'
 import { Store } from './src/core/class/store'
+import { Tips } from './src/core/class/tips'
 
 import useStore from './src/store/useStore'
 import checker from './src/core/checker/checker'
@@ -53,6 +54,6 @@ const install = Vue => {
   }
 }
 
-export { Http, Push, Mixin, Tips, Store, checker, useStore, _u }
+export { Http, Mixin, Push, Pager, Store, Tips, checker, useStore, _u }
 
 export default { install }
