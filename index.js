@@ -2,6 +2,7 @@
 import { Http } from './src/core/class/http'
 import { Mixin } from './src/core/class/mixin'
 import { Pager } from './src/core/class/pager'
+import { Plus } from './src/core/class/plus'
 import { Push } from './src/core/class/push'
 import { Store } from './src/core/class/store'
 import { Tips } from './src/core/class/tips'
@@ -42,7 +43,8 @@ const _u = {
   throttle,
   timeFormat,
   timeFrom,
-  trim
+  trim,
+  plus: new Plus()
 }
 
 const install = Vue => {
@@ -54,6 +56,6 @@ const install = Vue => {
   }
 }
 
-export { Http, Mixin, Push, Pager, Store, Tips, checker, useStore, _u }
+export { Http, Mixin, Pager, Plus, Push, Store, Tips, checker, useStore, _u }
 
 export default { install }
