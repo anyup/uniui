@@ -1,10 +1,3 @@
-// 文字颜色
-$is-main-color: #303133;
-$is-content-color: #606266;
-$is-tips-color: #909399;
-$is-light-color: #c0c4cc;
-$is-border-color: #e4e7ed;
-$is-bg-color: #f3f4f6;
 // 主题颜色
 $is-type-primary: #2979ff;
 $is-type-primary-light: #ecf5ff;
@@ -30,7 +23,12 @@ $is-type-info: #909399;
 $is-type-info-disabled: #c8c9cc;
 $is-type-info-dark: #82848a;
 $is-type-info-light: #f4f4f5;
-
-$is-form-item-height: 70rpx;
-$is-form-item-border-color: #dcdfe6;
-
+// 其他颜色
+$u-main-color: #303133;
+$u-content-color: #606266;
+$u-tips-color: #909399;
+$u-light-color: #c0c4cc;
+$u-border-color: #e4e7ed;
+$u-bg-color: #f3f4f6;
+$u-form-item-border-color: #dcdfe6;
+$u-form-item-height: 70rpx;

@@ -1,7 +1,38 @@
 // 定义混入指令，用于在非nvue环境下的flex定义，因为nvue没有display属性，会报错
 @mixin vue-flex($direction: row) {
-	/* #ifndef APP-NVUE */
-	display: flex;
-	flex-direction: $direction;
-	/* #endif */
+  /* #ifndef APP-NVUE */
+  display: flex;
+  flex-direction: $direction;
+  /* #endif */
+}
+
+// 增加theme type
+@mixin add-theme($type, $color, $main, $light, $disabled, $dark) {
+  &.au-btn--#{$type} {
+    color: $color;
+    border-color: $main;
+    background-color: $main;
+  }
+
+  &.au-btn--#{$type}--disabled {
+    color: $color !important;
+    border-color: $disabled !important;
+    background-color: $disabled !important;
+  }
+
+  &.au-btn--#{$type}--plain {
+    color: $main !important;
+    border-color: $disabled !important;
+    background-color: $light !important;
+  }
+
+  &.au-#{$type}-hover {
+    color: $main !important;
+    background-color: $dark !important;
+  }
+
+  &.au-#{$type}-plain-hover {
+    color: $main !important;
+    background-color: $dark !important;
+  }
 }
