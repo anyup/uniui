@@ -69,7 +69,7 @@ class Pager {
   getLoadStatus(offset = false) {
     let status = ''
     if (offset) {
-      if (this.data.length === 0 || this.offset === 0) {
+      if (this.offset === this.total) {
         status = ''
       } else if (this.offset >= this.total) {
         status = 'nomore'
