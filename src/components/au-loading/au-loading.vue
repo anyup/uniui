@@ -1,6 +1,6 @@
 <template>
   <view @touchmove.stop.prevent>
-    <view class="au-loading-init" v-if="visible">
+    <view v-if="visible" class="au-loading-init" :class="[direction]">
       <view class="au-loading-center"></view>
       <view v-if="text" class="au-loading-tips">{{ text }}</view>
     </view>
@@ -19,12 +19,16 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    direction: {
+      type: String,
+      default: 'vertical' // vertical horizontal
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 .au-loading-mask {
   position: fixed;
   top: 0;
@@ -60,6 +64,24 @@ export default {
   color: #fff;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 10rpx;
+  &.horizontal {
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    width: 600rpx;
+    max-width: 600rpx;
+    min-height: 150rpx;
+    padding-left: 40rpx;
+    .au-loading-center {
+      width: 70rpx;
+      height: 70rpx;
+    }
+    .au-loading-tips {
+      margin-top: 0;
+      margin-left: 20rpx;
+      font-size: 32rpx;
+    }
+  }
 }
 
 .au-loading-center {
