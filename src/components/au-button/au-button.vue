@@ -384,7 +384,8 @@ export default {
   $color: $is-content-color, #ffffff, #ffffff, #ffffff, #ffffff;
   $main: #ffffff, $is-type-primary, $is-type-success, $is-type-warning, $is-type-error;
   $light: #ffffff, $is-type-primary-light, $is-type-success-light, $is-type-warning-light, $is-type-error-light;
-  $disabled: #ffffff, $is-type-primary-disabled, $is-type-success-disabled, $is-type-warning-disabled, $is-type-error-disabled;
+  $disabled: #ffffff, $is-type-primary-disabled, $is-type-success-disabled, $is-type-warning-disabled,
+    $is-type-error-disabled;
   $dark: #ffffff, $is-type-primary-dark, $is-type-success-dark, $is-type-warning-dark, $is-type-error-dark;
 
   &--bold-border {
@@ -392,33 +393,14 @@ export default {
   }
 
   @for $i from 1 through length($type) {
-    &.au-btn--#{nth($type, $i)} {
-      color: nth($color, $i);
-      border-color: nth($main, $i);
-      background-color: nth($main, $i);
-    }
-
-    &.au-btn--#{nth($type, $i)}--disabled {
-      color: nth($color, $i) !important;
-      border-color: nth($disabled, $i) !important;
-      background-color: nth($disabled, $i) !important;
-    }
-
-    &.au-btn--#{nth($type, $i)}--plain {
-      color: nth($main, $i) !important;
-      border-color: nth($disabled, $i) !important;
-      background-color: nth($light, $i) !important;
-    }
-
-    &.au-#{nth($type, $i)}-hover {
-      color: nth($main, $i) !important;
-      background-color: nth($dark, $i) !important;
-    }
-
-    &.au-#{nth($type, $i)}-plain-hover {
-      color: nth($main, $i) !important;
-      background-color: nth($dark, $i) !important;
-    }
+    @include add-btn-theme(
+      nth($type, $i),
+      nth($color, $i),
+      nth($main, $i),
+      nth($light, $i),
+      nth($disabled, $i),
+      nth($dark, $i)
+    );
   }
 }
 

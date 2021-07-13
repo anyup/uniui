@@ -6,33 +6,33 @@
   /* #endif */
 }
 
-// 增加theme type
-@mixin add-theme($type, $color, $main, $light, $disabled, $dark) {
-  &.au-btn--#{$type} {
+// 增加button theme type
+@mixin add-btn-theme($type, $color, $main, $light, $disabled, $dark) {
+  &--#{$type} {
     color: $color;
     border-color: $main;
     background-color: $main;
   }
 
-  &.au-btn--#{$type}--disabled {
+  &--#{$type}--disabled {
     color: $color !important;
     border-color: $disabled !important;
     background-color: $disabled !important;
   }
 
-  &.au-btn--#{$type}--plain {
+  &--#{$type}--plain {
     color: $main !important;
     border-color: $disabled !important;
     background-color: $light !important;
   }
 
-  &.au-#{$type}-hover {
+  &.au-#{$type}-plain-hover {
     color: $main !important;
     background-color: $dark !important;
   }
 
-  &.au-#{$type}-plain-hover {
-    color: $main !important;
+  &.au-#{$type}-hover {
+    color: $main;
     background-color: $dark !important;
   }
 }
