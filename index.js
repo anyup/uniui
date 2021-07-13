@@ -1,4 +1,5 @@
 // class
+import { Bluetooth } from './src/core/class/bluetooth'
 import { Http } from './src/core/class/http'
 import { Mixin } from './src/core/class/mixin'
 import { Pager } from './src/core/class/pager'
@@ -21,6 +22,7 @@ import pagination from './src/core/function/pagination'
 import queryParams from './src/core/function/queryParams'
 import random from './src/core/function/random'
 import route from './src/core/function/route'
+import sleep from './src/core/function/sleep'
 import { sys, os } from './src/core/function/sys'
 import throttle from './src/core/function/throttle'
 import timeFormat from './src/core/function/timeFormat'
@@ -38,6 +40,7 @@ const _u = {
   queryParams,
   random,
   route,
+  sleep,
   sys,
   os,
   throttle,
@@ -56,6 +59,6 @@ const install = Vue => {
   }
 }
 
-export { Http, Mixin, Pager, Plus, Push, Store, Tips, checker, useStore, _u }
+export { Bluetooth, Http, Mixin, Pager, Plus, Push, Store, Tips, checker, useStore, _u }
 
 export default { install }
