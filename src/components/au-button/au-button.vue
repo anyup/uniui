@@ -248,7 +248,6 @@ export default {
     },
     // 在'primary', 'success', 'error', 'warning'类型下，不显示边框，否则会造成四角有毛刺现象
     showHairLineBorder() {
-      console.log(this.allTypes)
       if (this.allTypes.indexOf(this.type) >= 0 && !this.plain) {
         return ''
       } else {

@@ -5,14 +5,11 @@ class Push {
   }
   // 获取cid
   getCid() {
-    // #ifdef APP-PLUS
     let info = plus.push.getClientInfo()
     return info.clientid == 'null' ? '' : info.clientid
-    // #endif
   }
   // 消息监听
   init() {
-    // #ifdef APP-PLUS
     plus.push.addEventListener(
       'receive',
       msg => {
@@ -35,11 +32,9 @@ class Push {
       },
       false
     )
-    // #endif
   }
   // 创建本地消息
   createLocalMsg(msg) {
-    // #ifdef APP-PLUS
     this.log('LocalMsg', msg)
     if (!msg) {
       return
@@ -52,11 +47,9 @@ class Push {
       title: this.title
       // title: msg.title
     })
-    // #endif
   }
   // 清空角标
   clearBadge() {
-    // #ifdef APP-PLUS
     setTimeout(() => {
       plus.runtime.setBadgeNumber(0)
       if (uni.getSystemInfoSync().platform == 'ios') {
@@ -65,7 +58,6 @@ class Push {
         GeTuiSdk.setBadge(0)
       }
     }, 100)
-    // #endif
   }
 }
 
