@@ -2,6 +2,7 @@
 import { Bluetooth } from './src/core/class/bluetooth'
 import { Http } from './src/core/class/http'
 import { Mixin } from './src/core/class/mixin'
+import { Optimize } from './src/core/class/optimize'
 import { Pager } from './src/core/class/pager'
 import { Plus } from './src/core/class/plus'
 import { Push } from './src/core/class/push'
@@ -59,6 +60,6 @@ const install = Vue => {
   }
 }
 
-export { Bluetooth, Http, Mixin, Pager, Plus, Push, Store, Tips, checker, useStore, _u }
+export { Bluetooth, Http, Mixin, Optimize, Pager, Plus, Push, Store, Tips, checker, useStore, _u }
 
 export default { install }
