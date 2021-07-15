@@ -84,6 +84,9 @@
  * @event {Function} launchapp 打开 APP 成功的回调
  * @example <au-button>月落</au-button>
  */
+
+import { Optimize } from '../../core/class/optimize'
+
 export default {
   name: 'au-button',
   props: {
@@ -253,6 +256,11 @@ export default {
       } else {
         return 'au-hairline-border'
       }
+    },
+    optimize() {
+      return new Optimize.Builder(func => {
+        func()
+      }, this.throttleTime).build('throttle')
     }
   },
   data() {
@@ -266,8 +274,7 @@ export default {
   methods: {
     // 按钮点击
     click(e) {
-      // 进行节流控制，每this.throttle毫秒内，只在开始处执行
-      this.$_u.throttle(() => {
+      this.optimize.excute(() => {
         // 如果按钮时disabled和loading状态，不触发水波纹效果
         if (this.loading === true || this.disabled === true) return
         // 是否开启水波纹效果
@@ -279,7 +286,7 @@ export default {
           })
         }
         this.$emit('click', e)
-      }, this.throttleTime)
+      })
     },
     // 查询按钮的节点信息
     getWaveQuery(e) {
