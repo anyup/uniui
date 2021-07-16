@@ -5,9 +5,6 @@
     <au-loading :visible="auLoading" :text="loadingText"></au-loading>
     <!--toast提示-->
     <au-toast ref="toast" :toast="auToast"></au-toast>
-    <!-- #ifdef APP-PLUS -->
-    <au-updater v-bind="$attrs" v-on="$listeners"> </au-updater>
-    <!-- #endif -->
   </view>
 </template>
 
@@ -24,7 +21,12 @@ export default {
     // 背景色值
     bgColor: {
       type: String,
-      default: '#f3f4f5'
+      default: '#ffffff'
+    },
+    // 页面height
+    height: {
+      type: String,
+      default: ''
     },
     // 自定义样式，对象形式
     customStyle: {
@@ -48,18 +50,11 @@ export default {
       typd: Boolean,
       default: false
     },
-    // 是否显示toast
+    // toast配置
     toast: {
       type: Object,
       default() {
         return { title: '操作成功', icon: 'none', content: '', duration: 2000 }
-      }
-    },
-    // updater 请求配置
-    updaterReauest: {
-      type: Object,
-      default() {
-        return { header: '', url: '', params: '', method: '' }
       }
     }
   },
@@ -68,8 +63,9 @@ export default {
   },
   computed: {
     styles() {
-      const bg = { 'background-color': this.bgColor }
-      return { ...bg, ...this.customStyle }
+      let style = { 'background-color': this.bgColor }
+      if (this.height) style.height = this.height
+      return { ...style, ...this.customStyle }
     },
     auToast() {
       return typeof this.g_toast === 'undefined' ? this.toast : this.g_toast
