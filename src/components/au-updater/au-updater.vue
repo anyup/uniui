@@ -1,17 +1,11 @@
 <template>
   <view @touchmove.stop.prevent>
-    <view
-      class="au-updater-modal-box"
-      :class="[
-        modalVisible ? 'au-updater-modal-normal' : 'au-updater-modal-scale',
-        modalVisible ? 'au-updater-modal-show' : ''
-      ]"
-    >
+    <view class="au-updater-modal-box" :class="[modalVisible ? 'au-updater-modal-normal' : 'au-updater-modal-scale', modalVisible ? 'au-updater-modal-show' : '']">
       <view>
         <view class="au-updater-modal-title">{{ modalTitle }}</view>
         <view class="au-updater-modal-content">
           <view class="is-text-left">
-            <view v-for="(item, index) in modalContent" :key="index" class="is-mgt-5">{{ item }}</view>
+            <text>{{ modalContent }}</text>
           </view>
         </view>
         <view v-if="$slots.btn" class="au-updater-modal-btn-box">
@@ -92,7 +86,7 @@ export default {
       this.closeModal()
     },
     // 显示弹窗
-    showModal(downloadUrl, modalContent = ['发现新版本']) {
+    showModal(downloadUrl, modalContent = '发现新版本') {
       this.downloadUrl = downloadUrl
       this.modalContent = modalContent
       this.modalVisible = true
@@ -177,6 +171,12 @@ export default {
   font-size: 28rpx;
   padding-top: 20rpx;
   padding-bottom: 40rpx;
+
+  text {
+    letter-spacing: 1px;
+    line-height: 45rpx;
+    word-break: break-all;
+  }
 }
 
 .au-updater-modal-btn-box {
