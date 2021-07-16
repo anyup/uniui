@@ -473,7 +473,7 @@ export default {
   font-size: 28rpx;
   height: 70rpx;
   line-height: 70rpx;
-  padding: 0 80rpx;
+  // padding: 0 80rpx;
 }
 
 .au-size-mini {

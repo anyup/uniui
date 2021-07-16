@@ -1,6 +1,12 @@
 <template>
   <view @touchmove.stop.prevent>
-    <view class="au-updater-modal-box" :class="[modalVisible ? 'au-updater-modal-normal' : 'au-updater-modal-scale', modalVisible ? 'au-updater-modal-show' : '']">
+    <view
+      class="au-updater-modal-box"
+      :class="[
+        modalVisible ? 'au-updater-modal-normal' : 'au-updater-modal-scale',
+        modalVisible ? 'au-updater-modal-show' : ''
+      ]"
+    >
       <view>
         <view class="au-updater-modal-title">{{ modalTitle }}</view>
         <view class="au-updater-modal-content">
@@ -8,9 +14,13 @@
             <view v-for="(item, index) in modalContent" :key="index" class="is-mgt-5">{{ item }}</view>
           </view>
         </view>
-        <view class="au-updater-modalBtn-box">
-          <view class="au-updater-modal-btn default" @click="closeModal">{{ cancelText }}</view>
-          <view class="au-updater-modal-btn primary" @click="confirmModal">{{ confirmText }}</view>
+        <view v-if="$slots.btn" class="au-updater-modal-btn-box">
+          <slot name="btn"></slot>
+        </view>
+        <view v-else class="au-updater-modal-btn-box">
+          <au-button type="default" size="medium" @click="closeModal">{{ cancelText }}</au-button>
+          <view class="is-flex-1"></view>
+          <au-button type="primary" size="medium" @click="confirmModal">{{ confirmText }}</au-button>
         </view>
       </view>
     </view>
@@ -169,49 +179,10 @@ export default {
   padding-bottom: 40rpx;
 }
 
-.au-updater-modalBtn-box {
+.au-updater-modal-btn-box {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.au-updater-modal-btn {
-  position: relative;
-  border: 0;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 24rpx 28rpx;
-  z-index: 1;
-  box-sizing: border-box;
-  -webkit-transition: all 0.15s;
-  transition: all 0.15s;
-  font-size: 28rpx;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  -webkit-appearance: none;
-  border-radius: 5px;
-  width: 40%;
-}
-
-.au-updater-modal-btn.default {
-  border: 1px solid $is-border-color;
-  color: $is-main-color;
-  border-color: $is-border-color;
-  background-color: #fff;
-}
-
-.au-updater-modal-btn.primary {
-  border-color: $is-type-primary;
-  background-color: $is-type-primary;
-  color: #fff;
-}
-
-.au-updater-modal-btn:hover {
-  opacity: 0.7;
+  justify-content: space-around;
 }
 </style>
