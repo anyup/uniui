@@ -18,8 +18,7 @@
           <slot name="btn"></slot>
         </view>
         <view v-else class="au-updater-modal-btn-box">
-          <au-button type="default" size="medium" @click="closeModal">{{ cancelText }}</au-button>
-          <view class="is-flex-1"></view>
+          <au-button v-if="!isForce" type="default" size="medium" @click="closeModal">{{ cancelText }}</au-button>
           <au-button type="primary" size="medium" @click="confirmModal">{{ confirmText }}</au-button>
         </view>
       </view>
@@ -88,6 +87,7 @@ export default {
   methods: {
     // 遮层点击事件
     maskClick() {
+      if (this.isForce) return
       if (!this.maskClosable) return
       this.closeModal()
     },
