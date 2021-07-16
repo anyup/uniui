@@ -67,7 +67,7 @@ export default {
   data() {
     return {
       modalVisible: false,
-      modalContent: [],
+      modalContent: '',
       downloadUrl: '',
       versionCode: ''
     }
