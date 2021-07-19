@@ -47,7 +47,11 @@ class Http {
     return this
   }
   setData(data) {
-    this.config.data = { ...this.config.data, ...data }
+    if (isArray(data)) {
+      this.config.data = data
+    } else {
+      this.config.data = { ...this.config.data, ...data }
+    }
     return this
   }
   request(url, data, options) {
@@ -56,8 +60,12 @@ class Http {
     options.baseURL = options.baseURL !== undefined ? options.baseURL : this.config.baseURL
     options.header = { ...this.config.header, ...options.header }
     options.method = options.method || this.config.method
-    options.data = { ...this.config.data, ...data }
     options.dataType = options.dataType || this.config.dataType
+    if (isArray(data)) {
+      options.data = data
+    } else {
+      options.data = { ...this.config.data, ...data }
+    }
     // 拦截器处理
     let interceptors = this.interceptors
     let requestInterceptor = interceptors.request
@@ -189,6 +197,10 @@ function isObject(ob, real) {
   } else {
     return ob && typeof ob === 'object'
   }
+}
+
+function isArray(value) {
+  return Array.isArray(value)
 }
 
 function wrap(interceptor) {
