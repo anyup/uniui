@@ -14,6 +14,15 @@ class Plus {
   versionCode() {
     return plus.runtime.versionCode
   }
+
+  clientInfo() {
+    return plus.push.getClientInfo()
+  }
+
+  clientid() {
+    let id = this.clientInfo().clientid
+    return id == 'null' ? '' : id
+  }
 }
 
 export { Plus }
