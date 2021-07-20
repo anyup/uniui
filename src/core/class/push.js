@@ -1,7 +1,11 @@
 class Push {
   constructor(title = '') {
+    if (Push.instance) {
+      return Push.instance
+    }
     this.title = title
-    this.log = console.log
+    Push.instance = this
+    return Push.instance
   }
   // 获取cid
   getCid() {
@@ -9,11 +13,10 @@ class Push {
     return info.clientid == 'null' ? '' : info.clientid
   }
   // 消息监听
-  init() {
+  register(clickCallback) {
     plus.push.addEventListener(
       'receive',
       msg => {
-        this.log('receive', msg)
         if (plus.os.name == 'iOS') {
           if (msg.aps) {
             // Apple APNS message  接收到在线APNS消息
@@ -28,14 +31,14 @@ class Push {
     plus.push.addEventListener(
       'click',
       msg => {
-        this.log('click', msg)
+        if (clickCallback) clickCallback(msg)
       },
       false
     )
   }
   // 创建本地消息
   createLocalMsg(msg) {
-    this.log('LocalMsg', msg)
+    console.log('LocalMsg', msg)
     if (!msg) {
       return
     }
@@ -44,8 +47,7 @@ class Push {
     }
     plus.push.createMessage(msg.content, 'LocalMSG', {
       cover: false,
-      title: this.title
-      // title: msg.title
+      title: this.title || msg.title
     })
   }
   // 清空角标
