@@ -85,7 +85,7 @@
  * @example <au-button>月落</au-button>
  */
 
-import { Optimize } from '../../core/class/optimize'
+import { Optimize } from '../../core/class/Optimize'
 
 export default {
   name: 'au-button',
