@@ -35,7 +35,7 @@ const anyup = {
     forceUpdate: false // App强制检测更新,false:不强制更新,true:强制更新
   },
   mutations: {
-    $commit(state, payload) {
+    commit(state, payload) {
       // 判断是否多层级调用，state中为对象存在的情况，诸如user.info.score = 1
       let nameStr = Object.keys(payload)[0]
       let nameArr = nameStr.split('.')
@@ -58,8 +58,8 @@ const anyup = {
     }
   },
   actions: {
-    $dispatch({ commit }, payload) {
-      commit('$commit', payload)
+    dispatch({ commit }, payload) {
+      commit('commit', payload)
     }
   }
 }

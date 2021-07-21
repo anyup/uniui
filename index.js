@@ -7,6 +7,7 @@ import { Pager } from './src/core/class/pager'
 import { Plus } from './src/core/class/plus'
 import { Push } from './src/core/class/push'
 import { Store } from './src/core/class/store'
+import { StoreModule } from './src/core/class/storeModule'
 import { Tips } from './src/core/class/tips'
 
 import useStore from './src/store/useStore'
@@ -60,6 +61,6 @@ const install = Vue => {
   }
 }
 
-export { Bluetooth, Http, Mixin, Optimize, Pager, Plus, Push, Store, Tips, checker, useStore, _u }
+export { Bluetooth, Http, Mixin, Optimize, Pager, Plus, Push, Store, StoreModule, Tips, checker, useStore, _u }
 
 export default { install }

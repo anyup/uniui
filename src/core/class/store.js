@@ -25,7 +25,7 @@ class Store {
     return this.store.getters[`g_${name}`]
   }
 
-  set(name, value, method = 'anyup/$commit') {
+  set(name, value, method = 'anyup/commit') {
     this.store.commit(method, { [name]: value })
     return this
   }
