@@ -66,6 +66,10 @@ class Http {
     } else {
       options.data = { ...this.config.data, ...data }
     }
+    // 如果是上传文件
+    if (options.method === 'upload') {
+      return this.upload(url, data, options)
+    }
     // 拦截器处理
     let interceptors = this.interceptors
     let requestInterceptor = interceptors.request
@@ -155,6 +159,24 @@ class Http {
             reject(err)
           }
         )
+      })
+    })
+  }
+  // 上传文件
+  upload(url, data = { path: '', name: 'file' }, options = {}) {
+    url = url && url.indexOf('http') !== 0 ? options.baseURL + url : url
+    return new Promise((resolve, reject) => {
+      uni.uploadFile({
+        url,
+        filePath: data.path,
+        name: data.name,
+        formData: options.formData || {},
+        success(res) {
+          resolve(res)
+        },
+        fail(e) {
+          reject(e)
+        }
       })
     })
   }
