@@ -1,14 +1,14 @@
 import baseModule from './baseModule'
 
 export default {
-  modules(md) {
-    return { ...baseModule, ...md }
+  modules(module = {}) {
+    return { ...baseModule, ...module }
   },
-  getters(md) {
+  getters(module = {}) {
     let getters = []
-    const mds = this.modules(md)
-    Object.keys(mds).forEach(moduleName => {
-      Object.keys(mds[moduleName].state).forEach(stateName => {
+    const modules = this.modules(module)
+    Object.keys(modules).forEach(moduleName => {
+      Object.keys(modules[moduleName].state).forEach(stateName => {
         getters[`g_${stateName}`] = state => state[moduleName][stateName]
       })
     })
