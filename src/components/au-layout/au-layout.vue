@@ -1,6 +1,6 @@
 <template>
-  <view v-if="pageShow" class="au-layout" :style="[styles]" @click="clickWrapper">
-    <slot></slot>
+  <view class="au-layout" :style="[styles]" @click="clickWrapper">
+    <slot v-if="pageShow"></slot>
     <!-- loading -->
     <au-loading :visible="auLoading" :text="loadingText"></au-loading>
     <!--toast提示-->
