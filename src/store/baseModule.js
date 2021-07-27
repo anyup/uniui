@@ -28,11 +28,13 @@ const anyup = {
     user: storageData.user ? storageData.user : {},
     token: storageData.token ? storageData.token : '',
     result: {}, // 页面返回信息
-    bundle: '', // 页面携带信息
+    bundle: {}, // 页面携带信息
     loading: false, // 页面加载
     toast: {}, // 弹窗
-    checkedUpdate: false, // App检测更新标记,false:未检测,true:已检测
-    forceUpdate: false // App强制检测更新,false:不强制更新,true:强制更新
+    update: {
+      checked: false, // App检测更新标记,false:未检测,true:已检测
+      force: false // App强制检测更新,false:不强制更新,true:强制更新
+    }
   },
   mutations: {
     commit(state, payload) {
