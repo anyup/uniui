@@ -258,9 +258,7 @@ export default {
       }
     },
     optimize() {
-      return new Optimize.Builder(func => {
-        func()
-      }, this.throttleTime).build('throttle')
+      return new Optimize.Builder(this.throttleTime)
     }
   },
   data() {
@@ -274,7 +272,7 @@ export default {
   methods: {
     // 按钮点击
     click(e) {
-      this.optimize.excute(() => {
+      this.optimize.throttle(() => {
         // 如果按钮时disabled和loading状态，不触发水波纹效果
         if (this.loading === true || this.disabled === true) return
         // 是否开启水波纹效果
