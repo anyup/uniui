@@ -54,10 +54,6 @@ class Pager {
     return this
   }
 
-  isEmpty() {
-    return this.data.length === 0
-  }
-
   hasMore(offset = false) {
     if (offset) {
       return this.offset < this.total
@@ -66,10 +62,10 @@ class Pager {
   }
 
   // 加载状态: more,loading,noMore
-  getLoadStatus(offset = false) {
+  loadmore(offset = false) {
     let status = ''
     if (offset) {
-      if (this.offset === this.total) {
+      if (this.total <= this.limit) {
         status = ''
       } else if (this.offset >= this.total) {
         status = 'nomore'
