@@ -15,13 +15,15 @@ export default {
     },
     webviewStyles: {
       type: Object,
-      default: {}
+      default() {
+        return {}
+      }
     }
   },
   computed: {
     styles() {
-      let { progress } = this.webviewStyles
-      if (progress && !progress.color) {
+      let progress = this.webviewStyles.progress || {}
+      if (!progress.color) {
         progress.color = this.progressColor
       }
       return [...webviewStyles, ...{ progress }]
