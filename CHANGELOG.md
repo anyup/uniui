@@ -1,3 +1,7 @@
+## 0.0.23
+
+* 优化分页Pager, 支持Object、Array
+
 ## 0.0.22
 
 * 优化z-index层级
