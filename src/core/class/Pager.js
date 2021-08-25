@@ -1,3 +1,5 @@
+import deepMerge from '../function/deepMerge'
+
 class Pager {
   constructor(page = 1, limit = 20) {
     this.page = page // 当前页数
@@ -8,11 +10,21 @@ class Pager {
   }
 
   get offset() {
+    if (isObject(this.data)) {
+      return 0
+    }
     return this.data.length
   }
 
   get empty() {
+    if (isObject(this.data)) {
+      return isEmptyObject(this.data)
+    }
     return this.data.length === 0
+  }
+
+  empty() {
+    return this.empty
   }
 
   setPage(page) {
@@ -28,6 +40,9 @@ class Pager {
   setData(data, reset = false) {
     if (reset) {
       this.data = data
+    } else if (isObject(data)) {
+      this.data = isArray(this.data) ? {} : this.data
+      this.data = deepMerge(this.data, data)
     } else {
       this.data = [...this.data, ...data]
     }
@@ -73,7 +88,7 @@ class Pager {
         status = 'loading'
       }
     } else {
-      if (this.data.length === 0 || this.pages <= 1) {
+      if (this.empty || this.pages <= 1) {
         status = ''
       } else if (this.page >= this.pages) {
         status = 'nomore'
@@ -83,6 +98,18 @@ class Pager {
     }
     return status
   }
+}
+
+function isArray(arr) {
+  return Array.isArray(arr)
+}
+
+function isObject(obj) {
+  return Object.prototype.toString.call(obj) === '[object Object]'
+}
+
+function isEmptyObject(obj) {
+  return Object.keys(obj).length === 0
 }
 
 export { Pager }
