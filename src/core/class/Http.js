@@ -4,15 +4,28 @@
  * @author qiaomingxing
  */
 const CONTENT_TYPE = {
-  JSON: { 'Content-Type': 'application/json;charset=UTF-8' },
-  URLENCODED: { 'Content-Type': 'application/x-www-form-urlencoded' }
+  json: 'application/json;charset=UTF-8',
+  urlencoded: 'application/x-www-form-urlencoded',
+  formdata: 'multipart/form-data'
+}
+
+class HttpHeader {
+  constructor(params) {
+    Object.keys(params).forEach(key => {
+      if (key === 'Content-Type') {
+        this[key] = CONTENT_TYPE[params[key]] || params[key]
+      } else {
+        this[key] = params[key]
+      }
+    })
+  }
 }
 
 class Http {
   constructor() {
     this.config = {
       baseURL: '',
-      header: CONTENT_TYPE.JSON,
+      header: new HttpHeader({ 'Content-Type': 'json' }),
       data: {},
       method: 'GET',
       dataType: 'json',
@@ -150,6 +163,9 @@ class Http {
             if (d === options) {
               // url处理
               d.url = d.url && d.url.indexOf('http') !== 0 ? d.baseURL + d.url : d.url
+              // 是否有追加restful url
+              d.url = d.restURL ? d.url + d.restURL : d.url
+              // 请求
               uni.request(d)
             } else {
               resolve(d)
@@ -164,6 +180,7 @@ class Http {
   }
   // 上传文件
   upload(url, data = { path: '', name: 'file' }, options = {}) {
+    // 拼接url
     url = url && url.indexOf('http') !== 0 ? options.baseURL + url : url
     return new Promise((resolve, reject) => {
       uni.uploadFile({
@@ -257,4 +274,4 @@ function wrap(interceptor) {
   })
 }
 
-export { Http }
+export { HttpHeader, Http }
