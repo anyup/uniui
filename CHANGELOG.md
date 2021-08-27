@@ -1,3 +1,8 @@
+## 0.0.24
+
+* 添加HttpHeader支持, 支持json, urlencoded, fromdata
+* Http支持restURL格式传递传递
+
 ## 0.0.23
 
 * 优化分页Pager, 支持Object、Array
