@@ -27,6 +27,7 @@ rev/
 # pageage
 package-lock.json
 node_modules/
+demo/
 
 # HBuilder
 .hbuilderx
