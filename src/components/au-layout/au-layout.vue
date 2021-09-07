@@ -23,6 +23,11 @@ export default {
       type: String,
       default: '#ffffff'
     },
+    // 内边距
+    padding: {
+      type: String,
+      default: '0'
+    },
     // 页面height
     height: {
       type: String,
@@ -63,7 +68,7 @@ export default {
   },
   computed: {
     styles() {
-      let style = { 'background-color': this.bgColor }
+      let style = { 'background-color': this.bgColor, padding: this.padding }
       if (this.height) style.height = this.height
       return { ...style, ...this.customStyle }
     },
@@ -102,5 +107,6 @@ export default {
   min-height: 100%;
   box-sizing: border-box;
   color: $is-main-color;
+  border: 1px solid transparent;
 }
 </style>

@@ -1,3 +1,7 @@
+## 0.0.25 release
+
+* 优化layout props
+
 ## 0.0.24
 
 * 添加HttpHeader支持, 支持json, urlencoded, fromdata
