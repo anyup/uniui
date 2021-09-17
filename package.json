@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@anyup/uniui": "0.0.24",
     "uview-ui": "^1.8.4"
   },
   "repository": {
