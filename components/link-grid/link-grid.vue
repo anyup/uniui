@@ -1,11 +1,5 @@
 <template>
   <view class="container">
-    <view class="page_hd">
-      <view class="page_desc">
-        <text class="link is-mgr-10">anyup uniui</text>文档
-        <u-icon class="toggle_icon" :name="isGrid ? 'grid' : 'list'" color="#999999" size="50" @click="isGrid = !isGrid"></u-icon>
-      </view>
-    </view>
     <view v-if="isGrid" class="page_bd page_bd_spacing is-pdlr-10">
       <view v-for="(item, index) in list" :key="index" class="kind-list_item">
         <view :id="item.icon" class="tui-flex kind-list_item-hd">
