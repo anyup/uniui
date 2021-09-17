@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <view v-if="isGrid" class="page_bd page_bd_spacing is-pdlr-10">
+    <view v-if="isGrid" class="page_bd page_bd_spacing">
       <view v-for="(item, index) in list" :key="index" class="kind-list_item">
         <view :id="item.icon" class="tui-flex kind-list_item-hd">
           <view class="tui-flex_item">{{ item.name }}</view>
