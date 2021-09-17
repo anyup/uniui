@@ -1,0 +1,32 @@
+{
+  "easycom": {
+    "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue",
+    "^au-(.*)": "@anyup/uniui/src/components/au-$1/au-$1.vue"
+  },
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": { "navigationStyle": "custom" }
+    },
+    {
+      "path": "pages/components/layout",
+      "style": { "navigationBarTitleText": "layout" }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "智慧实验室",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff",
+    "navigationStyle": "default",
+    "app-plus": {
+      "bounce": "none",
+      "softinputNavBar": "none",
+      "animationType": "fade-in",
+      "animationDuration": 300
+    },
+    "mp-alipay": {
+      "titleBarColor": "#FFFFFF"
+    }
+  }
+}

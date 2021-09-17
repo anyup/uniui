@@ -1,0 +1,24 @@
+{
+  "name": "uniapp-uview-template",
+  "version": "1.0.0",
+  "description": "uniapp-uview-template",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@anyup/uniui": "0.0.24",
+    "uview-ui": "^1.8.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiaomingxing/uniapp-uview-template.git"
+  },
+  "keywords": [],
+  "author": "qiaomingxing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qiaomingxing/uniapp-uview-template/issues"
+  },
+  "homepage": "https://github.com/qiaomingxing/uniapp-uview-template#readme"
+}
