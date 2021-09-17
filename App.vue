@@ -1,5 +1,5 @@
 <script>
-import { Push } from '@anyup/uniui'
+import { Push } from '@/uniui'
 export default {
   onLaunch: function () {
     console.log('App Launch')
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@anyup/uniui/index.scss';
+@import '@/uniui/index.scss';
 @import 'uview-ui/index.scss';
 @import 'assets/font/iconfont.css';
 @import 'assets/style/index.scss';

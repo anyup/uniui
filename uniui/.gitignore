@@ -21,12 +21,13 @@ bin-release/
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
 
-dist/
+/dist/
 rev/
 
 # pageage
 package-lock.json
 node_modules/
+yarn.lock
 
 # HBuilder
 .hbuilderx

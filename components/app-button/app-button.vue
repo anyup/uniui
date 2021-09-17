@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@anyup/uniui/src/css/mixin.scss';
+@import '@/uniui/src/css/mixin.scss';
 
 .au-btn {
   $type: darkblue gold;

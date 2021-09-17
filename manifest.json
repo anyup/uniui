@@ -1,7 +1,7 @@
 {
-    "name" : "智慧实验室",
+    "name" : "uniui",
     "appid" : "__UNI__BBAB16F",
-    "description" : "智慧实验室",
+    "description" : "uniui",
     "versionName" : "1.0.17",
     "versionCode" : 1,
     "transformPx" : false,
@@ -129,7 +129,7 @@
         "enable" : false
     },
     "h5" : {
-        "title" : "智慧实验室",
+        "title" : "uniui",
         "template" : "template.h5.html",
         "router" : {
             "mode" : "hash",
