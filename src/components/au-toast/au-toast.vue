@@ -53,6 +53,7 @@ export default {
         this.visible = false
         clearTimeout(this.timer)
         this.timer = null
+        this.$tips.toast()
       }, duration)
     },
     getWidth() {

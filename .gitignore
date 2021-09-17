@@ -28,6 +28,7 @@ rev/
 package-lock.json
 node_modules/
 demo/
+yarn.lock
 
 # HBuilder
 .hbuilderx

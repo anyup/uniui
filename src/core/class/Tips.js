@@ -32,6 +32,7 @@ class Tips {
    */
   toast(title, icon = 'none', options = {}) {
     if (Boolean(title) === false) {
+      this.store.commit('anyup/commit', { toast: {} })
       return
     }
     this.store.commit('anyup/commit', { toast: { title, icon } })
