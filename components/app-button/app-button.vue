@@ -47,9 +47,4 @@ export default {
   }
 }
 
-@each $type in primary success error warning darkblue gold {
-  .au-btn--#{$type}--plain {
-    background-color: #ffffff !important;
-  }
-}
 </style>

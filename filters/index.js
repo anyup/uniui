@@ -9,5 +9,11 @@ export default {
       default:
         return ''
     }
+  },
+  // 是否
+  _isno(value) {
+    if (typeof value !== 'boolean') return value
+    if (value) return '是'
+    return '否'
   }
 }

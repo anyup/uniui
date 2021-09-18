@@ -11,6 +11,10 @@
     {
       "path": "pages/components/layout",
       "style": { "navigationBarTitleText": "layout" }
+    },
+    {
+      "path": "pages/components/button",
+      "style": { "navigationBarTitleText": "Button-按钮" }
     }
   ],
   "globalStyle": {

@@ -71,10 +71,11 @@ export default {
       this.list = list
     },
     getPageUrl(page) {
+      console.log(page.page)
       if (page.page.startsWith('/pages')) {
-        return `${page.page}&name=${page.name}`
+        return `${page.page}?name=${page.name}`
       }
-      return `/pages/questions/questions?${page.page}&name=${page.name}`
+      return `${page.page}?name=${page.name}`
     },
     oneIcon(i) {
       let min = i

@@ -4,12 +4,23 @@
     ref="AuLayout"
     :page-show="pageShow"
     :bg-color="bgColor"
+    :padding="padding"
     :custom-style="customStyle"
     loading-text="加载中"
   >
     <slot></slot>
-    <view v-if="loadmore" class="is-pd-10"> <u-loadmore :status="loadmore" /> </view>
-    <view v-if="empty" class="is-pdtb-50"> <u-empty v-if="empty" /> </view>
+    <view
+      v-if="loadmore"
+      class="is-pd-10"
+    >
+      <u-loadmore :status="loadmore" />
+    </view>
+    <view
+      v-if="empty"
+      class="is-pdtb-50"
+    >
+      <u-empty v-if="empty" />
+    </view>
   </au-layout>
 </template>
 
@@ -23,7 +34,7 @@ export default {
     // 背景色值
     bgColor: {
       type: String,
-      default: '#f3f4f5'
+      default: '#ffffff'
     },
     // 自定义样式，对象形式
     customStyle: {
@@ -51,6 +62,10 @@ export default {
     empty: {
       type: [String, Boolean],
       default: false
+    },
+    padding: {
+      type: String,
+      default: '20rpx'
     }
   },
   data() {
@@ -81,8 +96,7 @@ export default {
       }, 100)
     }
   },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 
