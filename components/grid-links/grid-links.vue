@@ -71,7 +71,6 @@ export default {
       this.list = list
     },
     getPageUrl(page) {
-      console.log(page.page)
       if (page.page.startsWith('/pages')) {
         return `${page.page}?name=${page.name}`
       }

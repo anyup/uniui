@@ -1,6 +1,6 @@
 <template>
   <app-layout>
-    <link-grid :list="list"></link-grid>
+    <grid-links :list="list"></grid-links>
   </app-layout>
 </template>
 

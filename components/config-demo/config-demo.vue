@@ -1,13 +1,13 @@
 <template>
-  <view class="app-card">
-    <view class="app-card-item">
-      <view class="title">演示</view>
+  <view class="config-demo">
+    <view class="config-demo-item">
+      <view class="title is-mgb-20">演示</view>
       <slot name="demo" />
     </view>
     <view class="is-mgtb-20">
       <u-divider half-width="100%">参数配置</u-divider>
     </view>
-    <view class="app-card-item" v-for="(item, index) in list" :key="index">
+    <view class="config-demo-item" v-for="(item, index) in list" :key="index">
       <view class="title">{{ item.title }}</view>
       <view v-if="item.tips" class="tips">{{ item.tips }}</view>
       <u-radio-group v-if="item.layout === 'radio'">
@@ -46,8 +46,8 @@ export default {
 </script>
 
 <style lang="scss">
-.app-card {
-  .app-card-item {
+.config-demo {
+  .config-demo-item {
     border: 1px solid #f3f4f5;
     padding: 30rpx 20rpx;
     margin-top: 30rpx;

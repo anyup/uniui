@@ -1,10 +1,10 @@
 <template>
   <view @touchmove.stop.prevent>
-    <view v-if="visible" class="au-loading-init" :class="[direction]">
+    <view v-if="visible2" class="au-loading-init" :class="[direction]">
       <view class="au-loading-center"></view>
       <view v-if="text" class="au-loading-tips">{{ text }}</view>
     </view>
-    <view class="au-loading-mask" :class="[visible ? 'au-mask-show' : '']"></view>
+    <view class="au-loading-mask" :class="[visible2 ? 'au-mask-show' : '']" @click="maskClick"></view>
   </view>
 </template>
 
@@ -23,6 +23,52 @@ export default {
     direction: {
       type: String,
       default: 'vertical' // vertical horizontal
+    },
+    duration: {
+      type: Number,
+      default: 0
+    },
+    cancelTime: {
+      type: Number,
+      default: 10000
+    }
+  },
+  data() {
+    return {
+      visible2: false,
+      timer: null,
+      now: 0
+    }
+  },
+  watch: {
+    visible: {
+      deep: true,
+      handler: function (newValue) {
+        if (newValue) {
+          this.show()
+        }
+      }
+    }
+  },
+  methods: {
+    show() {
+      clearTimeout(this.timer)
+      this.visible2 = true
+      this.now = new Date().getTime()
+      if (this.duration) {
+        this.timer = setTimeout(() => {
+          this.visible2 = false
+          clearTimeout(this.timer)
+          this.timer = null
+        }, this.duration)
+      }
+    },
+    maskClick() {
+      if (new Date().getTime() - this.now > this.cancelTime) {
+        this.visible2 = false
+        clearTimeout(this.timer)
+        this.timer = null
+      }
     }
   }
 }

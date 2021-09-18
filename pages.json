@@ -10,11 +10,15 @@
     },
     {
       "path": "pages/components/layout",
-      "style": { "navigationBarTitleText": "layout" }
+      "style": { "navigationBarTitleText": "Layout-布局" }
     },
     {
       "path": "pages/components/button",
       "style": { "navigationBarTitleText": "Button-按钮" }
+    },
+    {
+      "path": "pages/components/loading",
+      "style": { "navigationBarTitleText": "Loading-加载框" }
     }
   ],
   "globalStyle": {

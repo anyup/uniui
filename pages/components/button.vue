@@ -1,10 +1,10 @@
 <template>
   <app-layout>
-    <app-card :list="list" @change="onChange">
+    <config-demo :list="list" @change="onChange">
       <app-button slot="demo" :type="value.type" :size="value.size" :shape="value.shape" :plain="value.plain">
         按钮
       </app-button>
-    </app-card>
+    </config-demo>
   </app-layout>
 </template>
 
