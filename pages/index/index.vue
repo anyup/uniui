@@ -16,10 +16,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-page {
-  height: auto;
-  min-height: 100%;
-  background-color: #f8f8f8;
-}
-</style>
+<style lang="scss" scoped></style>

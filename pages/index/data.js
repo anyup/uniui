@@ -1,6 +1,6 @@
 export default [
   {
-    icon: 'hourglass',
+    icon: 'star',
     id: 1,
     level: 1,
     name: '基础组件',
@@ -74,7 +74,7 @@ export default [
     ]
   },
   {
-    icon: 'hourglass',
+    icon: 'level',
     id: 20,
     level: 1,
     name: '表单校验',
@@ -92,7 +92,7 @@ export default [
     ]
   },
   {
-    icon: 'hourglass',
+    icon: 'chat',
     id: 30,
     level: 1,
     name: '工具类',

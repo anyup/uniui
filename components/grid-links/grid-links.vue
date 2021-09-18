@@ -1,5 +1,11 @@
 <template>
   <view class="container">
+    <view class="page_hd">
+      <view class="page_desc">
+        uniapp Demo
+        <u-icon class="toggle_icon" :name="isGrid ? 'grid' : 'list'" color="#999999" size="50" @click="isGrid = !isGrid"></u-icon>
+      </view>
+    </view>
     <view v-if="isGrid" class="page_bd page_bd_spacing">
       <view v-for="(item, index) in list" :key="index" class="kind-list_item">
         <view :id="item.icon" class="tui-flex kind-list_item-hd">
@@ -7,7 +13,7 @@
         </view>
         <u-grid :col="2">
           <u-grid-item v-for="(page, index2) in item.children" :key="index2">
-            <navigator :url="getPageUrl(page)" class="is-text-center" hover-class="none">
+            <navigator :url="page.page" class="is-text-center" hover-class="none">
               <u-icon :name="oneIcon(index2)" :size="46" color="#999999"></u-icon>
               <view class="grid-text">{{ page.name }}</view>
             </navigator>
@@ -19,14 +25,19 @@
       <view class="kind-list">
         <block v-for="(item, index) in list" :key="index">
           <view class="kind-list_item">
-            <view :id="item.icon" class="tui-flex kind-list_item-hd" :class="{ 'kind-list_item-hd_show': item.open }" @tap="kindToggle">
+            <view
+              :id="item.icon"
+              class="tui-flex kind-list_item-hd"
+              :class="{ 'kind-list_item-hd_show': item.open }"
+              @tap="kindToggle"
+            >
               <view class="tui-flex_item">{{ item.name }}</view>
               <u-icon :name="item.icon" color="#999" size="50"></u-icon>
             </view>
             <view class="kind-list_item-bd" :class="{ 'kind-list_item-bd_show': item.open }">
               <view class="tui-cells" :class="{ 'tui-cells_show': item.open }">
                 <block v-for="(page, index2) in item.children" :key="index2">
-                  <navigator :url="getPageUrl(page)" class="tui-cell tui-cell_access">
+                  <navigator :url="page.page" class="tui-cell tui-cell_access">
                     <view class="tui-cell_bd">{{ page.name }}</view>
                     <view class="tui-cell_ft tui-cell_ft_in-access"></view>
                   </navigator>
@@ -70,12 +81,6 @@ export default {
       }
       this.list = list
     },
-    getPageUrl(page) {
-      if (page.page.startsWith('/pages')) {
-        return `${page.page}?name=${page.name}`
-      }
-      return `${page.page}?name=${page.name}`
-    },
     oneIcon(i) {
       let min = i
       let max = icons.list.length - 1
@@ -90,7 +95,6 @@ export default {
 .container {
   width: 100%;
   padding-bottom: 30rpx;
-  background-color: #f8f8f8;
   height: 100%;
   overflow-y: auto;
 }
