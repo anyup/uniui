@@ -1,8 +1,10 @@
 <template>
   <view class="config-demo">
-    <view v-if="$slots.demo" class="config-demo-item">
+    <view v-if="$slots.default" class="config-demo-item">
       <view class="title is-mgb-20">演示</view>
-      <slot name="demo" />
+      <view class="is-text-center">
+        <slot />
+      </view>
     </view>
     <view v-if="list.length > 0" class="is-mgtb-20">
       <u-divider half-width="100%">参数配置</u-divider>

@@ -1,9 +1,7 @@
 <template>
   <app-layout>
     <config-demo v-model="value" :list="list">
-      <view class="is-pdlr-40" slot="demo">
-        <app-button type="primary" @click="toast = value">显示</app-button>
-      </view>
+      <app-button type="primary" @click="toast = value">显示</app-button>
     </config-demo>
     <au-toast ref="toast" :toast="toast" :duration="value.duration" @cancel="toast = {}"></au-toast>
   </app-layout>

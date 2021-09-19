@@ -1,9 +1,7 @@
 <template>
   <app-layout>
     <config-demo v-model="value" :list="list">
-      <view class="is-pdlr-40" slot="demo">
-        <app-button type="primary" @click="testShow">检测版本更新（仅测试）</app-button>
-      </view>
+      <app-button type="primary" @click="testShow">检测版本更新（仅测试）</app-button>
     </config-demo>
     <au-updater
       ref="updater"

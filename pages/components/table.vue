@@ -1,7 +1,7 @@
 <template>
   <app-layout>
     <config-demo v-model="value" :list="list">
-      <au-table slot="demo" padding="10rpx">
+      <au-table padding="10rpx">
         <au-tr :fixed="false">
           <au-th>姓名</au-th>
           <au-th>性别</au-th>

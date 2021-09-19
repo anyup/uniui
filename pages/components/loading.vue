@@ -1,7 +1,7 @@
 <template>
   <app-layout>
     <config-demo v-model="value" :list="list">
-      <app-button slot="demo" type="primary" @click="value.show = true">显示加载框</app-button>
+      <app-button type="primary" @click="value.show = true">显示加载框</app-button>
     </config-demo>
     <au-loading
       :text="value.text"

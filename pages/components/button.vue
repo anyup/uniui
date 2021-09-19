@@ -1,7 +1,7 @@
 <template>
   <app-layout>
     <config-demo v-model="value" :list="list">
-      <app-button slot="demo" :type="value.type" :size="value.size" :shape="value.shape" :plain="value.plain">
+      <app-button :type="value.type" :size="value.size" :shape="value.shape" :plain="value.plain">
         按钮
       </app-button>
     </config-demo>

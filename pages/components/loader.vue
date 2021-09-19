@@ -2,7 +2,7 @@
   <app-layout>
     <config-demo v-model="value" :list="list">
       <au-loader
-        slot="demo"
+       
         :show="value.show"
         :mode="value.mode"
         :color="value.color"
