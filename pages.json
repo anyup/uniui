@@ -47,6 +47,10 @@
     {
       "path": "pages/js/http",
       "style": { "navigationBarTitleText": "Http-网络请求" }
+    },
+    {
+      "path": "pages/js/pager",
+      "style": { "navigationBarTitleText": "Pager-分页" }
     }
   ],
   "globalStyle": {

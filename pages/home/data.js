@@ -115,6 +115,14 @@ export default [
         open: false,
         page: '/pages/js/http',
       },
+      {
+        icon: '',
+        id: 32,
+        level: 2,
+        name: '分页',
+        open: false,
+        page: '/pages/js/pager',
+      },
     ]
   }
 ]
