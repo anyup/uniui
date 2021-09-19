@@ -5,8 +5,8 @@
   },
   "pages": [
     {
-      "path": "pages/index/index",
-      "style": { "navigationStyle": "custom" }
+      "path": "pages/home/home",
+      "style": {"navigationBarTitleText": "首页"  }
     },
     {
       "path": "pages/components/layout",

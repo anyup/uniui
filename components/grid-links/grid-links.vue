@@ -2,7 +2,7 @@
   <view class="container">
     <view class="page_hd">
       <view class="page_desc">
-        uniapp Demo
+        uniapp demo
         <u-icon class="toggle_icon" :name="isGrid ? 'grid' : 'list'" color="#999999" size="50" @click="isGrid = !isGrid"></u-icon>
       </view>
     </view>
