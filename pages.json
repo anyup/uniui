@@ -23,6 +23,22 @@
     {
       "path": "pages/components/loader",
       "style": { "navigationBarTitleText": "Loader-加载图标" }
+    },
+    {
+      "path": "pages/components/table",
+      "style": { "navigationBarTitleText": "Table-表格" }
+    },
+    {
+      "path": "pages/components/toast",
+      "style": { "navigationBarTitleText": "Toast-提示" }
+    },
+    {
+      "path": "pages/components/updater",
+      "style": { "navigationBarTitleText": "Updater-应用更新" }
+    },
+    {
+      "path": "pages/components/webview",
+      "style": { "navigationBarTitleText": "Webview-网页试图" }
     }
   ],
   "globalStyle": {

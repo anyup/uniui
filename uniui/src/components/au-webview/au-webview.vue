@@ -26,7 +26,7 @@ export default {
       if (!progress.color) {
         progress.color = this.progressColor
       }
-      return [...webviewStyles, ...{ progress }]
+      return { ...this.webviewStyles, ...{ progress } }
     }
   }
 }

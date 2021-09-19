@@ -1,6 +1,6 @@
 <template>
   <view class="config-demo">
-    <view class="config-demo-item">
+    <view v-if="$slots.demo" class="config-demo-item">
       <view class="title is-mgb-20">演示</view>
       <slot name="demo" />
     </view>

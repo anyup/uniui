@@ -1,6 +1,18 @@
 <template>
-  <view class="au-toast" :class="[visible ? 'au-toast-show' : '', content ? 'au-toast-padding' : '', isShowIcon() ? '' : 'au-unicon-padding']" :style="{ width: getWidth() }">
-    <text v-if="isShowIcon()" class="au-toast-icon auicon-iconfont" :class="[icon ? `auicon-iconfont-${icon}-circle` : '']"></text>
+  <view
+    class="au-toast"
+    :class="[
+      visible ? 'au-toast-show' : '',
+      content ? 'au-toast-padding' : '',
+      isShowIcon() ? '' : 'au-unicon-padding'
+    ]"
+    :style="{ width: getWidth() }"
+  >
+    <text
+      v-if="isShowIcon()"
+      class="au-toast-icon auicon-iconfont"
+      :class="[icon ? `auicon-iconfont-${icon}-circle` : '']"
+    ></text>
     <view class="au-toast-text" :class="[isShowIcon() ? '' : 'au-unicon']">{{ title }}</view>
     <view class="au-toast-text au-content-ptop" v-if="content && isShowIcon()">{{ content }}</view>
   </view>
@@ -13,8 +25,12 @@ export default {
     toast: {
       type: Object,
       default() {
-        return { title: 'SUCCESS', icon: 'none', content: '', duration: 2000 }
+        return { title: 'Success', icon: 'none', content: '' }
       }
+    },
+    duration: {
+      type: Number,
+      default: 2000
     }
   },
   data() {
@@ -35,15 +51,15 @@ export default {
       deep: true,
       handler: function (newValue) {
         if (newValue && newValue.title) {
-          let { title, icon, content = '', duration = 2000 } = newValue
-          this.show({ title, icon, content, duration })
+          let { title, icon, content = '' } = newValue
+          this.show({ title, icon, content })
         }
       }
     }
   },
   methods: {
     show(options) {
-      let { duration = 2000, icon = 'none' } = options
+      let icon = options.icon || 'none'
       clearTimeout(this.timer)
       this.visible = true
       this.title = options.title || ''
@@ -53,8 +69,9 @@ export default {
         this.visible = false
         clearTimeout(this.timer)
         this.timer = null
-        this.$tips.toast()
-      }, duration)
+        this.$tips && this.$tips.toast()
+        this.$emit('cancel')
+      }, this.duration)
     },
     getWidth() {
       let width = 'auto'
