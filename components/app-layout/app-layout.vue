@@ -19,8 +19,6 @@
 </template>
 
 <script>
-import { baseURL, routeURL } from '@/config'
-
 export default {
   name: 'AppLayout',
   components: {},
@@ -71,7 +69,7 @@ export default {
     request() {
       return {
         header: {},
-        url: `${baseURL()}${this.$api.app.urls.getAppVersion.url}`,
+        url: '',
         params: {},
         method: 'POST'
       }
@@ -84,11 +82,11 @@ export default {
     }
   },
   created() {
-    if (this.checkLogin && !this.g_token) {
-      setTimeout(() => {
-        uni.reLaunch({ url: '/pages/login/login?redirect=' + decodeURIComponent(routeURL()) })
-      }, 100)
-    }
+    // if (this.checkLogin && !this.g_token) {
+    //   setTimeout(() => {
+    //     uni.reLaunch({ url: '/pages/login/login'})
+    //   }, 100)
+    // }
   },
   methods: {}
 }

@@ -1,5 +1,17 @@
 <template>
-  <au-button v-bind="$attrs" v-on="$listeners" :custom-style="styles" :custom-types="['gold', 'darkblue']">
+  <au-button
+    :type="type"
+    :size="size"
+    :shape="shape"
+    :plain="plain"
+    :disabled="disabled"
+    :loading="false"
+    :open-Type="''"
+    :custom-style="customStyle"
+    :custom-types="['gold', 'darkblue']"
+    :throttle-time="1000"
+    @click="$emit('click')"
+  >
     <slot></slot>
   </au-button>
 </template>
@@ -8,24 +20,31 @@
 export default {
   name: 'app-button',
   props: {
-    color: {
+    type: {
       type: String,
-      default: ''
+      default: 'default'
+    },
+    size: {
+      type: String,
+      default: 'default'
+    },
+    shape: {
+      type: String,
+      default: 'square'
+    },
+    plain: {
+      type: Boolean,
+      default: false
     },
     customStyle: {
       type: Object,
       default() {
         return {}
       }
-    }
-  },
-  computed: {
-    styles() {
-      let style = {}
-      if (this.color) {
-        style = { color: this.color }
-      }
-      return { ...style, ...this.customStyle }
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   }
 }
@@ -43,8 +62,14 @@ export default {
   $dark: $u-type-darkblue-dark, $u-type-gold-dark;
 
   @for $i from 1 through length($type) {
-    @include add-btn-theme(nth($type, $i), nth($color, $i), nth($main, $i), nth($light, $i), nth($disabled, $i), nth($dark, $i));
+    @include add-btn-theme(
+      nth($type, $i),
+      nth($color, $i),
+      nth($main, $i),
+      nth($light, $i),
+      nth($disabled, $i),
+      nth($dark, $i)
+    );
   }
 }
-
 </style>
