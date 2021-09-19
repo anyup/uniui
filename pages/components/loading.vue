@@ -1,14 +1,15 @@
 <template>
   <app-layout>
-    <config-demo :list="list" @change="onChange">
-      <app-button slot="demo" type="primary" @click="value.visible = true">显示加载框</app-button>
+    <config-demo v-model="value" :list="list">
+      <app-button slot="demo" type="primary" @click="value.show = true">显示加载框</app-button>
     </config-demo>
     <au-loading
       :text="value.text"
-      :visible="value.visible"
+      :show="value.show"
       :direction="value.direction"
       :duration="value.duration"
       :cancel-time="value.cancelTime"
+      @cancel="value.show = false"
     />
   </app-layout>
 </template>
@@ -21,6 +22,7 @@ export default {
         {
           type: 'direction',
           title: '方向',
+          tips: '垂直方向或水平方向显示',
           layout: 'radio',
           list: ['veritical', 'horizontal']
         },
@@ -40,22 +42,18 @@ export default {
         {
           type: 'cancelTime',
           title: '可取消时间',
+          tips: '超过规定时间，点击遮罩可关闭弹窗，配合cancel事件使用，单位毫秒',
           layout: 'radio',
           list: [3000, 5000]
         }
       ],
       value: {
-        visible: false,
+        show: false,
         direction: 'veritical',
         text: '加载中',
         duration: 3000,
         cancelTime: 3000
       }
-    }
-  },
-  methods: {
-    onChange({ key, value }) {
-      this.value[key] = value
     }
   }
 }

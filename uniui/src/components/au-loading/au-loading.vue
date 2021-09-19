@@ -1,10 +1,10 @@
 <template>
   <view @touchmove.stop.prevent>
-    <view v-if="visible2" class="au-loading-init" :class="[direction]">
+    <view v-if="show" class="au-loading-init" :class="[direction]">
       <view class="au-loading-center"></view>
       <view v-if="text" class="au-loading-tips">{{ text }}</view>
     </view>
-    <view class="au-loading-mask" :class="[visible2 ? 'au-mask-show' : '']" @click="maskClick"></view>
+    <view class="au-loading-mask" :class="[show ? 'au-mask-show' : '']" @click="maskClick"></view>
   </view>
 </template>
 
@@ -12,13 +12,13 @@
 export default {
   name: 'au-loading',
   props: {
+    show: {
+      type: Boolean,
+      default: false
+    },
     text: {
       type: String,
       default: ''
-    },
-    visible: {
-      type: Boolean,
-      default: false
     },
     direction: {
       type: String,
@@ -35,39 +35,38 @@ export default {
   },
   data() {
     return {
-      visible2: false,
       timer: null,
       now: 0
     }
   },
   watch: {
-    visible: {
+    show: {
       deep: true,
       handler: function (newValue) {
         if (newValue) {
-          this.show()
+          this.loading()
         }
       }
     }
   },
   methods: {
-    show() {
+    loading() {
       clearTimeout(this.timer)
-      this.visible2 = true
       this.now = new Date().getTime()
       if (this.duration) {
         this.timer = setTimeout(() => {
-          this.visible2 = false
-          clearTimeout(this.timer)
-          this.timer = null
+          this.loaded()
         }, this.duration)
       }
     },
+    loaded() {
+      clearTimeout(this.timer)
+      this.timer = null
+      this.$emit('cancel')
+    },
     maskClick() {
       if (new Date().getTime() - this.now > this.cancelTime) {
-        this.visible2 = false
-        clearTimeout(this.timer)
-        this.timer = null
+        this.loaded()
       }
     }
   }

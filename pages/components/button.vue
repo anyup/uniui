@@ -1,6 +1,6 @@
 <template>
   <app-layout>
-    <config-demo :list="list" @change="onChange">
+    <config-demo v-model="value" :list="list">
       <app-button slot="demo" :type="value.type" :size="value.size" :shape="value.shape" :plain="value.plain">
         按钮
       </app-button>
@@ -30,7 +30,7 @@ export default {
           type: 'shape',
           title: '形状',
           layout: 'radio',
-          list: ['circle', 'square']
+          list: ['square', 'circle']
         },
         {
           type: 'plain',
@@ -42,14 +42,9 @@ export default {
       value: {
         type: 'primary',
         size: 'default',
-        shape: 'circle',
+        shape: 'square',
         plain: false
       }
-    }
-  },
-  methods: {
-    onChange({ key, value }) {
-      this.value[key] = value
     }
   }
 }

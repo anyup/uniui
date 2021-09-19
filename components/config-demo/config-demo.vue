@@ -27,6 +27,12 @@
 <script>
 export default {
   props: {
+    value: {
+      type: Object,
+      default() {
+        return
+      }
+    },
     list: {
       type: Array,
       default() {
@@ -39,6 +45,7 @@ export default {
   },
   methods: {
     radioChange(key, value) {
+      this.$emit('input', { ...this.value, ...{ [key]: value } })
       this.$emit('change', { key, value })
     }
   }
@@ -77,6 +84,7 @@ export default {
     .tips {
       color: $u-type-error;
       padding: 10rpx 0;
+      font-size: 24rpx;
     }
   }
 }
