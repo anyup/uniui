@@ -62,6 +62,7 @@ export default {
     loaded() {
       clearTimeout(this.timer)
       this.timer = null
+      this.$tips && this.$tips.loaded()
       this.$emit('cancel')
     },
     maskClick() {

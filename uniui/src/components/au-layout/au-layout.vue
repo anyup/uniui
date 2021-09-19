@@ -2,9 +2,9 @@
   <view class="au-layout" :style="[styles]" @click="clickWrapper">
     <slot v-if="pageShow"></slot>
     <!-- loading -->
-    <au-loading :show="loadingShow" :text="loadingText" @cancel="loadingHide"></au-loading>
+    <au-loading :show="loadingShow" :text="loadingText" @cancel="$emit('cancel-loading')" />
     <!--toast提示-->
-    <au-toast ref="toast" :toast="toastConfig"></au-toast>
+    <au-toast ref="toast" :toast="toastConfig" :duration="toastDuration" @cancel="$emit('cancel-toast')" />
   </view>
 </template>
 
@@ -59,8 +59,13 @@ export default {
     toast: {
       type: Object,
       default() {
-        return { title: '操作成功', icon: 'none', content: '', duration: 2000 }
+        return { title: '操作成功', icon: 'none', content: '' }
       }
+    },
+    // toast
+    toastDuration: {
+      typd: Number,
+      default: 2000
     }
   },
   data() {
@@ -77,12 +82,6 @@ export default {
     },
     loadingShow() {
       return typeof this.g_loading === 'undefined' ? this.loading : this.g_loading
-    },
-    loadingHide() {
-      if (typeof this.g_loading !== 'undefined') {
-        this.$tips.loaded()
-      }
-      this.$emit('candel-loading')
     }
   },
   methods: {
