@@ -1,30 +1,56 @@
+## 0.0.26
+
+### BREAKING CHANGES
+
+- 优化 Pager empty, 仅保留 empty 方法
+- 优化 Loading 组件参数，统一 visible 修改为 show
+
+---
+
 ## 0.0.25
 
-* 优化layout props
-* 优化Toast提示，兼容微信小程序部分场景
+### Features
+
+- 优化 layout props
+
+### Bug Fixes
+
+- 优化 Toast 提示，兼容微信小程序部分场景
+
+---
 
 ## 0.0.24
 
-* 添加HttpHeader支持, 支持json, urlencoded, fromdata
-* Http支持restURL格式传递传递
+- 添加 HttpHeader 支持, 支持 json, urlencoded, fromdata
+- Http 支持 restURL 格式传递传递
+
+---
 
 ## 0.0.23
 
-* 优化分页Pager, 支持Object、Array
+- 优化分页 Pager, 支持 Object、Array
+
+---
 
 ## 0.0.22
 
-* 优化z-index层级
+- 优化 z-index 层级
+
+---
 
 ## 0.0.21
 
-* 优化Pager及内部方法
+- 优化 Pager 及内部方法
+
+---
 
 ## 0.0.18
 
-* 优化Http，支持Upload
-* 优化Class命名规范
+- 优化 Http，支持 Upload
+- 优化 Class 命名规范
+
+---
 
 ## 0.0.1
 
-* Initial release
+- Initial release

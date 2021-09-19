@@ -16,15 +16,11 @@ class Pager {
     return this.data.length
   }
 
-  get empty() {
+  empty() {
     if (isObject(this.data)) {
       return isEmptyObject(this.data)
     }
     return this.data.length === 0
-  }
-
-  empty() {
-    return this.empty
   }
 
   setPage(page) {
