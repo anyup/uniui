@@ -37,7 +37,7 @@ export default [
         level: 2,
         name: '加载图标',
         open: false,
-        page: '/pages/components/loading',
+        page: '/pages/components/loader',
       },
       {
         icon: '',

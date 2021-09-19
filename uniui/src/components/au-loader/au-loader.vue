@@ -1,20 +1,32 @@
 <template>
-  <view v-if="show" class="au-loader" :class="mode == 'circle' ? 'au-loader-circle' : 'au-loader-flower'" :style="[cricleStyle]"> </view>
+  <view
+    v-if="show"
+    class="au-loader"
+    :class="mode == 'circle' ? 'au-loader-circle' : 'au-loader-flower'"
+    :style="[cricleStyle]"
+  >
+  </view>
 </template>
 
 <script>
 /**
  * loading 加载动画
  * @description 此组件为一个小动画，目前用在组件的正在加载状态场景。
- * @property {String} mode 模式选择，见官网说明（默认circle）
- * @property {String} color 动画活动区域的颜色，只对 mode = flower 模式有效（默认#c7c7c7）
- * @property {String Number} size 加载图标的大小，单位rpx（默认34）
  * @property {Boolean} show 是否显示动画（默认true）
+ * @property {String} mode 模式选择，见官网说明（默认circle）
+ * @property {String} color 动画活动区域的颜色，只对 mode = circle 模式有效（默认#8f8d8e)
+ * @property {String Number} size 加载图标的大小，单位rpx（默认34）
+ * @property {String} width 宽度 mode = circle 模式有效（默认2px)
  * @example <au-loader mode="circle"></au-loader>
  */
 export default {
   name: 'au-loader',
   props: {
+    // 是否显示动画
+    show: {
+      type: Boolean,
+      default: true
+    },
     // 动画的类型
     mode: {
       type: String,
@@ -30,15 +42,10 @@ export default {
       type: [String, Number],
       default: '34'
     },
-    // 宽度
+    // 宽度，只对mode=circle有效
     width: {
       type: String,
       default: '2px'
-    },
-    // 是否显示动画
-    show: {
-      type: Boolean,
-      default: true
     }
   },
   computed: {
@@ -49,6 +56,8 @@ export default {
       style.height = this.size + 'rpx'
       if (this.mode == 'circle') {
         style.borderLeftColor = this.color
+        style.borderRightColor = this.color
+        style.borderBottomColor = this.color
         style.borderWidth = this.width
       }
       return style
@@ -70,7 +79,7 @@ export default {
   background: 0 0;
   border-radius: 50%;
   border: 3px solid;
-  border-color: #ffffff #ffffff #ffffff #8f8d8e;
+  border-color: #ffffff #8f8d8e #8f8d8e #8f8d8e;
   animation: au-circle 1s linear infinite;
 }
 
