@@ -99,21 +99,21 @@ export default [
     open: false,
     page: '',
     children: [
-      {
-        icon: '',
-        id: 31,
-        level: 2,
-        name: '蓝牙',
-        open: false,
-        page: '/pages/class/bluetooth',
-      },
+      // {
+      //   icon: '',
+      //   id: 31,
+      //   level: 2,
+      //   name: '蓝牙',
+      //   open: false,
+      //   page: '/pages/js/bluetooth',
+      // },
       {
         icon: '',
         id: 31,
         level: 2,
         name: '网路请求',
         open: false,
-        page: '/pages/class/http',
+        page: '/pages/js/http',
       },
     ]
   }
