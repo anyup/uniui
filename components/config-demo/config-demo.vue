@@ -4,7 +4,7 @@
       <view class="title is-mgb-20">演示</view>
       <slot name="demo" />
     </view>
-    <view class="is-mgtb-20">
+    <view v-if="list.length > 0" class="is-mgtb-20">
       <u-divider half-width="100%">参数配置</u-divider>
     </view>
     <view class="config-demo-item" v-for="(item, index) in list" :key="index">

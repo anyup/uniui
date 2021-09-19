@@ -9,16 +9,10 @@
     loading-text="加载中"
   >
     <slot></slot>
-    <view
-      v-if="loadmore"
-      class="is-pd-10"
-    >
+    <view v-if="loadmore" class="is-pd-10">
       <u-loadmore :status="loadmore" />
     </view>
-    <view
-      v-if="empty"
-      class="is-pdtb-50"
-    >
+    <view v-if="empty" class="is-pdtb-50">
       <u-empty v-if="empty" />
     </view>
   </au-layout>

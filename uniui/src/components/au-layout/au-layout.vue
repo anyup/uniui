@@ -2,9 +2,9 @@
   <view class="au-layout" :style="[styles]" @click="clickWrapper">
     <slot v-if="pageShow"></slot>
     <!-- loading -->
-    <au-loading :show="auLoading" :text="loadingText"></au-loading>
+    <au-loading :show="loadingShow" :text="loadingText" @cancel="loadingHide"></au-loading>
     <!--toast提示-->
-    <au-toast ref="toast" :toast="auToast"></au-toast>
+    <au-toast ref="toast" :toast="toastConfig"></au-toast>
   </view>
 </template>
 
@@ -72,11 +72,17 @@ export default {
       if (this.height) style.height = this.height
       return { ...style, ...this.customStyle }
     },
-    auToast() {
+    toastConfig() {
       return typeof this.g_toast === 'undefined' ? this.toast : this.g_toast
     },
-    auLoading() {
+    loadingShow() {
       return typeof this.g_loading === 'undefined' ? this.loading : this.g_loading
+    },
+    loadingHide() {
+      if (typeof this.g_loading !== 'undefined') {
+        this.$tips.loaded()
+      }
+      this.$emit('candel-loading')
     }
   },
   methods: {
