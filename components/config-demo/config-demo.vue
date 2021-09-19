@@ -12,7 +12,7 @@
     <view class="config-demo-item" v-for="(item, index) in list" :key="index">
       <view class="title">{{ item.title }}</view>
       <view v-if="item.tips" class="tips">{{ item.tips }}</view>
-      <u-radio-group v-if="item.layout === 'radio'">
+      <u-radio-group v-if="item.layout === 'radio'" shape="square" size="40">
         <u-radio
           v-for="(item2, index2) in item.list"
           :key="index2"
