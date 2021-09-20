@@ -1,3 +1,11 @@
+## 0.0.27
+
+### Bug Fixes
+
+- 优化 loading 取消 bug，兼容小程序显示、隐藏问题
+
+---
+
 ## 0.0.26
 
 ### BREAKING CHANGES

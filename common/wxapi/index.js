@@ -92,7 +92,6 @@ const wxapi = {
         sizeType: ['original', 'compressed'],
         sourceType: ['album', 'camera'],
         success(res) {
-          console.log(res)
           const src = res.tempFilePaths[0]
           // resolve(res.tempFilePaths)
           resolve(res.tempFiles)
@@ -129,7 +128,6 @@ const wxapi = {
   },
   // 获取图片信息
   getImageInfo: url => {
-    console.log(url)
     return new Promise((resolve, reject) => {
       wx.getImageInfo({
         src: url,

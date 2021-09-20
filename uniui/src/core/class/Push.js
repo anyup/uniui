@@ -38,7 +38,6 @@ class Push {
   }
   // 创建本地消息
   createLocalMsg(msg) {
-    console.log('LocalMsg', msg)
     if (!msg) {
       return
     }
