@@ -8,6 +8,8 @@
 
 // 增加button theme type
 @mixin add-btn-theme($type, $color, $main, $light, $disabled, $dark) {
+  $default: $type == 'default';
+
   &--#{$type} {
     color: $color;
     border-color: $main;
@@ -15,15 +17,27 @@
   }
 
   &--#{$type}--disabled {
-    color: $color !important;
-    border-color: $disabled !important;
-    background-color: $disabled !important;
+    @if not($default) {
+      color: $color !important;
+      border-color: $disabled !important;
+      background-color: $disabled !important;
+    }
   }
 
   &--#{$type}--plain {
-    color: $main !important;
-    border-color: $disabled !important;
-    background-color: $light !important;
+    @if not($default) {
+      color: $main !important;
+      border-color: $disabled !important;
+      background-color: $light !important;
+    }
+  }
+
+  &--#{$type}--hollow {
+    @if not($default) {
+      color: $main !important;
+      border-color: $disabled !important;
+      background-color: transparent !important;
+    }
   }
 
   &.au-#{$type}-plain-hover {

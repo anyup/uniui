@@ -1,7 +1,14 @@
 <template>
   <app-layout>
     <config-demo v-model="value" :list="list">
-      <app-button :type="value.type" :size="value.size" :shape="value.shape" :plain="value.plain">
+      <app-button
+        :type="value.type"
+        :size="value.size"
+        :shape="value.shape"
+        :plain="value.plain"
+        :hollow="value.hollow"
+        :disabled="value.disabled"
+      >
         按钮
       </app-button>
     </config-demo>
@@ -37,13 +44,27 @@ export default {
           title: '镂空',
           layout: 'radio',
           list: [true, false]
+        },
+        {
+          type: 'hollow',
+          title: '完全镂空',
+          tips: '完全镂空为显示底色，即background-color 设置为 transparent',
+          layout: 'radio',
+          list: [true, false]
+        },
+        {
+          type: 'disabled',
+          title: '禁用',
+          layout: 'radio',
+          list: [true, false]
         }
       ],
       value: {
         type: 'primary',
         size: 'default',
         shape: 'square',
-        plain: false
+        plain: false,
+        disabled: false
       }
     }
   }

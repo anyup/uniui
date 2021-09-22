@@ -4,6 +4,7 @@
     :size="size"
     :shape="shape"
     :plain="plain"
+    :hollow="hollow"
     :disabled="disabled"
     :loading="false"
     :open-Type="''"
@@ -34,6 +35,10 @@ export default {
       default: 'square'
     },
     plain: {
+      type: Boolean,
+      default: false
+    },
+    hollow: {
       type: Boolean,
       default: false
     },

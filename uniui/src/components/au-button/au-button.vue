@@ -5,6 +5,7 @@
     :class="[
       'au-size-' + size,
       plain ? 'au-btn--' + type + '--plain' : '',
+      hollow ? 'au-btn--' + type + '--hollow' : '',
       loading ? 'au-loading' : '',
       shape == 'circle' ? 'au-round-circle' : '',
       hairLine ? showHairLineBorder : 'au-btn--bold-border',
@@ -65,6 +66,7 @@
  * @property {String} ripple-bg-color 水波纹的背景色，ripple为true时有效
  * @property {String} type 按钮的样式类型
  * @property {Boolean} plain 按钮是否镂空，背景色透明
+ * @property {Boolean} hollow 按钮是否镂空，背景色透明
  * @property {Boolean} disabled 是否禁用
  * @property {Boolean} hair-line 是否显示按钮的细边框(默认true)
  * @property {Boolean} shape 按钮外观形状，见文档说明
@@ -112,6 +114,11 @@ export default {
     },
     // 按钮是否镂空
     plain: {
+      type: Boolean,
+      default: false
+    },
+    // 按钮是否镂空
+    hollow: {
       type: Boolean,
       default: false
     },
@@ -246,12 +253,12 @@ export default {
       // 如果开启水波纹效果，则不启用hover-class效果
       if (this.loading || this.disabled || this.ripple || this.hoverClass) return ''
       let hoverClass = ''
-      hoverClass = this.plain ? 'au-' + this.type + '-plain-hover' : 'au-' + this.type + '-hover'
+      hoverClass = this.plain || this.hollow ? 'au-' + this.type + '-plain-hover' : 'au-' + this.type + '-hover'
       return hoverClass
     },
     // 在'primary', 'success', 'error', 'warning'类型下，不显示边框，否则会造成四角有毛刺现象
     showHairLineBorder() {
-      if (this.allTypes.indexOf(this.type) >= 0 && !this.plain) {
+      if (this.allTypes.indexOf(this.type) >= 0 && !this.plain && !this.hollow) {
         return ''
       } else {
         return 'au-hairline-border'
@@ -390,7 +397,7 @@ export default {
   $light: #ffffff, $is-type-primary-light, $is-type-success-light, $is-type-warning-light, $is-type-error-light;
   $disabled: #ffffff, $is-type-primary-disabled, $is-type-success-disabled, $is-type-warning-disabled,
     $is-type-error-disabled;
-  $dark: #ffffff, $is-type-primary-dark, $is-type-success-dark, $is-type-warning-dark, $is-type-error-dark;
+  $dark: rgba(0, 0, 0, 0.03), $is-type-primary-dark, $is-type-success-dark, $is-type-warning-dark, $is-type-error-dark;
 
   &--bold-border {
     border: 1px solid #ffffff;
