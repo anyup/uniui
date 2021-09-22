@@ -4,7 +4,8 @@
     :class="[
       visible ? 'au-toast-show' : '',
       content ? 'au-toast-padding' : '',
-      isShowIcon() ? '' : 'au-unicon-padding'
+      isShowIcon() ? '' : 'au-unicon-padding',
+      `au-toast-${position}`
     ]"
     :style="{ width: getWidth() }"
   >
@@ -13,8 +14,8 @@
       class="au-toast-icon auicon-iconfont"
       :class="[icon ? `auicon-iconfont-${icon}-circle` : '']"
     ></text>
-    <view class="au-toast-text" :class="[isShowIcon() ? '' : 'au-unicon']">{{ title }}</view>
-    <view class="au-toast-text au-content-ptop" v-if="content && isShowIcon()">{{ content }}</view>
+    <view class="au-toast-text is-line-3" :class="[isShowIcon() ? '' : 'au-unicon']">{{ title }}</view>
+    <view class="au-toast-text au-toast-text2" v-if="content && isShowIcon()">{{ content }}</view>
   </view>
 </template>
 
@@ -31,6 +32,10 @@ export default {
     duration: {
       type: Number,
       default: 2000
+    },
+    position: {
+      type: String,
+      default: 'center'
     }
   },
   data() {
@@ -113,12 +118,21 @@ export default {
   flex-direction: column;
   padding: 50rpx 20rpx 50rpx 20rpx;
   box-sizing: border-box;
+
+  &.au-toast-bottom {
+    top: 80%;
+  }
+
+  &.au-toast-top {
+    top: 20%;
+  }
 }
 
 .au-toast-padding {
   padding-top: 50rpx !important;
   padding-bottom: 50rpx !important;
 }
+
 .au-unicon-padding {
   padding: 24rpx 40rpx !important;
   word-break: break-all;
@@ -137,17 +151,20 @@ export default {
 }
 
 .au-toast-text {
+  word-break: break-all;
   font-size: 30rpx;
   font-weight: 500;
   color: #fff;
   text-align: center;
 }
+
+.au-toast-text2 {
+  padding-top: 20rpx;
+  font-size: 26rpx;
+}
+
 .au-unicon {
   line-height: 40rpx !important;
   font-size: 32rpx !important;
-}
-.au-content-ptop {
-  padding-top: 10rpx;
-  font-size: 26rpx !important;
 }
 </style>

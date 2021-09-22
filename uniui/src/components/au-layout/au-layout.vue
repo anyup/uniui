@@ -4,7 +4,13 @@
     <!-- loading -->
     <au-loading :show="loadingShow" :text="loadingText" @cancel="$emit('cancel-loading')" />
     <!--toast提示-->
-    <au-toast ref="toast" :toast="toastConfig" :duration="toastDuration" @cancel="$emit('cancel-toast')" />
+    <au-toast
+      ref="toast"
+      :toast="toastConfig"
+      :duration="toastDuration"
+      :position="toastPosition"
+      @cancel="$emit('cancel-toast')"
+    />
   </view>
 </template>
 
@@ -62,10 +68,13 @@ export default {
         return { title: '操作成功', icon: 'none', content: '' }
       }
     },
-    // toast
     toastDuration: {
       typd: Number,
       default: 2000
+    },
+    toastPosition: {
+      typd: String,
+      default: 'center'
     }
   },
   data() {
