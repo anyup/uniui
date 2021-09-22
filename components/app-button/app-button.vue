@@ -19,6 +19,7 @@
 <script>
 export default {
   name: 'app-button',
+  options: { styleIsolation: 'shared' },
   props: {
     type: {
       type: String,
