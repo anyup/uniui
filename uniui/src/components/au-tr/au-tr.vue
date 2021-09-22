@@ -33,7 +33,6 @@ export default {
 
 .au-tr {
   @include vue-flex;
-	min-height: 80rpx;
 }
 
 .au-tr-fixed {

@@ -64,7 +64,6 @@ export default {
   align-self: stretch;
   box-sizing: border-box;
   word-break: break-all;
-  height: auto;
 }
 .au-td-ellipsis {
   overflow: hidden;
