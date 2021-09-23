@@ -109,7 +109,7 @@ export default [
       // },
       {
         icon: '',
-        id: 31,
+        id: 32,
         level: 2,
         name: '网路请求',
         open: false,
@@ -117,11 +117,43 @@ export default [
       },
       {
         icon: '',
-        id: 32,
+        id: 33,
+        level: 2,
+        name: '全局混入',
+        open: false,
+        page: '/pages/js/mixin',
+      },
+      {
+        icon: '',
+        id: 34,
+        level: 2,
+        name: '优化类',
+        open: false,
+        page: '/pages/js/optimize',
+      },
+      {
+        icon: '',
+        id: 35,
         level: 2,
         name: '分页',
         open: false,
         page: '/pages/js/pager',
+      },
+      {
+        icon: '',
+        id: 36,
+        level: 2,
+        name: '状态管理',
+        open: false,
+        page: '/pages/js/store',
+      },
+      {
+        icon: '',
+        id: 37,
+        level: 2,
+        name: '提示类',
+        open: false,
+        page: '/pages/js/tips',
       },
     ]
   }

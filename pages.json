@@ -49,6 +49,10 @@
       "style": { "navigationBarTitleText": "Http-网络请求" }
     },
     {
+      "path": "pages/js/optimize",
+      "style": { "navigationBarTitleText": "Optimize-优化类" }
+    },
+    {
       "path": "pages/js/pager",
       "style": { "navigationBarTitleText": "Pager-分页" }
     }

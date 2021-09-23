@@ -11,8 +11,8 @@
     </view>
     <view class="config-demo-item" v-for="(item, index) in list" :key="index">
       <view class="title">{{ item.title }}</view>
-      <view v-if="item.tips" class="tips">{{ item.tips }}</view>
-      <u-radio-group v-if="item.layout === 'radio'" shape="square" size="40">
+      <text v-if="item.tips" class="tips">{{ item.tips }}</text>
+      <u-radio-group v-if="item.layout === 'radio'" :value="item.list[0]" shape="square" size="40">
         <u-radio
           v-for="(item2, index2) in item.list"
           :key="index2"
@@ -92,6 +92,7 @@ export default {
     }
 
     .tips {
+      display: block;
       color: $u-type-error;
       padding: 10rpx 0;
       font-size: 24rpx;
