@@ -12,8 +12,8 @@
           <slot name="btn"></slot>
         </view>
         <view v-else class="au-updater-modal-btn-box">
-          <au-button v-if="!isForce" type="default" size="medium" @click="closeModal">{{ cancelText }}</au-button>
-          <au-button type="primary" size="medium" @click="confirmModal">{{ confirmText }}</au-button>
+          <au-button v-if="!isForce" type="default" size="default" @click="closeModal">{{ cancelText }}</au-button>
+          <au-button type="primary" size="default" @click="confirmModal">{{ confirmText }}</au-button>
         </view>
       </view>
     </view>
@@ -53,7 +53,7 @@ export default {
     },
     modalTitle: {
       type: String,
-      default: '版本更新'
+      default: '发现新版本'
     },
     confirmText: {
       type: String,
@@ -61,7 +61,7 @@ export default {
     },
     cancelText: {
       type: String,
-      default: '下次更新'
+      default: '以后再说'
     }
   },
   data() {
@@ -119,7 +119,7 @@ export default {
   z-index: 9999998;
   transition: all 0.3s ease-in-out;
   opacity: 0;
-  width: 84%;
+  width: 90%;
   padding: 40rpx 64rpx;
   border-radius: 24rpx;
   box-sizing: border-box;
@@ -158,7 +158,7 @@ export default {
 }
 
 .au-updater-modal-title {
-  text-align: center;
+  text-align: left;
   font-size: 34rpx;
   color: #333;
   padding: 10rpx 0;
@@ -174,7 +174,7 @@ export default {
 
   text {
     letter-spacing: 1px;
-    line-height: 45rpx;
+    line-height: 50rpx;
     word-break: break-all;
   }
 }
