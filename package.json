@@ -4,10 +4,13 @@
   "description": "uniapp-uview-template",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass:global": "sass --style compressed uniui/src/css/global.scss uniui/src/css/global.css"
   },
   "dependencies": {
     "uview-ui": "^1.8.4"
+  },
+  "devDependencies": {
+    "sass": "^1.42.1"
   },
   "repository": {
     "type": "git",

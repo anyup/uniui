@@ -469,12 +469,14 @@ a {
 
     // 得出：is-mgtb-i
     .is-mgtb-#{$i} {
-      margin: $i * $rate + $unit 0 !important;
+      margin-top: $i * $rate + $unit !important;
+      margin-bottom: $i * $rate + $unit !important;
     }
 
     // 得出：is-mglr-i
     .is-mglr-#{$i} {
-      margin: 0 $i * $rate + $unit 0 !important;
+      margin-left: $i * $rate + $unit !important;
+      margin-right: $i * $rate + $unit !important;
     }
 
     // 得出：is-pd-i
@@ -484,12 +486,14 @@ a {
 
     // 得出：is-pdtb-i
     .is-pdtb-#{$i} {
-      padding: $i * $rate + $unit 0 !important;
+      padding-top: $i * $rate + $unit !important;
+      padding-bottom: $i * $rate + $unit !important;
     }
 
     // 得出：is-pdlr-i
     .is-pdlr-#{$i} {
-      padding: 0 $i * $rate + $unit 0 !important;
+      padding-left: $i * $rate + $unit !important;
+      padding-right: $i * $rate + $unit !important;
     }
 
     @each $short, $long in l left, t top, r right, b bottom {
