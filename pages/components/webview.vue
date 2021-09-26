@@ -1,5 +1,5 @@
 <template>
-  <au-webview src="https://m.jd.com/" />
+  <au-webview src="https://m.baidu.com/" />
 </template>
 
 <script>

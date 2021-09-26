@@ -16,9 +16,9 @@ export default {
       http: new Http(),
       view: '',
       value: {
-        baseURL: '',
-        method: '',
-        header: ''
+        baseURL: 'http://api.demo.com',
+        method: 'get',
+        header: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9'
       },
       list: [
         {
@@ -36,7 +36,7 @@ export default {
         },
         {
           type: 'header',
-          title: '请求header',
+          title: '请求header token',
           layout: 'radio',
           list: ['eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9']
         }

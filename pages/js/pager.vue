@@ -21,7 +21,7 @@ export default {
           type: 'total',
           title: '数据数量',
           layout: 'radio',
-          list: [40, 80, 100]
+          list: [20, 40, 80]
         },
         {
           type: 'limit',
@@ -31,8 +31,8 @@ export default {
         }
       ],
       value: {
-        limit: 10,
-        total: 20
+        total: 20,
+        limit: 10
       },
       pager: {},
       optimize: new Optimize.Builder(2000)
