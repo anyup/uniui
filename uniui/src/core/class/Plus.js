@@ -23,6 +23,10 @@ class Plus {
     let id = this.clientInfo().clientid
     return id == 'null' ? '' : id
   }
+
+  openURL(url) {
+    plus.runtime.openURL(url)
+  }
 }
 
 export { Plus }

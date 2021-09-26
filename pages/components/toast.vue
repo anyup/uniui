@@ -23,7 +23,7 @@ export default {
           type: 'icon',
           title: '提示图标',
           layout: 'radio',
-          list: ['success', 'info', 'fail', 'none']
+          list: ['none', 'success', 'info', 'fail']
         },
         {
           type: 'title',
@@ -48,13 +48,13 @@ export default {
           type: 'position',
           title: '弹窗位置',
           layout: 'radio',
-          list: ['top', 'bottom', 'center']
+          list: ['center', 'top', 'bottom']
         }
       ],
       value: {
-        title: '成功',
-        content: '',
         icon: 'none',
+        title: '操作成功',
+        content: '二级文案1',
         duration: 2000,
         position: 'center'
       }

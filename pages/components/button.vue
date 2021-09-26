@@ -43,27 +43,28 @@ export default {
           type: 'plain',
           title: '镂空',
           layout: 'radio',
-          list: [true, false]
+          list: [false, true]
         },
         {
           type: 'hollow',
           title: '完全镂空',
           tips: '完全镂空为显示底色，即background-color 设置为 transparent',
           layout: 'radio',
-          list: [true, false]
+          list: [false, true]
         },
         {
           type: 'disabled',
           title: '禁用',
           layout: 'radio',
-          list: [true, false]
+          list: [false, true]
         }
       ],
       value: {
-        type: 'primary',
+        type: 'default',
         size: 'default',
         shape: 'square',
         plain: false,
+        hollow: false,
         disabled: false
       }
     }

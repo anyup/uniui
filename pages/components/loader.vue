@@ -1,14 +1,7 @@
 <template>
   <app-layout>
     <config-demo v-model="value" :list="list">
-      <au-loader
-       
-        :show="value.show"
-        :mode="value.mode"
-        :color="value.color"
-        :size="value.size"
-        :width="value.width"
-      />
+      <au-loader :show="value.show" :mode="value.mode" :color="value.color" :size="value.size" :width="value.width" />
     </config-demo>
   </app-layout>
 </template>
@@ -30,21 +23,21 @@ export default {
           title: '动画的颜色',
           tips: '只对 mode = circle 模式有效，默认#8f8d8e',
           layout: 'radio',
-          list: ['#027aff', '#16a98c']
+          list: ['#8f8d8e', '#027aff', '#16a98c']
         },
         {
           type: 'size',
           title: '图标的大小',
           tips: '单位rpx，默认34',
           layout: 'radio',
-          list: [50, 80]
+          list: [34, 50, 80]
         },
         {
           type: 'width',
           title: '宽度',
           tips: '只对 mode = circle 模式有效，默认2px',
           layout: 'radio',
-          list: ['1px', '3px']
+          list: ['1px', '2px', '3px']
         }
       ],
       value: {
@@ -52,7 +45,7 @@ export default {
         mode: 'circle',
         color: '#8f8d8e',
         size: '34',
-        width: '2px'
+        width: '1px'
       }
     }
   }

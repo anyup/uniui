@@ -9,7 +9,8 @@
       :request="request"
       :is-force="value.isForce"
       :modal-title="value.modalTitle"
-      @result="onresult"
+      @result="onResult"
+      @confirm="onConfirm"
     />
   </app-layout>
 </template>
@@ -29,14 +30,14 @@ export default {
           type: 'modalTitle',
           title: '弹出框title',
           layout: 'radio',
-          list: ['版本更新', 'App更新']
+          list: ['发现新版本', '版本更新']
         },
         {
           type: 'isForce',
           title: '强制更新',
           tips: '是否强制更新，如果是，仅显示需隐藏tabbar，不允许关闭弹窗',
           layout: 'radio',
-          list: [true, false]
+          list: [false, true]
         }
       ],
       value: {
@@ -53,7 +54,7 @@ export default {
       )
     },
     // 接口请求成功回调
-    onresult({ data, ref }) {
+    onResult({ data, ref }) {
       /* #ifdef H5 */
       this.$tips.toast('请在真机环境下测试')
       /* #endif */
@@ -62,6 +63,12 @@ export default {
         if (data.isForce) uni.hideTabBar()
         ref.showModal(data.downloadUrl, data.updateNotes)
       }
+      /* #endif */
+    },
+    onConfirm({ ref }) {
+      /* #ifdef H5 */
+      ref.closeModal()
+      this.$tips.toast('请在真机环境下测试', 'info')
       /* #endif */
     }
   }

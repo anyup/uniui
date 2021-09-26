@@ -1,6 +1,12 @@
 <template>
   <view @touchmove.stop.prevent>
-    <view class="au-updater-modal-box" :class="[modalVisible ? 'au-updater-modal-normal' : 'au-updater-modal-scale', modalVisible ? 'au-updater-modal-show' : '']">
+    <view
+      class="au-updater-modal-box"
+      :class="[
+        modalVisible ? 'au-updater-modal-normal' : 'au-updater-modal-scale',
+        modalVisible ? 'au-updater-modal-show' : ''
+      ]"
+    >
       <view>
         <view class="au-updater-modal-title">{{ modalTitle }}</view>
         <view class="au-updater-modal-content">
@@ -97,7 +103,10 @@ export default {
     },
     // 确定更新App
     confirmModal() {
+      this.$emit('confirm', { ref: this })
+      /* #ifdef APP-PLUS */
       plus.runtime.openURL(this.downloadUrl)
+      /* #endif */
     },
     // 检测更新
     checkUpdate() {
