@@ -16,7 +16,7 @@ export default {
         {
           type: 'type',
           title: '优化类型（防抖或节流）',
-          tips:'防抖：一定时间内，最后一次操作过设置时间后执行\n节流：一定时间内，只能触发一次',
+          tips: '防抖：一定时间内，最后一次操作过设置时间后执行\n节流：一定时间内，只能触发一次',
           layout: 'radio',
           list: ['debounce', 'throttle']
         },
@@ -25,12 +25,12 @@ export default {
           title: '延迟时间',
           tips: '单位毫秒',
           layout: 'radio',
-          list: [0, 1000, 2000]
+          list: [1, 1000, 2000]
         }
       ],
       value: {
         type: 'debounce',
-        timeout: 0
+        timeout: 1
       },
       times: 0,
       optimize: new Optimize.Builder(0)
