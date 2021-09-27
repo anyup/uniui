@@ -45,9 +45,10 @@ export default {
   methods: {
     submit() {
       new Store().set('userinfo', this.form, 'user/commit')
+      new Store().set('token', '123')
     },
     reset() {
-      new Store().reset('user')
+      new Store().reset(['user'])
     }
   }
 }

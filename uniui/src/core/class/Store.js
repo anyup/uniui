@@ -31,8 +31,12 @@ class Store {
     return this
   }
 
-  reset(namespace) {
-    this.store.commit(`${namespace}/reset`)
+  reset(namespaces = []) {
+    this.store.commit('anyup/reset')
+    namespaces.forEach(namespace => {
+      this.store.commit(`${namespace}/reset`)
+    })
+    return this
   }
 
   getStorage(key, defaultValue) {
@@ -41,12 +45,13 @@ class Store {
     } catch (error) {
     }
   }
-  
+
   removeStorage(key) {
     try {
-      return uni.removeStorageSync(`anyup_${key}`)
+      uni.removeStorageSync(`anyup_${key}`)
     } catch (error) {
     }
+    return this
   }
 
   clearStorage() {
@@ -54,6 +59,7 @@ class Store {
       uni.clearStorageSync()
     } catch (error) {
     }
+    return this
   }
 }
 

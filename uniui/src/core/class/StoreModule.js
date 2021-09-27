@@ -5,12 +5,10 @@
 
 import deepMerge from '../function/deepMerge'
 
-let saveStateKeys = []
-
 // 保存变量到本地存储中
-function saveStorageData(key, value) {
+function saveStorageData(key, value, saveKeys) {
   // 判断变量名是否在需要存储的数组中
-  if (saveStateKeys.indexOf(key) != -1) {
+  if (saveKeys.indexOf(key) != -1) {
     try {
       uni.setStorageSync(`anyup_${key}`, value)
     } catch (error) {
@@ -23,20 +21,19 @@ function getObj(key, value) {
 }
 // 根据数据类型判断返回默认值 数组[],对象{},其他''
 function getDefaultValue(value) {
-  if (!value) {
-    return ''
-  }
   if (Array.isArray(value)) {
     return []
   }
   if (typeof value === 'object') {
     return {}
   }
+  if (typeof value === 'boolean') {
+    return false
+  }
   return ''
 }
 class StoreModule {
   constructor(state, saveKeys = []) {
-    saveStateKeys = saveKeys
     this.namespaced = true
     this.state = state
     this.mutations = {
@@ -60,7 +57,7 @@ class StoreModule {
           state[saveKey] = payload[saveKey]
         }
         // 保存变量到本地，见顶部函数定义
-        saveStorageData(saveKey, state[saveKey])
+        saveStorageData(saveKey, state[saveKey], saveKeys)
       },
       reset(state) {
         // 重置vuex变量
@@ -68,7 +65,7 @@ class StoreModule {
           state[k] = getDefaultValue(state[k])
         }
         // 清空storage变量
-        saveStateKeys.forEach(key => {
+        saveKeys.forEach(key => {
           try {
             uni.removeStorageSync(`anyup_${key}`)
           } catch (error) {
