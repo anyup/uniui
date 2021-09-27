@@ -6,7 +6,7 @@ import Vue from 'vue'
 
 class Store {
   constructor(store) {
-    if (Store.instance) {
+    if (Store.instance && this.store) {
       return Store.instance
     }
     this.store = store || new Vue().$store
@@ -31,9 +31,22 @@ class Store {
     return this
   }
 
-  reset() {
-    this.set('token', '').set('user', {})
-    this.clearStorage()
+  reset(namespace) {
+    this.store.commit(`${namespace}/reset`)
+  }
+
+  getStorage(key, defaultValue) {
+    try {
+      return uni.getStorageSync(`anyup_${key}`) || defaultValue
+    } catch (error) {
+    }
+  }
+  
+  removeStorage(key) {
+    try {
+      return uni.removeStorageSync(`anyup_${key}`)
+    } catch (error) {
+    }
   }
 
   clearStorage() {

@@ -55,6 +55,10 @@
     {
       "path": "pages/js/pager",
       "style": { "navigationBarTitleText": "Pager-分页" }
+    },
+    {
+      "path": "pages/js/store",
+      "style": { "navigationBarTitleText": "Store-状态管理" }
     }
   ],
   "globalStyle": {

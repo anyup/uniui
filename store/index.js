@@ -1,12 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { useStore } from '@/uniui'
+import { useStore, StoreModule, Store } from '@/uniui/index'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
-  modules: useStore.modules(),
-  getters: useStore.getters()
-})
+const store = new Store()
 
-export default store
+const modules = {
+  user: new StoreModule(
+    { userinfo: store.getStorage('userinfo', {}) },
+    ['userinfo']),
+}
+
+export default new Vuex.Store({
+  modules: useStore.modules(modules),
+  getters: useStore.getters(modules)
+})
