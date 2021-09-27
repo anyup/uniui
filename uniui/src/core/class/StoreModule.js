@@ -4,6 +4,7 @@
  */
 
 import deepMerge from '../function/deepMerge'
+import deepClone from '../function/deepClone'
 
 // 保存变量到本地存储中
 function saveStorageData(key, value, saveKeys) {
@@ -50,11 +51,11 @@ class StoreModule {
             obj = getObj([nameArr[i]], obj)
           }
           saveKey = nameArr[0]
-          state[saveKey] = deepMerge(state[saveKey] || {}, obj)
+          state[saveKey] = deepClone(deepMerge(state[saveKey] || {}, obj))
         } else {
           // 单层级变量，在state就是一个普通变量的情况
           saveKey = nameStr
-          state[saveKey] = payload[saveKey]
+          state[saveKey] = deepClone(payload[saveKey])
         }
         // 保存变量到本地，见顶部函数定义
         saveStorageData(saveKey, state[saveKey], saveKeys)
