@@ -33,7 +33,14 @@ class Store {
 
   reset() {
     this.set('token', '').set('user', {})
-    uni.clearStorageSync()
+    this.clearStorage()
+  }
+
+  clearStorage() {
+    try {
+      uni.clearStorageSync()
+    } catch (error) {
+    }
   }
 }
 
