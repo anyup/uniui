@@ -6,8 +6,12 @@
     </config-demo>
     <view class="is-pd-20">
       <u-form :model="form" ref="uForm" :label-width="115">
-        <u-form-item label="姓名"><u-input v-model="form.name" placeholder="请输入姓名(持久化，刷新不丢失)" /></u-form-item>
-        <u-form-item label="昵称"><u-input v-model="form.nickname" placeholder="请输入昵称（未持久化，刷新丢失）" /></u-form-item>
+        <u-form-item label="姓名">
+          <u-input v-model="form.name" placeholder="请输入姓名(持久化，刷新不丢失)" />
+        </u-form-item>
+        <u-form-item label="昵称">
+          <u-input v-model="form.nickname" placeholder="请输入昵称（未持久化，刷新丢失）" />
+        </u-form-item>
       </u-form>
       <view class="is-mgtb-20 is-flex">
         <view class="is-flex-1">
@@ -41,10 +45,14 @@ export default {
       ]
     }
   },
-  onLoad() {},
+  onLoad() {
+    this.form = Object.assign({}, this.g_userinfo || {})
+  },
   methods: {
     submit() {
-      new Store().set('userinfo', this.form, 'user/commit').set('nickname', this.form.nickname, 'user/commit')
+      new Store()
+        .set('userinfo', { name: this.form.name }, 'user/commit')
+        .set('nickname', this.form.nickname, 'user/commit')
     },
     reset() {
       this.form = {
