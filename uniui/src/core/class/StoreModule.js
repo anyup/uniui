@@ -1,8 +1,26 @@
 /**
- * Vuex Store JS Class
+ * Vuex Store JS Class vuex模块类
+ * @author qiaomingxing
  */
+
+import { deepClone } from '../function/deepClone'
+let saveStateKeys = []
+let initState = {}
+
+// 保存变量到本地存储中
+const saveStorageData = function (key, value) {
+  // 判断变量名是否在需要存储的数组中
+  if (saveStateKeys.indexOf(key) != -1) {
+    try {
+      uni.setStorageSync(key, value)
+    } catch (error) {
+    }
+  }
+}
 class StoreModule {
-  constructor(state) {
+  constructor(state, saveKeys = []) {
+    saveStateKeys = saveKeys
+    initState = deepClone(state)
     this.namespaced = true
     this.state = state
     this.mutations = {
@@ -24,11 +42,27 @@ class StoreModule {
           state[nameStr] = payload[nameStr]
           saveKey = nameStr
         }
+        // 保存变量到本地，见顶部函数定义
+        saveStorageData(saveKey, state[saveKey])
+      },
+      reset(state) {
+        // 重置vuex变量
+        state = deepClone(initState)
+        // 清空storage变量
+        saveStateKeys.forEach(key => {
+          try {
+            uni.removeStorageSync(key)
+          } catch (error) {
+          }
+        })
       }
     }
     this.actions = {
       dispatch({ commit }, payload) {
         commit('commit', payload)
+      },
+      reset({ commit }) {
+        commit('reset')
       }
     }
   }
