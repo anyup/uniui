@@ -2,7 +2,7 @@
   <view class="config-demo" :style="height ? `height: ${height};` : ''">
     <view v-if="$slots.default" class="config-demo-item">
       <view class="title is-mgb-20">演示</view>
-      <view class="is-text-center" :style="contentHeight ? `height: ${contentHeight};` : ''">
+      <view :style="{ height: contentHeight, 'text-align': align }">
         <slot />
       </view>
     </view>
@@ -43,11 +43,15 @@ export default {
     },
     height: {
       type: String,
-      default: ''
+      default: 'auto'
     },
     contentHeight: {
       type: String,
       default: ''
+    },
+    align: {
+      type: String,
+      default: 'center'
     }
   },
   data() {

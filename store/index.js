@@ -8,7 +8,7 @@ const store = new Store()
 
 const modules = {
   user: new StoreModule(
-    { userinfo: store.getStorage('userinfo', {}) },
+    { userinfo: store.getStorage('userinfo', {}), nickname: '' },
     ['userinfo']),
 }
 
