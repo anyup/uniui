@@ -1,3 +1,7 @@
+/**
+ * html5+ 工具类
+ * @author qiaomingxing
+ */
 class Plus {
   constructor() {
     if (Plus.instance) {

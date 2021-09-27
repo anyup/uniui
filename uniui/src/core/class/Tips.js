@@ -1,5 +1,6 @@
 /**
  * 公共提示Tips JS工具类
+ * @author qiaomingxing
  */
 import Vue from 'vue'
 
@@ -35,7 +36,7 @@ class Tips {
       this.store.commit('anyup/commit', { toast: {} })
       return
     }
-    this.store.commit('anyup/commit', { toast: { title, icon } })
+    this.store.commit('anyup/commit', { toast: { title, icon, ...options } })
   }
   /**
    * 弹出确认框

@@ -1,3 +1,7 @@
+/**
+ * 优化类
+ * @author qiaomingxing
+ */
 class Builder {
   constructor(delay = 500) {
     this.delay = delay
@@ -27,7 +31,7 @@ class Builder {
 //优化基类
 class Optimize {
   static Builder = Builder
-  constructor() {}
+  constructor() { }
 }
 
 export { Optimize }

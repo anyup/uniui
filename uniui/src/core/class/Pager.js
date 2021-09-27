@@ -1,5 +1,9 @@
 import deepMerge from '../function/deepMerge'
 
+/**
+ * 数据分页类
+ * @author qiaomingxing
+ */
 class Pager {
   constructor(page = 1, limit = 20) {
     this.page = page // 当前页数

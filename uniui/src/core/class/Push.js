@@ -1,3 +1,7 @@
+/**
+ * unipush 个推推送类
+ * @author qiaomingxing
+ */
 class Push {
   constructor(title = '') {
     if (Push.instance) {

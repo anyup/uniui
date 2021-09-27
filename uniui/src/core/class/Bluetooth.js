@@ -1,5 +1,9 @@
 import sleep from '../function/sleep'
 
+/**
+ * 蓝牙工具类
+ * @author qiaomingxing
+ */
 class Bluetooth {
   constructor() {
     this.device = { notify: true }

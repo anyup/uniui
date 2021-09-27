@@ -1,6 +1,9 @@
 import { mapGetters } from 'vuex'
 import Vue from 'vue'
-
+/**
+ * 全局混入工具类
+ * @author qiaomingxing
+ */
 class Mixin {
   constructor(store) {
     this.store = store || new Vue().$store

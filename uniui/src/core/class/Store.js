@@ -1,5 +1,6 @@
 /**
- * Vuex Store JS工具类
+ * Vuex Store JS 操作工具类
+ * @author qiaomingxing
  */
 import Vue from 'vue'
 
