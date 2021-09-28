@@ -31,11 +31,15 @@ class Store {
     return this
   }
 
-  reset(namespaces = []) {
-    this.store.commit('anyup/reset')
-    namespaces.forEach(namespace => {
-      this.store.commit(`${namespace}/reset`)
-    })
+  reset(namespaces = 'anyup') {
+    if (Array.isArray(namespaces)) {
+      namespaces.forEach(namespace => {
+        this.store.commit(`${namespace}/reset`)
+      })
+    }
+    if (typeof namespaces === 'string') {
+      this.store.commit(`${namespaces}/reset`)
+    }
     return this
   }
 

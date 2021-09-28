@@ -40,7 +40,7 @@ export default {
       list: [
         {
           title: '说明',
-          tips: 'vuex store 状态管理，可设置持久化保存数据，刷新不清除'
+          tips: 'vuex store 状态管理，可设置是否持久化保存数据，刷新不清除'
         }
       ]
     }
@@ -59,7 +59,7 @@ export default {
         name: '',
         nickname: ''
       }
-      new Store().reset(['user'])
+      new Store().reset(['user']).reset()
     }
   }
 }
