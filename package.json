@@ -1,7 +1,7 @@
 {
-  "name": "uniapp-uview-template",
+  "name": "uniapp-demo",
   "version": "1.0.0",
-  "description": "uniapp-uview-template",
+  "description": "uniapp-demo",
   "main": "main.js",
   "scripts": {
     "sass:global": "sass --style compressed uniui/src/css/global.scss uniui/src/css/global.css"
@@ -12,15 +12,11 @@
   "devDependencies": {
     "sass": "^1.42.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/qiaomingxing/uniapp-uview-template.git"
-  },
-  "keywords": [],
+  "keywords": [
+    "uniapp",
+    "anyup",
+    "demo"
+  ],
   "author": "qiaomingxing",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/qiaomingxing/uniapp-uview-template/issues"
-  },
-  "homepage": "https://github.com/qiaomingxing/uniapp-uview-template#readme"
+  "license": "MIT"
 }
