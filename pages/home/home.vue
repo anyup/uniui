@@ -1,6 +1,6 @@
 <template>
   <app-layout>
-    <grid-links :list="list"></grid-links>
+    <grid-links v-model="list"></grid-links>
   </app-layout>
 </template>
 

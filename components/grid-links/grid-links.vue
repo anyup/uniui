@@ -3,11 +3,17 @@
     <view class="page_hd">
       <view class="page_desc">
         uniapp demo
-        <u-icon class="toggle_icon" :name="isGrid ? 'grid' : 'list'" color="#999999" size="50" @click="isGrid = !isGrid"></u-icon>
+        <u-icon
+          class="toggle_icon"
+          :name="isGrid ? 'grid' : 'list'"
+          color="#999999"
+          size="50"
+          @click="isGrid = !isGrid"
+        ></u-icon>
       </view>
     </view>
     <view v-if="isGrid" class="page_bd page_bd_spacing">
-      <view v-for="(item, index) in list" :key="index" class="kind-list_item">
+      <view v-for="(item, index) in value" :key="index" class="kind-list_item">
         <view :id="item.icon" class="tui-flex kind-list_item-hd">
           <view class="tui-flex_item">{{ item.name }}</view>
         </view>
@@ -23,7 +29,7 @@
     </view>
     <view v-else class="page_bd page_bd_spacing">
       <view class="kind-list">
-        <block v-for="(item, index) in list" :key="index">
+        <block v-for="(item, index) in value" :key="index">
           <view class="kind-list_item">
             <view
               :id="item.icon"
@@ -56,7 +62,7 @@ import icons from '@/common/icons'
 
 export default {
   props: {
-    list: {
+    value: {
       type: Array,
       default() {
         return []
@@ -70,8 +76,8 @@ export default {
   },
   methods: {
     kindToggle: function (e) {
-      var id = e.currentTarget.id,
-        list = this.list
+      let id = e.currentTarget.id
+      let list = this.value
       for (var i = 0, len = list.length; i < len; ++i) {
         if (list[i].icon == id) {
           list[i].open = !list[i].open
@@ -79,7 +85,7 @@ export default {
           list[i].open = false
         }
       }
-      this.list = list
+      this.$emit('input', list)
     },
     oneIcon(i) {
       let min = i
