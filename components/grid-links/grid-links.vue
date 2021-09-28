@@ -18,11 +18,11 @@
           <view class="tui-flex_item">{{ item.name }}</view>
         </view>
         <u-grid :col="2">
-          <u-grid-item v-for="(page, index2) in item.children" :key="index2">
-            <navigator :url="page.page" class="is-text-center" hover-class="none">
+          <u-grid-item v-for="(page, index2) in item.children" :key="index2" @click="$u.route(page.page)">
+            <view class="is-text-center" hover-class="none">
               <u-icon :name="oneIcon(index2)" :size="46" color="#999999"></u-icon>
               <view class="grid-text">{{ page.name }}</view>
-            </navigator>
+            </view>
           </u-grid-item>
         </u-grid>
       </view>
