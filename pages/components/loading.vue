@@ -20,17 +20,17 @@ export default {
     return {
       list: [
         {
+          type: 'text',
+          title: '文案',
+          layout: 'radio',
+          list: ['加载中', 'loading']
+        },
+        {
           type: 'direction',
           title: '方向',
           tips: '垂直方向或水平方向显示',
           layout: 'radio',
           list: ['veritical', 'horizontal']
-        },
-        {
-          type: 'text',
-          title: '文案',
-          layout: 'radio',
-          list: ['加载中', 'loading']
         },
         {
           type: 'duration',

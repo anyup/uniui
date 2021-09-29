@@ -111,40 +111,41 @@ const checker = {
     let temp_date = new Date(year, parseFloat(month) - 1, parseFloat(day))
     return !(temp_date.getYear() != parseFloat(year) || temp_date.getMonth() != parseFloat(month) - 1 || temp_date.getDate() != parseFloat(day))
   },
+  //金额，只允许保留两位小数
   _isAmount: function (value) {
-    //金额，只允许保留两位小数
     return /^([0-9]*[.]?[0-9])[0-9]{0,1}$/.test(value)
   },
+  //只能为数字
   _isNum: function (value) {
-    //只能为数字
     return /^[0-9]+$/.test(value)
   },
-  _isChinese: function (value) {
+  // 是否为中文
+  _isZh: function (value) {
     let reg = /.*[\u4e00-\u9fa5]+.*$/
     return value !== '' && reg.test(value) && !checker._isSpecial(value) && !checker._isEmoji(value)
   },
-  _isEnglish: function (value) {
+  // 是否问英文
+  _isEn: function (value) {
     return /^[a-zA-Z]*$/.test(value)
   },
-  _isEnAndNo: function (value) {
-    //8~20位数字和字母组合
+  //8~20位数字和字母组合
+  _isEnAndNum: function (value) {
     return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,20}$/.test(value)
   },
-  _isEnOrNo: function (value) {
-    //英文或者数字
+  //英文或者数字
+  _isEnOrNum: function (value, length) {
     let reg = /.*[\u4e00-\u9fa5]+.*$/
     let result = true
     if (reg.test(value) || checker._isSpecial(value) || checker._isEmoji(value)) {
       result = false
     }
+    if (length) {
+      result = value.length === length
+    }
     return result
   },
-  _isEnOrNo20: function (value) {
-    //20位数字或字母
-    return checker._isEnOrNo(value) && value.length === 20
-  },
+  //是否包含特殊字符
   _isSpecial: function (value) {
-    //是否包含特殊字符
     let regEn = /[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im,
       regCn = /[·！#￥（——）：；“”‘、，|《。》？、【】[\]]/im
     if (regEn.test(value) || regCn.test(value)) {
@@ -152,20 +153,20 @@ const checker = {
     }
     return false
   },
-  _isSpecialCn: function (value) {
-    //是否包含中文特殊字符
+  //是否包含中文特殊字符
+  _isSpecialZh: function (value) {
     let regCn = /[·！#￥（——）：；“”‘、，|《。》？、【】[\]]/im
     if (regCn.test(value)) {
       return true
     }
     return false
   },
+  //是否包含表情
   _isEmoji: function (value) {
-    //是否包含表情
     return /\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g.test(value)
   },
+  //2019-10-12
   _isDate: function (value) {
-    //2019-10-12
     const reg =
       /^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/
     return reg.test(value)
