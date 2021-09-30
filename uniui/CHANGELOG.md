@@ -1,3 +1,10 @@
+## 0.0.28
+
+### BREAKING CHANGES
+
+- 优化 Pager 类分页模式，添加setType(type) 0:总页数分页 1:总数量分页，影响 hasMore() loadmore()方法，无入参，hasMore()方法内部自动page++，无需自己递增
+
+---
 ## 0.0.27
 
 ### Bug Fixes
