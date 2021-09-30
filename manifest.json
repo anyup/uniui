@@ -133,7 +133,7 @@
         "template" : "template.h5.html",
         "router" : {
             "mode" : "hash",
-            "base" : "/uniui-demo-preview/"
+            "base" : "./"
         },
         "optimization" : {
             "treeShaking" : {
