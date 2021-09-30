@@ -81,7 +81,21 @@ class Http {
     }
     // 如果是上传文件
     if (options.method === 'upload') {
-      return this.upload(url, data, options)
+      url = url && url.indexOf('http') !== 0 ? options.baseURL + url : url
+      return new Promise((resolve, reject) => {
+        uni.uploadFile({
+          url,
+          filePath: data.filePath,
+          name: data.name,
+          formData: data.formData || {},
+          success(res) {
+            resolve(res)
+          },
+          fail(e) {
+            reject(e)
+          }
+        })
+      })
     }
     // 拦截器处理
     let interceptors = this.interceptors
@@ -178,25 +192,6 @@ class Http {
       })
     })
   }
-  // 上传文件
-  upload(url, data = { path: '', name: 'file' }, options = {}) {
-    // 拼接url
-    url = url && url.indexOf('http') !== 0 ? options.baseURL + url : url
-    return new Promise((resolve, reject) => {
-      uni.uploadFile({
-        url,
-        filePath: data.path,
-        name: data.name,
-        formData: options.formData || {},
-        success(res) {
-          resolve(res)
-        },
-        fail(e) {
-          reject(e)
-        }
-      })
-    })
-  }
   all(promises) {
     return Promise.all(promises)
   }
@@ -207,7 +202,7 @@ class Http {
   }
 }
 
-;['get', 'post', 'put', 'patch', 'head', 'delete'].forEach(e => {
+;['get', 'post', 'put', 'patch', 'head', 'delete', 'upload'].forEach(e => {
   Http.prototype[e] = function (url, data, option) {
     return this.request(url, data, merge({ method: e }, option))
   }
