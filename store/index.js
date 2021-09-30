@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { useStore, StoreModule, Store } from '@/uniui/index'
+import { useStore, StoreModule, Store } from '@/uniui/index.js'
 
 Vue.use(Vuex)
 

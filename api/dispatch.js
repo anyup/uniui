@@ -1,4 +1,4 @@
-import { Http, Tips, Store, Optimize } from '@/uniui'
+import { Http, Tips, Store, Optimize } from '@/uniui/index.js'
 import { baseURL, routeURL, isWhiteList } from '@/config'
 
 const header = {}

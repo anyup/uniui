@@ -65,6 +65,16 @@ class Pager {
     return this
   }
 
+  reset(page = 1, limit = 20) {
+    this.page = page // 当前页数
+    this.limit = limit // 每页数量
+    this.pages = 0 // 总页数
+    this.total = 0 // 总数量
+    this.data = [] // 数据
+    // this.type = this.type // 分页模式 0:总页数分页，1:总数量分页
+    return this
+  }
+
   pagePlus() {
     this.page++
     return this

@@ -5,14 +5,14 @@
       <scroll-view v-else scroll-y style="height: 300rpx" @scrolltolower="lower">
         <view v-for="item in pager.data" :key="item" class="is-bordertb is-pd-10">第{{ item }}条数据</view>
         <u-gap height="40" bg-color=""></u-gap>
-        <u-loadmore :status="pager.loadmore(true)" />
+        <u-loadmore :status="pager.loadmore()" />
       </scroll-view>
     </config-demo>
   </app-layout>
 </template>
 
 <script>
-import { Pager, Optimize } from '@/uniui'
+import { Pager, Optimize } from '@/uniui/index.js'
 export default {
   data() {
     return {
@@ -39,7 +39,7 @@ export default {
     }
   },
   onLoad() {
-    this.pager = new Pager(1, this.value.limit)
+    this.pager = new Pager(1, this.value.limit).setType(1)
     this.getList()
   },
   methods: {
@@ -52,13 +52,13 @@ export default {
     },
     lower() {
       this.optimize.throttle(() => {
-        if (this.pager.hasMore(true)) {
+        if (this.pager.hasMore()) {
           this.getList()
         }
       })
     },
     change() {
-      this.pager = new Pager(1, this.value.limit)
+      this.pager.reset(1, this.value.limit)
       this.getList()
     }
   }

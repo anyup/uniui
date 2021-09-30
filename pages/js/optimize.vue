@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { Pager, Optimize } from '@/uniui'
+import { Pager, Optimize } from '@/uniui/index.js'
 export default {
   data() {
     return {

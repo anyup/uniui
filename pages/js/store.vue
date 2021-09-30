@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { Store } from '@/uniui/index'
+import { Store } from '@/uniui/index.js'
 const store = new Store()
 
 export default {

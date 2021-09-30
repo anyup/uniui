@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { checker } from '@/uniui'
+import { checker } from '@/uniui/index.js'
 
 export default {
   data() {

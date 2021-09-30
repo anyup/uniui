@@ -24,7 +24,7 @@ Vue.prototype.$env = env
 Vue.prototype.$wxapi = wxapi
 
 // anyup start
-import uniUI from '@/uniui'
+import uniUI from '@/uniui/index.js'
 Vue.use(uniUI)
 // anyup end
 

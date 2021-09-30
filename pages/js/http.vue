@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { Http } from '@/uniui'
+import { Http } from '@/uniui/index.js'
 
 export default {
   data() {
