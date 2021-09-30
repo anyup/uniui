@@ -6,7 +6,7 @@
   "pages": [
     {
       "path": "pages/home/home",
-      "style": {"navigationBarTitleText": "首页"  }
+      "style": {"navigationBarTitleText": "AnyupUI Demo 演示"  }
     },
     {
       "path": "pages/components/layout",
@@ -67,7 +67,7 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uniui",
+    "navigationBarTitleText": "AnyupUI Demo 演示",
     "navigationBarBackgroundColor": "#ffffff",
     "backgroundColor": "#ffffff",
     "navigationStyle": "default",
