@@ -129,11 +129,11 @@
         "enable" : false
     },
     "h5" : {
-        "title" : "uniui",
+        "title" : "uniui-demo-preview",
         "template" : "template.h5.html",
         "router" : {
             "mode" : "hash",
-            "base" : "/"
+            "base" : "/uniui-demo-preview/"
         },
         "optimization" : {
             "treeShaking" : {
