@@ -11,6 +11,7 @@ class Pager {
     this.pages = 0 // 总页数
     this.total = 0 // 总数量
     this.data = [] // 数据
+    this.type = 0 // 分页模式 0:总页数分页，1:总数量分页
   }
 
   get offset() {
@@ -25,6 +26,11 @@ class Pager {
       return isEmptyObject(this.data)
     }
     return this.data.length === 0
+  }
+
+  setType(type) {
+    this.type = type
+    return this
   }
 
   setPage(page) {
@@ -69,17 +75,21 @@ class Pager {
     return this
   }
 
-  hasMore(offset = false) {
-    if (offset) {
-      return this.offset < this.total
+  hasMore() {
+    let hasMore = false
+    if (this.type == 1) {
+      hasMore = this.offset < this.total
+    } else {
+      hasMore = this.page < this.pages
     }
-    return this.page < this.pages
+    if (hasMore) this.page++
+    return hasMore
   }
 
   // 加载状态: more,loading,noMore
-  loadmore(offset = false) {
+  loadmore() {
     let status = ''
-    if (offset) {
+    if (this.type == 1) {
       if (this.total <= this.limit) {
         status = ''
       } else if (this.offset >= this.total) {
