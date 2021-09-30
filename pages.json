@@ -59,6 +59,10 @@
     {
       "path": "pages/js/store",
       "style": { "navigationBarTitleText": "Store-状态管理" }
+    },
+    {
+      "path": "pages/js/tips",
+      "style": { "navigationBarTitleText": "Tips-提示" }
     }
   ],
   "globalStyle": {

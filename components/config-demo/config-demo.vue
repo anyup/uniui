@@ -1,8 +1,9 @@
 <template>
   <view class="config-demo" :style="height ? `height: ${height};` : ''">
-    <view v-if="$slots.default" class="config-demo-item">
-      <view class="title is-mgb-20">演示</view>
-      <view :style="{ height: contentHeight, 'text-align': align }">
+    <view v-if="tips || $slots.default" class="config-demo-item">
+      <view class="title">{{ title }}</view>
+      <text v-if="tips" class="tips">{{ tips }}</text>
+      <view class="is-mgt-10" :style="{ height: contentHeight, 'text-align': align }">
         <slot />
       </view>
     </view>
@@ -22,6 +23,16 @@
           {{ item2 | _yn }}
         </u-radio>
       </u-radio-group>
+      <view v-else-if="item.layout === 'button'">
+        <au-button
+          v-for="(item2, index2) in item.list"
+          :key="index2"
+          type="primary"
+          @click="$emit('btn-click', { type: item.type, index: index2 })"
+        >
+          {{ item2 }}
+        </au-button>
+      </view>
     </view>
   </view>
 </template>
@@ -34,6 +45,14 @@ export default {
       default() {
         return
       }
+    },
+    title: {
+      type: String,
+      default: '演示'
+    },
+    tips: {
+      type: String,
+      default: ''
     },
     list: {
       type: Array,
@@ -98,7 +117,7 @@ export default {
     .tips {
       display: block;
       color: $u-type-error;
-      padding: 10rpx 0;
+      padding: 10rpx 0 20rpx 0;
       font-size: 24rpx;
     }
   }
