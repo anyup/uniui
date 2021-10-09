@@ -117,14 +117,6 @@ export default [
       },
       {
         icon: '',
-        id: 33,
-        level: 2,
-        name: '全局混入',
-        open: false,
-        page: '/pages/js/mixin',
-      },
-      {
-        icon: '',
         id: 34,
         level: 2,
         name: '优化类',
