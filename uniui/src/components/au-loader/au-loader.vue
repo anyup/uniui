@@ -56,8 +56,6 @@ export default {
       style.height = this.size + 'rpx'
       if (this.mode == 'circle') {
         style.borderLeftColor = this.color
-        style.borderRightColor = this.color
-        style.borderBottomColor = this.color
         style.borderWidth = this.width
       }
       return style
@@ -79,7 +77,7 @@ export default {
   background: 0 0;
   border-radius: 50%;
   border: 3px solid;
-  border-color: #ffffff #8f8d8e #8f8d8e #8f8d8e;
+  border-color: #e5e5e5 #e5e5e5 #e5e5e5 #8f8d8e;
   animation: au-circle 1s linear infinite;
 }
 

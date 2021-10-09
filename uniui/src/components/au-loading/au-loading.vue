@@ -109,7 +109,7 @@ export default {
   font-size: 30rpx;
   color: #fff;
   background: rgba(0, 0, 0, 0.7);
-  border-radius: 10rpx;
+  border-radius: 7px;
   &.horizontal {
     flex-direction: row;
     align-items: center;
@@ -134,7 +134,7 @@ export default {
   width: 60rpx;
   height: 60rpx;
   border: 3px solid #fff;
-  border-color: #ffffff #8f8d8e #8f8d8e #8f8d8e;
+  border-color: #8f8d8e #8f8d8e #8f8d8e #ffffff;
   border-radius: 50%;
   margin: 0 6px;
   display: inline-block;
