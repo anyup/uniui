@@ -10,7 +10,7 @@ import { Store } from './src/core/class/Store'
 import { StoreModule } from './src/core/class/StoreModule'
 import { Tips } from './src/core/class/Tips'
 
-import useStore from './src/store/useStore'
+import useStore from './src/core/store/useStore'
 import checker from './src/core/checker/checker'
 
 // function
