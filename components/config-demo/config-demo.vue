@@ -18,6 +18,7 @@
           v-for="(item2, index2) in item.list"
           :key="index2"
           :name="item2 | _yn"
+          active-color="#0098dd"
           @change="radioChange(item.type, item2)"
         >
           {{ item2 | _yn }}
