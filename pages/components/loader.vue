@@ -1,6 +1,6 @@
 <template>
   <app-layout>
-    <config-demo v-model="value" :list="list">
+    <config-demo v-model="value" :list="list" content-height="100rpx">
       <au-loader :show="value.show" :mode="value.mode" :color="value.color" :size="value.size" :width="value.width" />
     </config-demo>
   </app-layout>
