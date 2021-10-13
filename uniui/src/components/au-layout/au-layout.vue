@@ -1,5 +1,5 @@
 <template>
-  <view class="au-layout" :style="[styles]" @click="clickWrapper">
+  <view class="au-layout au-layout-clearfix" :style="[styles]" @click="clickWrapper">
     <slot v-if="pageShow"></slot>
     <!-- loading -->
     <au-loading :show="loadingShow" :text="loadingText" @cancel="$emit('cancel-loading')" />
@@ -121,6 +121,16 @@ export default {
   min-height: 100%;
   box-sizing: border-box;
   color: $is-main-color;
-  border: 1px solid transparent;
+
+  &.au-layout-clearfix:before,
+  &.au-layout-clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  &.au-layout-clearfix {
+    zoom: 1;
+  }
 }
 </style>
