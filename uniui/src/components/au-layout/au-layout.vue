@@ -1,5 +1,5 @@
 <template>
-  <view class="au-layout au-layout-clearfix" :style="[styles]" @click="clickWrapper">
+  <view class="au-layout" :class="{ 'au-layout-clearfix': clearfix }" :style="[styles]" @click="clickWrapper">
     <slot v-if="pageShow"></slot>
     <!-- loading -->
     <au-loading :show="loadingShow" :text="loadingText" @cancel="$emit('cancel-loading')" />
@@ -19,6 +19,10 @@ export default {
   name: 'au-layout',
   components: {},
   props: {
+    clearfix: {
+      type: Boolean,
+      default: true
+    },
     // 是否显示页面
     pageShow: {
       type: Boolean,
