@@ -4,6 +4,10 @@
 
 - 优化 Pager 类分页模式，添加setType(type) 0:总页数分页 1:总数量分页，影响 hasMore() loadmore()方法，无入参，hasMore()方法内部自动page++，无需自己递增
 
+### Bug Fixes
+
+- 优化layout样式，配置clearfix样式，优化margin陷阱样式
+
 ---
 ## 0.0.27
 
