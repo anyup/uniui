@@ -21,7 +21,7 @@
 
 ### BREAKING CHANGES
 
-- 优化 Pager empty, 仅保留 empty 方法
+- 优化 Pager empty, 仅保留 empty() 方法
 - 优化 Loading 组件参数，统一 visible 修改为 show
 
 ---
