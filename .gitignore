@@ -23,6 +23,8 @@ bin-release/
 
 dist/
 rev/
+sign/
+unpackage/
 
 # pageage
 package-lock.json

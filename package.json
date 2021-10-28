@@ -4,7 +4,8 @@
   "description": "uniapp-demo",
   "main": "main.js",
   "scripts": {
-    "sass:global": "sass --style compressed uniui/src/css/global.scss uniui/src/css/global.css"
+    "sass:global": "sass --style compressed uniui/src/css/global.scss uniui/src/css/global.css",
+    "build:h5:release": "cross-env NODE_ENV=release UNI_PLATFORM=h5 UNI_OUTPUT_DIR=dist/release/h5 vue-cli-service uni-build --mode release"
   },
   "dependencies": {
     "uview-ui": "^1.8.4"
