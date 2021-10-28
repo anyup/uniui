@@ -12,8 +12,6 @@
   🌈 <a href="https://anyup.cn/">文档网站（国外源）</a>
 </p>
 
----
-
 ### 介绍
 
 anyup uniui，是uni-app项目的最佳实践框架，包含最佳的组件实现和便捷的工具类封装。
@@ -61,18 +59,19 @@ anyup 支持按需引用、单独引用等方式，详细说明见 [快速上手
 
 可以手机扫码以下二维码访问手机端 demo：
 
-<span style="display:inline-block">
+<div style="display:inline-block">
   <img src="/public/images/qr_wx.png" width="220" height="220" >
   <p align="center">微信小程序</p>
-</span>
-<span style="display:inline-block">
+</div>
+<div style="display:inline-block">
   <img src="/public/images/qr_h5.png" width="220" height="220" >
   <p align="center">网页H5</p>
-</span>
-<span style="display:inline-block">
+</div>
+<div style="display:inline-block">
   <img src="/public/images/qr_android.png" width="220" height="220" >
   <p align="center">安卓</p>
-</span>
+</div>
+
 
 
 ## 开源协议
