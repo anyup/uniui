@@ -24,13 +24,11 @@ anyup uniui，是uni-app项目的最佳实践框架，包含最佳的组件实�
 ## 安装
 
 ```bash
-
 // 安装
 npm install @anyup/uniui -S
 
 // 更新
 npm update @anyup/uniui
-
 ```
 
 ## 快速上手
