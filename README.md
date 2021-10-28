@@ -59,19 +59,11 @@ anyup 支持按需引用、单独引用等方式，详细说明见 [快速上手
 
 可以手机扫码以下二维码访问手机端 demo：
 
-<div align="center" style="display:inline-block">
-  <img src="/public/images/qr_wx.png" width="220" height="220" >
-  <div>微信小程序</div>
-</div>
-<div align="center" style="display:inline-block">
-  <img src="/public/images/qr_h5.png" width="220" height="220" >
-  <div>网页H5</div>
-</div>
-<div align="center" style="display:inline-block">
-  <img src="/public/images/qr_android.png" width="220" height="220" >
-  <div>安卓</div>
-</div>
+<img src="/public/images/qr_wx.png" width="220" height="220" >
 
+<img src="/public/images/qr_h5.png" width="220" height="220" >
+
+<img src="/public/images/qr_android.png" width="220" height="220" >
 
 ## 开源协议
 
