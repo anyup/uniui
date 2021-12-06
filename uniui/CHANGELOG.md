@@ -1,3 +1,10 @@
+## 0.0.29
+
+### Features
+
+- 优化 Pager 获取 offset 逻辑，兼容各种模式
+- 新增 Pager 内部方法 resetData
+
 ## 0.0.28
 
 ### BREAKING CHANGES
