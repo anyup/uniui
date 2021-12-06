@@ -18,7 +18,8 @@ class Pager {
     if (isObject(this.data)) {
       return 0
     }
-    return this.data.length
+    // return this.data.length;
+    return (this.page - 1) * this.limit;
   }
 
   empty() {
@@ -54,6 +55,10 @@ class Pager {
     }
     return this
   }
+
+  resetData(data) {
+		return this.setData(data, true);
+	}
 
   setPages(pages) {
     this.pages = pages
