@@ -10,7 +10,7 @@
     "dev": "set NODE_ENV=development&&rollup -c -w",
     "build": "npm run clean && set NODE_ENV=production&&rollup -c",
     "pub": "npm publish --access=public",
-    "unpub": "npm unpublish @anyup/uniui@0.0.19"
+    "unpub": "npm unpublish @anyup/uniui@version"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19.0.0",
