@@ -1,15 +1,15 @@
 {
   "name": "@anyup/uniui",
-  "version": "0.0.29",
+  "version": "1.0.0",
   "description": "uniapp UI library",
   "main": "dist/anyup.cjs.js",
   "module": "dist/anyup.esm.js",
   "browser": "dist/anyup.umd.js",
   "scripts": {
     "clean": "rimraf ./dist",
-    "clean:libs": "rimraf ./dist",
+    "clean:ext": "rimraf ./ext",
     "dev": "set NODE_ENV=development&&rollup -c -w",
-    "build": "npm run clean && npm run clean:libs && set NODE_ENV=production && rollup -c",
+    "build": "npm run clean && npm run clean:ext && set NODE_ENV=production && rollup -c",
     "publish": "npm publish --access=public",
     "publish:revert": "npm unpublish @anyup/uniui@version"
   },

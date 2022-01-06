@@ -1,12 +1,12 @@
 // 引入公共基础类
-@import './src/css/global.scss';
+@import './libs/css/global.scss';
 
 // 小程序特有的样式
 /* #ifdef MP */
-@import "./src/css/style.mp.scss";
+@import "./libs/css/style.mp.scss";
 /* #endif */
 
 // H5特有的样式
 /* #ifdef H5 */
-@import "./src/css/style.h5.scss";
+@import "./libs/css/style.h5.scss";
 /* #endif */

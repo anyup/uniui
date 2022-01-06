@@ -87,7 +87,7 @@
  * @example <au-button>月落</au-button>
  */
 
-import { Optimize } from '../../core/class/Optimize'
+import { Optimize } from '../../libs/core/class/Optimize'
 
 export default {
   name: 'au-button',
@@ -366,7 +366,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../../css/mixin.scss';
+@import '../../libs/css/mixin.scss';
 
 .au-btn::after {
   border: none;

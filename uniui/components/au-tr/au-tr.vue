@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../css/mixin.scss';
+@import '../../libs/css/mixin.scss';
 
 .au-tr {
   @include vue-flex;

@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { Http } from '../../../index'
+import { Http } from '../../libs/core/class/Http'
 
 export default {
   name: 'au-updater',

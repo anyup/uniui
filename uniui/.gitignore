@@ -23,7 +23,7 @@ bin-release/
 
 dist/
 rev/
-libs/
+ext/
 
 # pageage
 package-lock.json

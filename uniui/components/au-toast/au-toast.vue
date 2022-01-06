@@ -97,7 +97,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../css/iconfont.css';
+@import '../../libs/css/iconfont.css';
 
 .au-toast {
   background: rgba(0, 0, 0, 0.75);

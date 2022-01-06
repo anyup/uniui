@@ -22,8 +22,9 @@ export default [
       isDevelopment ? serve() : uglify({}, minify),
       copy({
         targets: [
-          { src: 'src/*', dest: `libs/${libVersion}/src` },
-          { src: ['index.js', 'index.scss', 'theme.scss', 'u.theme.scss'], dest: `libs/${libVersion}` }
+          { src: 'components/*', dest: `ext/${libVersion}/components/anyup-uniui/components` },
+          { src: 'libs/*', dest: `ext/${libVersion}/components/anyup-uniui/libs` },
+          { src: ['index.js', 'index.scss', 'theme.scss', 'u.theme.scss'], dest: `ext/${libVersion}/components/anyup-uniui` }
         ]
       })
     ]

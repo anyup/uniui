@@ -1,3 +1,22 @@
+## 1.0.0
+
+### Features
+
+- 正式发布
+- 部分常用插件及常用工具
+- 项目最佳实践，低代码开发项目
+
+### BREAKING CHANGES
+
+- 相比0.x版本，优化目录结构src->libs，easycom 配置路径修改为`^au-(.*)": "@anyup/uniui/components/au-$1/au-$1.vue`
+
+### Features
+
+- 优化 Pager 获取 offset 逻辑，兼容各种模式
+- 新增 Pager 内部方法 resetData
+
+## 0.0.28
+
 ## 0.0.29
 
 ### Features
