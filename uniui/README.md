@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="logo" src="/public/images/logo.png" width="120" style="margin-bottom: 10px;">
+    <img alt="logo" src="https://static.anyup.cn/anyup/images/logo2.png" width="120" style="margin-bottom: 10px;">
 </p>
 
 <h1 align="center">anyup design</h1>
