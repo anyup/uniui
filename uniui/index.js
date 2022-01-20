@@ -15,6 +15,7 @@ import checker from './libs/core/checker/checker'
 
 // function
 import $parent from './libs/core/function/$parent'
+import { formatTime, pastTime, getDate } from './libs/core/function/datetime'
 import debounce from './libs/core/function/debounce'
 import deepClone from './libs/core/function/deepClone'
 import deepMerge from './libs/core/function/deepMerge'
@@ -25,14 +26,15 @@ import queryParams from './libs/core/function/queryParams'
 import random from './libs/core/function/random'
 import route from './libs/core/function/route'
 import sleep from './libs/core/function/sleep'
-import { sys, os } from './libs/core/function/sys'
+import { sys, os, isAndroid, isIOS } from './libs/core/function/sys'
 import throttle from './libs/core/function/throttle'
-import timeFormat from './libs/core/function/timeFormat'
-import timeFrom from './libs/core/function/timeFrom'
 import trim from './libs/core/function/trim'
 
 const _u = {
   $parent,
+  formatTime, 
+  pastTime, 
+  getDate,
   debounce,
   deepClone,
   deepMerge,
@@ -45,9 +47,9 @@ const _u = {
   sleep,
   sys,
   os,
+  isAndroid,
+  isIOS,
   throttle,
-  timeFormat,
-  timeFrom,
   trim,
   plus: new Plus()
 }

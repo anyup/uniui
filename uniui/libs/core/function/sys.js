@@ -5,3 +5,11 @@ export function os() {
 export function sys() {
   return uni.getSystemInfoSync()
 }
+
+export function isAndroid() {
+  return uni.getSystemInfoSync().platform === 'android'
+}
+
+export function isIOS() {
+  return uni.getSystemInfoSync().platform === 'ios'
+}
