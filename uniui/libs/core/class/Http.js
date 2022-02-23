@@ -21,7 +21,54 @@ class HttpHeader {
   }
 }
 
+class Builder {
+  constructor(http) {
+    this.http = http;
+  }
+  // url分发模块
+  dispatch(urls) {
+    let obj = {};
+    // 类似api
+    Object.keys(urls).forEach((name) => {
+      obj[name] = this.use.bind(this, urls[name]);
+    });
+    return obj;
+  }
+  /**
+   * 发送请求
+   * @param {*} name : url 名称
+   * @param {*} urlConfig : url 配置
+   * @param {*} config : 开放配置
+   */
+  use(urlConfig, payload, config = {}) {
+    let url = config.url || urlConfig.url;
+    let append = config.append || '';
+    url = url + append;
+    let data = {};
+    let params = {};
+    let method = config.method || urlConfig.method || 'get'; // 请求类型，get,post,put,delete
+    // const async = config.async || false; // 是否异步
+    // 默认回调
+    const defaultFn = (res) => {
+      return res;
+    };
+    // 成功回调
+    const successFn = config.success || defaultFn;
+    // 回调
+    const callbackFn = function (res) {
+      return successFn(res, defaultFn);
+    };
+    if (method.toUpperCase() === 'GET') {
+      params = payload;
+    } else {
+      data = payload;
+    }
+    return this.http.request({ url, method, params, data }).then(callbackFn);
+  }
+}
+
 class Http {
+  static Builder = Builder;
   constructor() {
     this.config = {
       baseURL: '',
@@ -30,9 +77,9 @@ class Http {
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
-      success() {},
-      fail() {},
-      complete() {}
+      success() { },
+      fail() { },
+      complete() { }
     }
     this.interceptors = {
       response: {
@@ -207,6 +254,7 @@ class Http {
     return this.request(url, data, merge({ method: e }, option))
   }
 })
+
 ;['lock', 'unlock', 'clear'].forEach(e => {
   Http.prototype[e] = function () {
     this.interceptors.request[e]()
