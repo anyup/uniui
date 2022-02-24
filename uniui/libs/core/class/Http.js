@@ -23,16 +23,16 @@ class HttpHeader {
 
 class Builder {
   constructor(http) {
-    this.http = http;
+    this.http = http
   }
   // url分发模块
   dispatch(urls) {
-    let obj = {};
+    let obj = {}
     // 类似api
-    Object.keys(urls).forEach((name) => {
-      obj[name] = this.use.bind(this, urls[name]);
-    });
-    return obj;
+    Object.keys(urls).forEach(name => {
+      obj[name] = this.use.bind(this, urls[name])
+    })
+    return obj
   }
   /**
    * 发送请求
@@ -40,35 +40,28 @@ class Builder {
    * @param {*} urlConfig : url 配置
    * @param {*} config : 开放配置
    */
-  use(urlConfig, payload, config = {}) {
-    let url = config.url || urlConfig.url;
-    let append = config.append || '';
-    url = url + append;
-    let data = {};
-    let params = {};
-    let method = config.method || urlConfig.method || 'get'; // 请求类型，get,post,put,delete
+  use(urlConfig, data, config = {}) {
+    let url = config.url || urlConfig.url
+    // 设置append为拼接url，restful请求方式常用
+    let append = config.append || ''
+    url = url + append
     // const async = config.async || false; // 是否异步
     // 默认回调
-    const defaultFn = (res) => {
-      return res;
-    };
+    const defaultFn = res => {
+      return res
+    }
     // 成功回调
-    const successFn = config.success || defaultFn;
+    const successFn = config.success || defaultFn
     // 回调
     const callbackFn = function (res) {
-      return successFn(res, defaultFn);
-    };
-    if (method.toUpperCase() === 'GET') {
-      params = payload;
-    } else {
-      data = payload;
+      return successFn(res, defaultFn)
     }
-    return this.http.request({ url, method, params, data }).then(callbackFn);
+    return this.http.request(url, data, { ...urlConfig, ...config }).then(callbackFn)
   }
 }
 
 class Http {
-  static Builder = Builder;
+  static Builder = Builder
   constructor() {
     this.config = {
       baseURL: '',
@@ -77,15 +70,16 @@ class Http {
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
-      success() { },
-      fail() { },
-      complete() { }
+      success() {},
+      fail() {},
+      complete() {}
     }
     this.interceptors = {
       response: {
-        use(handler, onerror) {
+        use(handler, onerror, complete) {
           this.handler = handler
           this.onerror = onerror
+          this.complete = complete
         }
       },
       request: {
@@ -116,11 +110,17 @@ class Http {
   }
   request(url, data, options) {
     if (!options) options = {}
+    // 请求URL
     options.url = url
+    // 请求baseURL：优先级为：实时传递的 > 公共配置的
     options.baseURL = options.baseURL !== undefined ? options.baseURL : this.config.baseURL
+    // 请求头：合并公共配置与实时设置的header， 且优先级实时设置会覆盖公共配置的
     options.header = { ...this.config.header, ...options.header }
+    // 请求方式：优先级为：实时传递的 > 公共配置的
     options.method = options.method || this.config.method
+    // 数据格式：默认json
     options.dataType = options.dataType || this.config.dataType
+    // 请求体：优先级为：实时传递的 > 公共配置的
     if (isArray(data)) {
       options.data = data
     } else {
@@ -174,10 +174,6 @@ class Http {
       function onresult(handler, response, type) {
         enqueueIfLocked(responseInterceptor.p, function () {
           if (handler) {
-            //如果失败，添加请求信息
-            if (type !== 0) {
-              response.request = options
-            }
             // 统一添加请求信息
             response.request = options
             let ret = handler.call(responseInterceptor, response, Promise)
@@ -196,17 +192,20 @@ class Http {
         })
       }
 
-      function onerror(e) {
-        onresult(responseInterceptor.onerror, e, -1)
-      }
-
       options.complete = response => {
         let statusCode = response.statusCode
+        let type = 0
         if ((statusCode >= 200 && statusCode < 300) || statusCode === 304) {
-          onresult(responseInterceptor.handler, response, 0)
+          // 请求成功
+          type = 0
+          onresult(responseInterceptor.handler, response, type)
         } else {
-          onerror(response)
+          // 请求错误
+          type = -1
+          onresult(responseInterceptor.onerror, response, type)
         }
+        // 请求完成，无论请求成功、失败都会走的回调
+        onresult(responseInterceptor.complete, response, type)
       }
 
       enqueueIfLocked(requestInterceptor.p, () => {
@@ -254,7 +253,6 @@ class Http {
     return this.request(url, data, merge({ method: e }, option))
   }
 })
-
 ;['lock', 'unlock', 'clear'].forEach(e => {
   Http.prototype[e] = function () {
     this.interceptors.request[e]()
