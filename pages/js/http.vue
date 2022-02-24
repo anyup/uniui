@@ -2,7 +2,7 @@
   <app-layout>
     <config-demo v-model="value" :list="list">
       <app-button type="primary" @click="request">发起请求</app-button>
-      <view class="json">{{view}}</view>
+      <view class="json">{{ view }}</view>
     </config-demo>
   </app-layout>
 </template>
@@ -50,7 +50,7 @@ export default {
     request() {
       const config = this.$u.deepClone(this.value)
       config.header = { token: config.header }
-      this.http.request('/test', {}, config)
+      this.http.get('/test', { name: '123' }, config)
     },
     setInterceptor() {
       // 请求前
@@ -68,6 +68,9 @@ export default {
         },
         error => {
           return Promise.reject(error)
+        },
+        complete => {
+          console.log('请求完成：', complete)
         }
       )
     }
