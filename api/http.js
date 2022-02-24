@@ -53,6 +53,9 @@ http.interceptors.response.use(
 		}
 		let statusMessage = messages[~~statusCode]
 		return Promise.reject(statusMessage ? new Error(statusMessage) : error)
+	},
+	complete => {
+		console.log('complete：', complete)
 	}
 )
 

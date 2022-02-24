@@ -70,7 +70,7 @@ export default {
           return Promise.reject(error)
         },
         complete => {
-          console.log('请求完成：', complete)
+          console.log('complete', complete)
         }
       )
     }
