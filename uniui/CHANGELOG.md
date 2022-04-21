@@ -3,6 +3,7 @@
 ### Features
 
 - 优化 工具类方法
+- 新增 apis服务器选择组件
 ## 1.0.0
 
 ### Features
