@@ -1,12 +1,13 @@
 // @import '../../theme.scss';
+// @import './mixin.scss';
+
 // 定义变量
 $rate: 2;
 $unit: rpx;
-$min: 0;
-$max: 100;
-$step: 1;
+$min: 1;
+$max: 80;
 // 宽度
-$width-min: 0;
+$width-min: 10;
 $width-max: 100;
 $width-step: 10;
 // 字体
@@ -14,15 +15,106 @@ $font-min: 12;
 $font-max: 40;
 $font-step: 1;
 // 圆角
-$radius-min: 0;
+$radius-min: 2;
 $radius-max: 10;
-$radius-step: 1;
+$radius-step: 2;
 
-.is-page-wrapper {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  overflow-y: auto;
+/* 颜色 */
+$type: 'white', 'primary', 'success', 'warning', 'error';
+$main: #ffffff, $is-type-primary, $is-type-success, $is-type-warning, $is-type-error;
+
+@for $i from 1 through length($type) {
+  @include add-type-color(nth($type, $i), nth($main, $i));
+}
+
+/*字体大小*/
+@for $i from $font-min through $font-max {
+  @if $i % $font-step == 0 {
+    .is-font-#{$i} {
+      width: $i * $rate + $unit;
+    }
+  }
+}
+
+/*页面宽度*/
+@for $i from $width-min through $width-max {
+  // 只要能被10除尽的数
+  @if $i % $width-step == 0 {
+    .is-width-#{$i} {
+      width: $i + 0%;
+    }
+
+    .is-width-#{$i}px {
+      width: $i * $rate + $unit;
+    }
+  }
+}
+
+/* 圆角 is-radius-1, is-radius-top-1 */
+@for $i from $radius-min through $radius-max {
+  @if $i % $radius-step == 0 {
+    .is-radius-#{$i} {
+      border-radius: $i + px;
+    }
+
+    .is-radius-top-#{$i} {
+      border-top-left-radius: $i + px;
+      border-top-right-radius: $i + px;
+    }
+  }
+}
+
+// 定义内外边距
+@for $i from $min through $max {
+  // 只要双数和能被5除尽的数
+  @if $i % 2 == 0 or $i % 5 == 0 {
+    // 得出：is-mg-i
+    .is-mg-#{$i} {
+      margin: $i * $rate + $unit;
+    }
+
+    // 得出：is-mgtb-i
+    .is-mgtb-#{$i} {
+      margin-top: $i * $rate + $unit;
+      margin-bottom: $i * $rate + $unit;
+    }
+
+    // 得出：is-mglr-i
+    .is-mglr-#{$i} {
+      margin-left: $i * $rate + $unit;
+      margin-right: $i * $rate + $unit;
+    }
+
+    // 得出：is-pd-i
+    .is-pd-#{$i} {
+      padding: $i * $rate + $unit;
+    }
+
+    // 得出：is-pdtb-i
+    .is-pdtb-#{$i} {
+      padding-top: $i * $rate + $unit;
+      padding-bottom: $i * $rate + $unit;
+    }
+
+    // 得出：is-pdlr-i
+    .is-pdlr-#{$i} {
+      padding-left: $i * $rate + $unit;
+      padding-right: $i * $rate + $unit;
+    }
+
+    @each $short, $long in l left, t top, r right, b bottom {
+      // 缩写版，结果如： is-mgl-i
+      // 定义外边距
+      .is-mg#{$short}-#{$i} {
+        margin-#{$long}: $i * $rate + $unit;
+      }
+
+      // 定义内边距
+      .is-pd#{$short}-#{$i} {
+        padding-#{$long}: $i * $rate + $unit;
+      }
+    }
+  }
 }
 
 /* 盒子模型 */
@@ -102,32 +194,7 @@ $radius-step: 1;
   margin: 0 auto;
 }
 
-/* 颜色 */
-.is-white {
-  color: #fff;
-}
-
-.is-bg-white {
-  background-color: #fff;
-}
-
 /* 字体 */
-.is-font-normal {
-  font-weight: normal;
-}
-
-.is-font-light {
-  font-weight: 300;
-}
-
-.is-font-bold {
-  font-weight: 700;
-}
-
-.is-font-italic {
-  font-style: italic;
-}
-
 .is-text-left {
   text-align: left;
 }
@@ -138,10 +205,6 @@ $radius-step: 1;
 
 .is-text-center {
   text-align: center;
-}
-
-.is-text-underline {
-  text-decoration: underline;
 }
 
 /* start--文本行数限制--start */
@@ -179,63 +242,6 @@ $radius-step: 1;
 }
 
 /* end--文本行数限制--end */
-
-/* 元素*/
-/* 模拟 a 的点击效果 */
-a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  text-decoration: none;
-}
-
-.is-a {
-  text-decoration: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  color: inherit;
-}
-
-.is-a:active {
-  background-color: #ececec;
-}
-.is-p {
-  font-size: 32 + $unit;
-  color: $is-main-color;
-  line-height: 2;
-  margin-bottom: 30 + $unit;
-  text-align: justify;
-}
-
-.is-h1,
-.is-h2,
-.is-h3,
-.is-h4,
-.is-h5,
-.is-h6 {
-  color: $is-main-color;
-  font-weight: normal;
-}
-
-/*字体大小*/
-@for $i from $font-min through $font-max {
-  @if $i % $font-step == 0 {
-    .is-font-#{$i} {
-      width: $i * $rate + $unit !important;
-    }
-  }
-}
-
-/*页面宽度*/
-@for $i from $width-min through $width-max {
-  // 只要能被10除尽的数
-  @if $i % $width-step == 0 {
-    .is-width-#{$i} {
-      width: $i + 0% !important;
-    }
-
-    .is-width-#{$i}px {
-      width: $i * $rate + $unit !important;
-    }
-  }
-}
 
 /* 位置 定位 */
 .is-floatr {
@@ -282,25 +288,6 @@ a {
 .is-badge-border {
   border: 1px solid $is-border-color;
   padding: 6 + $unit 6 + $unit;
-}
-
-/* 圆角 border-radius */
-.is-radius {
-  border-radius: 8px;
-}
-
-/* 圆角 is-radius-1, is-radius-top-1 */
-@for $i from $radius-min through $radius-max {
-  @if $i % $radius-step == 0 {
-    .is-radius-#{$i} {
-      border-radius: $i + px;
-    }
-
-    .is-radius-top-#{$i} {
-      border-top-left-radius: $i + px;
-      border-top-right-radius: $i + px;
-    }
-  }
 }
 
 /* 边框 border 1px */
@@ -456,176 +443,5 @@ a {
     height: 300%;
     -webkit-transform: scale(0.3333);
     border-radius: 12px;
-  }
-}
-
-// 定义内外边距，历遍1-80
-@for $i from $min through $max {
-  @if $i % $step == 0 {
-    // 得出：is-mg-i
-    .is-mg-#{$i} {
-      margin: $i * $rate + $unit !important;
-    }
-
-    // 得出：is-mgtb-i
-    .is-mgtb-#{$i} {
-      margin-top: $i * $rate + $unit !important;
-      margin-bottom: $i * $rate + $unit !important;
-    }
-
-    // 得出：is-mglr-i
-    .is-mglr-#{$i} {
-      margin-left: $i * $rate + $unit !important;
-      margin-right: $i * $rate + $unit !important;
-    }
-
-    // 得出：is-pd-i
-    .is-pd-#{$i} {
-      padding: $i * $rate + $unit !important;
-    }
-
-    // 得出：is-pdtb-i
-    .is-pdtb-#{$i} {
-      padding-top: $i * $rate + $unit !important;
-      padding-bottom: $i * $rate + $unit !important;
-    }
-
-    // 得出：is-pdlr-i
-    .is-pdlr-#{$i} {
-      padding-left: $i * $rate + $unit !important;
-      padding-right: $i * $rate + $unit !important;
-    }
-
-    @each $short, $long in l left, t top, r right, b bottom {
-      // 缩写版，结果如： is-mgl-i
-      // 定义外边距
-      .is-mg#{$short}-#{$i} {
-        margin-#{$long}: $i * $rate + $unit !important;
-      }
-
-      // 定义内边距
-      .is-pd#{$short}-#{$i} {
-        padding-#{$long}: $i * $rate + $unit !important;
-      }
-    }
-  }
-}
-
-/* start 按钮  */
-.is-btn {
-  display: block;
-  position: relative;
-  text-align: center;
-  background-color: #fff;
-  color: $is-main-color;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  border-radius: 6 + $unit;
-  text-decoration: none;
-  padding: 32 + $unit;
-  font-size: 34 + $unit;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.15s;
-  border: 1px solid #fff;
-
-  &::after {
-    border: none;
-  }
-
-  &.medium {
-    display: inline-block;
-    padding: 20 + $unit;
-    font-size: 30 + $unit;
-    min-width: 280 + $unit;
-  }
-
-  &.mini {
-    display: inline-block;
-    padding: 10 + $unit 20 + $unit;
-    font-size: 24 + $unit;
-  }
-
-  &.circle {
-    border-radius: 100 + $unit;
-  }
-
-  &.disabled {
-    border: 0;
-    color: #bbb;
-    background: #e9ebec;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-  }
-
-  &:not(.disabled):not(:disabled):active,
-  &.active {
-    opacity: 0.7;
-  }
-
-  &.primary {
-    color: #ffffff;
-    border-color: $is-type-primary;
-    background-color: $is-type-primary;
-    &.disabled {
-      color: #ffffff !important;
-      border-color: $is-type-primary-disabled !important;
-      background-color: $is-type-primary-disabled !important;
-    }
-    &.plain {
-      color: $is-type-primary !important;
-      border-color: $is-type-primary-disabled !important;
-      background-color: $is-type-primary-light !important;
-    }
-  }
-
-  &.success {
-    color: #ffffff;
-    border-color: $is-type-success;
-    background-color: $is-type-success;
-    &.disabled {
-      color: #ffffff !important;
-      border-color: $is-type-success-disabled !important;
-      background-color: $is-type-success-disabled !important;
-    }
-    &.plain {
-      color: $is-type-success !important;
-      border-color: $is-type-success-disabled !important;
-      background-color: $is-type-success-light !important;
-    }
-  }
-
-  &.error {
-    color: #ffffff;
-    border-color: $is-type-error;
-    background-color: $is-type-error;
-    &.disabled {
-      color: #ffffff !important;
-      border-color: $is-type-error-disabled !important;
-      background-color: $is-type-error-disabled !important;
-    }
-    &.plain {
-      color: $is-type-error !important;
-      border-color: $is-type-error-disabled !important;
-      background-color: $is-type-error-light !important;
-    }
-  }
-
-  &.warning {
-    color: #ffffff;
-    border-color: $is-type-warning;
-    background-color: $is-type-warning;
-    &.disabled {
-      color: #ffffff !important;
-      border-color: $is-type-warning-disabled !important;
-      background-color: $is-type-warning-disabled !important;
-    }
-    &.plain {
-      color: $is-type-warning !important;
-      border-color: $is-type-warning-disabled !important;
-      background-color: $is-type-warning-light !important;
-    }
   }
 }

@@ -498,4 +498,10 @@ export default {
   -webkit-appearance: none;
 }
 /* end--去除webkit的默认样式--end */
+
+.is-line-1 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 </style>

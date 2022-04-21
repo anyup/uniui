@@ -50,3 +50,13 @@
     background-color: $dark !important;
   }
 }
+
+@mixin add-type-color($type, $main) {
+  .is-bg-#{$type} {
+    background-color: $main;
+  }
+
+  .is-#{$type} {
+    color: $main;
+  }
+}

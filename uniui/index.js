@@ -32,8 +32,8 @@ import trim from './libs/core/function/trim'
 
 const _u = {
   $parent,
-  formatTime, 
-  pastTime, 
+  formatTime,
+  pastTime,
   getDate,
   debounce,
   deepClone,
@@ -54,15 +54,30 @@ const _u = {
   plus: new Plus()
 }
 
-const install = Vue => {
+const install = (Vue, { store } = {}) => {
   Vue.prototype.$_u = _u
-  if (Vue.prototype.$store) {
-    Vue.mixin(new Mixin(Vue.prototype.$store).init())
-    Vue.prototype.$tips = new Tips(Vue.prototype.$store)
-    Vue.prototype.$_u.store = new Store(Vue.prototype.$store)
+  if (store) {
+    Vue.mixin(new Mixin(store).init())
+    Vue.prototype.$tips = new Tips(store)
+    Vue.prototype.$_u.store = new Store(store)
   }
 }
 
-export { Bluetooth, HttpHeader, Http, Mixin, Optimize, Pager, Plus, Push, Store, StoreModule, Tips, checker, useStore, _u }
+export {
+  Bluetooth,
+  HttpHeader,
+  Http,
+  Mixin,
+  Optimize,
+  Pager,
+  Plus,
+  Push,
+  Store,
+  StoreModule,
+  Tips,
+  checker,
+  useStore,
+  _u
+}
 
 export default { install }

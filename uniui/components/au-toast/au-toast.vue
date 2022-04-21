@@ -167,4 +167,13 @@ export default {
   line-height: 40rpx !important;
   font-size: 32rpx !important;
 }
+
+.is-line-3 {
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; // 弹性伸缩盒
+  -webkit-box-orient: vertical; // 设置伸缩盒子元素排列方式
+  -webkit-line-clamp: 3;
+}
 </style>

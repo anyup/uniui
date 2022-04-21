@@ -194,4 +194,8 @@ export default {
   align-items: center;
   justify-content: space-around;
 }
+
+.is-text-left {
+  text-align: left;
+}
 </style>
