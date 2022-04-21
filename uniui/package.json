@@ -1,6 +1,6 @@
 {
   "name": "@anyup/uniui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "uniapp UI library",
   "main": "dist/anyup.cjs.js",
   "module": "dist/anyup.esm.js",
