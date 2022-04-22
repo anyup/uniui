@@ -10,6 +10,9 @@ import filters from './filters'
 import uView from 'uview-ui'
 Vue.use(uView)
 
+import uniUI from '@/uniui/index.js'
+Vue.use(uniUI, { store })
+
 // 将过滤器注册到全局使用
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
@@ -22,11 +25,6 @@ Vue.prototype.$api = api
 Vue.prototype.$utils = utils
 Vue.prototype.$env = env
 Vue.prototype.$wxapi = wxapi
-
-// anyup start
-import uniUI from '@/uniui/index.js'
-Vue.use(uniUI)
-// anyup end
 
 App.mpType = 'app'
 

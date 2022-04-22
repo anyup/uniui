@@ -51,6 +51,7 @@
   }
 }
 
+// 生成主题色 .is-
 @mixin add-type-color($type, $main) {
   .is-bg-#{$type} {
     background-color: $main;
