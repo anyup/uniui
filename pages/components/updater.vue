@@ -50,7 +50,7 @@ export default {
     testShow() {
       this.$refs.updater.showModal(
         'http://anyup.gitee.io/uniui-docs-web/',
-        '检测到新版本：v3.0.0\n1.新增功能模块\n2.优化已知问题'
+        '1.新增功能模块\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题'
       )
     },
     // 接口请求成功回调

@@ -7,19 +7,25 @@
         modalVisible ? 'au-updater-modal-show' : ''
       ]"
     >
-      <view>
-        <view class="au-updater-modal-title">{{ modalTitle }}</view>
-        <view class="au-updater-modal-content">
+      <image class="au-updater-modal-bg" src="../../static/images/updater/bg.png"></image>
+      <view class="au-updater-modal-container">
+        <scroll-view scroll-y :scroll-top="0" class="au-updater-modal-content">
           <view class="is-text-left">
             <text>{{ modalContent }}</text>
           </view>
-        </view>
+        </scroll-view>
         <view v-if="$slots.btn" class="au-updater-modal-btn-box">
           <slot name="btn"></slot>
         </view>
         <view v-else class="au-updater-modal-btn-box">
-          <au-button v-if="!isForce" type="default" size="default" @click="closeModal">{{ cancelText }}</au-button>
-          <au-button type="primary" size="default" @click="confirmModal">{{ confirmText }}</au-button>
+          <view v-if="!isForce" class="is-mgr-10 is-flex-1">
+            <au-button shape="circle" type="default" size="default" @click="closeModal">
+              {{ cancelText }}
+            </au-button>
+          </view>
+          <view class="is-flex-1">
+            <au-button type="primary" shape="circle" size="default" @click="confirmModal">{{ confirmText }}</au-button>
+          </view>
         </view>
       </view>
     </view>
@@ -50,6 +56,10 @@ export default {
       }
     },
     isForce: {
+      type: Boolean,
+      default: false
+    },
+    isHot: {
       type: Boolean,
       default: false
     },
@@ -113,6 +123,22 @@ export default {
       this.http.request(this.request.url, this.request.params, { method: this.request.method }).then(res => {
         this.$emit('result', { data: res, ref: this })
       })
+    },
+    hotInstall(tempPath) {
+      //热更新
+      plus.runtime.install(
+        tempPath,
+        { force: false },
+        function () {
+          // 安装成功
+          setTimeout(() => {
+            plus.runtime.restart()
+          }, 100)
+        },
+        function (e) {
+          // 安装失败
+        }
+      )
     }
   }
 }
@@ -124,15 +150,58 @@ export default {
   left: 50%;
   top: 50%;
   margin: auto;
-  background: #fff;
+  // background: #fff;
   z-index: 9999998;
   transition: all 0.3s ease-in-out;
   opacity: 0;
-  width: 90%;
-  padding: 40rpx 64rpx;
+  width: 638rpx;
+  height: 848rpx;
   border-radius: 24rpx;
   box-sizing: border-box;
   visibility: hidden;
+}
+
+.au-updater-modal-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.au-updater-modal-container {
+  width: 100%;
+  bottom: 0;
+  padding: 40rpx 60rpx 30rpx 60rpx;
+  min-height: 58%;
+  max-height: 100%;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.au-updater-modal-content {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  margin: 30rpx 0;
+  flex: 1;
+  max-height: 300rpx;
+  display: flex;
+  align-items: center;
+
+  text {
+    letter-spacing: 1px;
+    line-height: 50rpx;
+    word-break: break-all;
+  }
+}
+
+.au-updater-modal-btn-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .au-updater-modal-scale {
@@ -164,35 +233,6 @@ export default {
 .au-updater-mask-show {
   visibility: visible;
   opacity: 1;
-}
-
-.au-updater-modal-title {
-  text-align: left;
-  font-size: 34rpx;
-  color: #333;
-  padding: 10rpx 0;
-  font-weight: bold;
-}
-
-.au-updater-modal-content {
-  text-align: center;
-  color: #999;
-  font-size: 28rpx;
-  padding-top: 20rpx;
-  padding-bottom: 40rpx;
-
-  text {
-    letter-spacing: 1px;
-    line-height: 50rpx;
-    word-break: break-all;
-  }
-}
-
-.au-updater-modal-btn-box {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .is-text-left {
