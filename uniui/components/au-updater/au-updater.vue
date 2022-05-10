@@ -10,22 +10,31 @@
       <image class="au-updater-modal-bg" src="../../static/images/updater/bg.png"></image>
       <view class="au-updater-modal-container">
         <scroll-view scroll-y :scroll-top="0" class="au-updater-modal-content">
-          <view class="is-text-left">
+          <view v-if="flag !== 0" class="is-flex is-align-center is-justify-center">
+            <au-circle-progress type="primary" :percent="percent">
+              <view class="is-flex is-align-center is-justify-center">
+                <text>下载中</text>
+              </view>
+            </au-circle-progress>
+          </view>
+          <view v-else class="is-text-left">
             <text>{{ modalContent }}</text>
           </view>
         </scroll-view>
-        <view v-if="flag !== 0" class="is-mgb-10"><progress :percent="percent" stroke-width="3" /></view>
-        <view v-else-if="$slots.btn" class="au-updater-modal-btn-box">
+
+        <view v-if="$slots.btn" class="au-updater-modal-btn-box">
           <slot name="btn"></slot>
         </view>
         <view v-else class="au-updater-modal-btn-box">
-          <view v-if="!isForce" class="is-mgr-10 is-flex-1">
+          <view v-if="!force" class="is-mgr-10 is-flex-1">
             <au-button shape="circle" type="default" size="default" @click="closeModal">
               {{ cancelText }}
             </au-button>
           </view>
           <view class="is-flex-1">
-            <au-button type="primary" shape="circle" size="default" @click="confirmModal">{{ confirmText }}</au-button>
+            <au-button :disabled="flag === 2" type="primary" shape="circle" size="default" @click="confirmModal">
+              {{ confirmText }}
+            </au-button>
           </view>
         </view>
       </view>
@@ -37,10 +46,11 @@
 <script>
 import { Http } from '../../libs/core/class/Http'
 import { Downloader } from '../../libs/core/class/Downloader'
+import auCircleProgress from '../au-circle-progress/au-circle-progress.vue'
 
 export default {
   name: 'au-updater',
-  components: {},
+  components: { auCircleProgress },
   props: {
     auto: {
       type: Boolean,
@@ -57,7 +67,7 @@ export default {
         }
       }
     },
-    isForce: {
+    force: {
       type: Boolean,
       default: false
     },
@@ -106,7 +116,7 @@ export default {
   methods: {
     // 遮层点击事件
     maskClick() {
-      if (this.isForce) return
+      if (this.force) return
       if (!this.maskClosable) return
       this.closeModal()
     },
@@ -140,6 +150,10 @@ export default {
         const data = Array.isArray(this.request) ? values : values[0]
         this.$emit('result', { data, ref: this })
       })
+    },
+    // 静默更新
+    slientUpdate(url) {
+      this.download(url)
     },
     // 下载包
     download(url) {
