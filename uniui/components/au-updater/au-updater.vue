@@ -135,7 +135,7 @@ export default {
     confirmModal() {
       this.$emit('confirm', { url: this.downloadUrl, ref: this })
       if (this.isHot) {
-        this.download(this.downloadUrl)
+        this.hotUpdate(this.downloadUrl)
         return
       }
     },
@@ -151,8 +151,8 @@ export default {
         this.$emit('result', { data, ref: this })
       })
     },
-    // 静默更新
-    slientUpdate(url) {
+    // 热更新
+    hotUpdate(url) {
       this.download(url)
     },
     // 下载包
