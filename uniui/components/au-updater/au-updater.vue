@@ -14,7 +14,8 @@
             <text>{{ modalContent }}</text>
           </view>
         </scroll-view>
-        <view v-if="$slots.btn" class="au-updater-modal-btn-box">
+        <view v-if="flag !== 0" class="is-mgb-10"><progress :percent="percent" stroke-width="3" /></view>
+        <view v-else-if="$slots.btn" class="au-updater-modal-btn-box">
           <slot name="btn"></slot>
         </view>
         <view v-else class="au-updater-modal-btn-box">
@@ -35,6 +36,7 @@
 
 <script>
 import { Http } from '../../libs/core/class/Http'
+import { Downloader } from '../../libs/core/class/Downloader'
 
 export default {
   name: 'au-updater',
@@ -45,7 +47,7 @@ export default {
       default: false
     },
     request: {
-      type: Object,
+      type: [Object, Array],
       default() {
         return {
           header: '',
@@ -56,10 +58,6 @@ export default {
       }
     },
     isForce: {
-      type: Boolean,
-      default: false
-    },
-    isHot: {
       type: Boolean,
       default: false
     },
@@ -85,11 +83,22 @@ export default {
       modalVisible: false,
       modalContent: '',
       downloadUrl: '',
-      versionCode: ''
+      versionCode: '',
+      isHot: false,
+      http: [],
+      percent: 0, // 下载百分比
+      flag: 0 // -1.下载失败，1.下载完成，2.下载中
+    }
+  },
+  computed: {
+    requests() {
+      return Array.isArray(this.request) ? this.request : [this.request]
     }
   },
   mounted() {
-    this.http = new Http().setHeader(this.request.header)
+    this.requests.forEach(r => {
+      this.http.push(new Http().setHeader(r.header))
+    })
     if (this.auto) {
       this.checkUpdate()
     }
@@ -102,9 +111,10 @@ export default {
       this.closeModal()
     },
     // 显示弹窗
-    showModal(downloadUrl, modalContent = '发现新版本') {
-      this.downloadUrl = downloadUrl
-      this.modalContent = modalContent
+    showModal({ url, content, isHot }) {
+      this.downloadUrl = url
+      this.modalContent = content
+      this.isHot = isHot
       this.modalVisible = true
     },
     // 隐藏更新弹窗
@@ -113,30 +123,54 @@ export default {
     },
     // 确定更新App
     confirmModal() {
-      this.$emit('confirm', { ref: this })
-      /* #ifdef APP-PLUS */
-      plus.runtime.openURL(this.downloadUrl)
-      /* #endif */
+      this.$emit('confirm', { url: this.downloadUrl, ref: this })
+      if (this.isHot) {
+        this.download(this.downloadUrl)
+        return
+      }
     },
     // 检测更新
     checkUpdate() {
-      this.http.request(this.request.url, this.request.params, { method: this.request.method }).then(res => {
-        this.$emit('result', { data: res, ref: this })
+      let promises = []
+      this.requests.forEach((r, i) => {
+        const { url, params, method } = r
+        promises.push(this.http[i].request(url, params, { method }))
+      })
+      Promise.all(promises).then(values => {
+        const data = Array.isArray(this.request) ? values : values[0]
+        this.$emit('result', { data, ref: this })
       })
     },
+    // 下载包
+    download(url) {
+      this.flag = 2
+      new Downloader.Builder(url).start({
+        success: filePath => {
+          this.flag = 1
+          this.hotInstall(filePath)
+        },
+        fail: err => {
+          this.flag = -1
+          this.$emit('error', err)
+        },
+        progress: p => {
+          this.percent = p
+        }
+      })
+    },
+    //热更新
     hotInstall(tempPath) {
-      //热更新
       plus.runtime.install(
         tempPath,
-        { force: false },
+        { force: true },
         function () {
-          // 安装成功
           setTimeout(() => {
             plus.runtime.restart()
           }, 100)
         },
         function (e) {
           // 安装失败
+          this.$emit('error', e)
         }
       )
     }

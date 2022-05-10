@@ -8,14 +8,14 @@ class Builder {
 		this.tempFilePath = null
 	}
 
-	start({ url, success, fail, progress }) {
+	start({ success, fail, progress }) {
 		if (this.tempFilePath) {
 			progress(100)
 			return success(this.tempFilePath)
 		}
 		let percent = 0
 		uni.downloadFile({
-			url: url,
+			url: this.url,
 			success: (res) => {
 				if (res.statusCode === 200) {
 					progress(100)
@@ -25,8 +25,8 @@ class Builder {
 					fail()
 				}
 			},
-			fail: () => {
-				fail()
+			fail: (e) => {
+				fail(e)
 			}
 		}).onProgressUpdate((res) => {
 			if (percent !== res.progress) {
