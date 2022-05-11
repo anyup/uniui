@@ -8,12 +8,16 @@
       ]"
     >
       <image class="au-updater-modal-bg" src="../../static/images/updater/bg.png"></image>
+      <view class="au-updater-modal-title">
+        <view>{{ modalTitle }}</view>
+        <text v-if="versionName">{{ versionName }}</text>
+      </view>
       <view class="au-updater-modal-container">
         <scroll-view scroll-y :scroll-top="0" class="au-updater-modal-content">
           <view v-if="flag !== 0" class="is-flex is-align-center is-justify-center">
             <au-circle-progress type="primary" :percent="percent">
               <view class="is-flex is-align-center is-justify-center">
-                <text>下载中</text>
+                <text class="auicon-iconfont auicon-iconfont-dowanload-cloud"></text>
               </view>
             </au-circle-progress>
           </view>
@@ -94,6 +98,7 @@ export default {
       modalContent: '',
       downloadUrl: '',
       versionCode: '',
+      versionName: '',
       isHot: false,
       http: [],
       percent: 0, // 下载百分比
@@ -121,10 +126,11 @@ export default {
       this.closeModal()
     },
     // 显示弹窗
-    showModal({ url, content, isHot }) {
+    showModal({ url, content, isHot, versionName }) {
       this.downloadUrl = url
       this.modalContent = content
       this.isHot = isHot
+      this.versionName = versionName
       this.modalVisible = true
     },
     // 隐藏更新弹窗
@@ -161,6 +167,7 @@ export default {
       new Downloader.Builder(url).start({
         success: filePath => {
           this.flag = 1
+          this.percent = 100
           this.hotInstall(filePath)
         },
         fail: err => {
@@ -193,50 +200,62 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../libs/css/iconfont.css';
+
 .au-updater-modal-box {
   position: fixed;
   left: 50%;
   top: 50%;
   margin: auto;
-  // background: #fff;
+  background: #fff;
   z-index: 9999998;
   transition: all 0.3s ease-in-out;
   opacity: 0;
-  width: 638rpx;
-  height: 848rpx;
-  border-radius: 24rpx;
+  width: 600rpx;
+  border-radius: 12px;
   box-sizing: border-box;
   visibility: hidden;
 }
 
 .au-updater-modal-bg {
-  width: 100%;
-  height: 100%;
+  width: 600rpx;
+  height: 332rpx;
+  border-radius: 12px;
   position: absolute;
-  z-index: 1;
+}
+
+.au-updater-modal-title {
+  position: absolute;
+  color: #fff;
+  top: 60rpx;
+  left: 40rpx;
+
+  view {
+    font-size: 50rpx;
+  }
+  text {
+    display: block;
+    font-size: 30rpx;
+    padding: 20rpx 10rpx;
+  }
 }
 
 .au-updater-modal-container {
   width: 100%;
-  bottom: 0;
-  padding: 40rpx 60rpx 30rpx 60rpx;
-  min-height: 58%;
-  max-height: 100%;
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
 }
 
 .au-updater-modal-content {
   text-align: center;
   color: #999;
   font-size: 28rpx;
-  margin: 30rpx 0;
-  flex: 1;
-  max-height: 300rpx;
   display: flex;
   align-items: center;
+  margin-top: 340rpx;
+  margin-bottom: 110rpx;
+  min-height: 250rpx;
+  max-height: 400rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
 
   text {
     letter-spacing: 1px;
@@ -246,10 +265,18 @@ export default {
 }
 
 .au-updater-modal-btn-box {
+  position: absolute;
+  bottom: 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 20rpx;
+}
+
+.auicon-iconfont-dowanload-cloud {
+  font-size: 60rpx;
+  color: $is-type-primary;
 }
 
 .au-updater-modal-scale {
