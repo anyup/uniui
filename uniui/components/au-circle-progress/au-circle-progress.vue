@@ -19,7 +19,6 @@
     ></canvas>
     <canvas
       class="au-canvas"
-      :class="['au-canvas--' + type]"
       :canvas-id="elId"
       :id="elId"
       :style="{
@@ -46,6 +45,7 @@
  * @example <au-circle-progress active-color="#2979ff" :percent="80"></au-circle-progress>
  */
 import guid from '../../libs/core/function/guid'
+import color from '../../libs/core/function/color'
 
 export default {
   name: 'au-circle-progress',
@@ -134,9 +134,10 @@ export default {
   },
   computed: {
     // 有type主题时，优先起作用
-    circleColor() {
-      return this.activeColor
-    }
+		circleColor() {
+			if (['success', 'error', 'info', 'primary', 'warning'].indexOf(this.type) >= 0) return color[this.type];
+			else return this.activeColor;
+		}
   },
   mounted() {
     // 在h5端，必须要做一点延时才起作用，this.$nextTick()无效(HX2.4.7)
@@ -215,13 +216,13 @@ export default {
     color: $is-type-primary;
   }
   &--warning {
-    color: $is-type-primary;
+    color: $is-type-warning;
   }
   &--success {
-    color: $is-type-primary;
+    color: $is-type-success;
   }
   &--error {
-    color: $is-type-primary;
+    color: $is-type-error;
   }
 }
 

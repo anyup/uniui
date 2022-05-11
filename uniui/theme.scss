@@ -32,3 +32,11 @@ $is-border-color: #e4e7ed;
 $is-bg-color: #f3f4f6;
 $is-form-item-border-color: #dcdfe6;
 $is-form-item-height: 70rpx;
+
+:export {
+  primary: $is-type-primary;
+  warning: $is-type-warning;
+  success: $is-type-success;
+  error: $is-type-error;
+  info: $is-type-info;
+}

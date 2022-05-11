@@ -15,6 +15,7 @@ import checker from './libs/core/checker/checker'
 
 // function
 import $parent from './libs/core/function/$parent'
+import color from './libs/core/function/color'
 import { formatTime, pastTime, getDate } from './libs/core/function/datetime'
 import debounce from './libs/core/function/debounce'
 import deepClone from './libs/core/function/deepClone'
@@ -32,6 +33,7 @@ import trim from './libs/core/function/trim'
 
 const _u = {
   $parent,
+  color,
   formatTime,
   pastTime,
   getDate,
