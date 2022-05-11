@@ -110,6 +110,15 @@ export default {
       return Array.isArray(this.request) ? this.request : [this.request]
     }
   },
+  watch: {
+    modalVisible(newValue, oldValue) {
+      if (newValue) {
+        if (this.force) uni.hideTabBar()
+      } else {
+        uni.showTabBar()
+      }
+    }
+  },
   mounted() {
     this.requests.forEach(r => {
       this.http.push(new Http().setHeader(r.header))
@@ -251,8 +260,8 @@ export default {
   display: flex;
   align-items: center;
   margin-top: 340rpx;
-  margin-bottom: 110rpx;
-  min-height: 250rpx;
+  margin-bottom: 130rpx;
+  min-height: 280rpx;
   max-height: 400rpx;
   padding: 0 30rpx;
   box-sizing: border-box;
@@ -271,7 +280,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 20rpx;
+  padding: 40rpx;
 }
 
 .auicon-iconfont-dowanload-cloud {

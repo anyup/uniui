@@ -134,10 +134,11 @@ export default {
   },
   computed: {
     // 有type主题时，优先起作用
-		circleColor() {
-			if (['success', 'error', 'info', 'primary', 'warning'].indexOf(this.type) >= 0) return color[this.type];
-			else return this.activeColor;
-		}
+    circleColor() {
+      if (['success', 'error', 'info', 'primary', 'warning'].indexOf(this.type) >= 0)
+        return color[this.type] || this.activeColor
+      else return this.activeColor
+    }
   },
   mounted() {
     // 在h5端，必须要做一点延时才起作用，this.$nextTick()无效(HX2.4.7)
