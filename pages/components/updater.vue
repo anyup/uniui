@@ -48,10 +48,12 @@ export default {
   },
   methods: {
     testShow() {
-      this.$refs.updater.showModal(
-        'http://anyup.gitee.io/uniui-docs-web/',
-        '1.新增功能模块\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题\n2.优化已知问题'
-      )
+      this.$refs.updater.showModal({
+        url: 'http://anyup.gitee.io/uniui-docs-web/',
+        content:
+          '1.新增功能模块\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化',
+        versionName: '1.1.9'
+      })
     },
     // 接口请求成功回调
     onResult({ data, ref }) {
@@ -60,8 +62,12 @@ export default {
       /* #endif */
       /* #ifdef APP-PLUS */
       if (data.versionCode > this.$_u.plus.versionCode()) {
-        if (data.isForce) uni.hideTabBar()
-        ref.showModal(data.downloadUrl, data.updateNotes)
+        const { downloadUrl, updateNotes, versionName } = data
+        ref.showModal({
+          url: downloadUrl,
+          content: updateNotes,
+          versionName
+        })
       }
       /* #endif */
     },
