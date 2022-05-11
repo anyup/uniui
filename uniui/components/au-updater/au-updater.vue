@@ -227,14 +227,16 @@ export default {
 }
 
 .au-updater-modal-bg {
+  position: absolute;
+  z-index: 8;
   width: 600rpx;
   height: 332rpx;
   border-radius: 12px;
-  position: absolute;
 }
 
 .au-updater-modal-title {
   position: absolute;
+  z-index: 9;
   color: #fff;
   top: 60rpx;
   left: 40rpx;
@@ -275,6 +277,7 @@ export default {
 
 .au-updater-modal-btn-box {
   position: absolute;
+  z-index: 9;
   bottom: 0;
   width: 100%;
   display: flex;
