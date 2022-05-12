@@ -221,7 +221,7 @@ export default {
   transition: all 0.3s ease-in-out;
   opacity: 0;
   width: 600rpx;
-  border-radius: 12px;
+  border-radius: 17px 17px 12px 12px;
   box-sizing: border-box;
   visibility: hidden;
 }
@@ -231,7 +231,6 @@ export default {
   z-index: 8;
   width: 600rpx;
   height: 332rpx;
-  border-radius: 12px;
 }
 
 .au-updater-modal-title {
