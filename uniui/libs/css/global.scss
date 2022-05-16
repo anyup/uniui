@@ -207,6 +207,10 @@ $main: #ffffff, $is-type-primary, $is-type-success, $is-type-warning, $is-type-e
   text-align: center;
 }
 
+.is-text-bold {
+  font-weight: bold;
+}
+
 /* start--文本行数限制--start */
 .is-line-1 {
   overflow: hidden;
