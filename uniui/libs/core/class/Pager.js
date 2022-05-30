@@ -12,6 +12,7 @@ class Pager {
     this.total = 0 // 总数量
     this.data = [] // 数据
     this.type = 0 // 分页模式 0:总页数分页，1:总数量分页
+    this.pages = 0 // 总页数
   }
 
   get offset() {
@@ -19,7 +20,7 @@ class Pager {
       return 0
     }
     // return this.data.length;
-    return (this.page - 1) * this.limit;
+    return (this.page - 1) * this.limit
   }
 
   empty() {
@@ -57,8 +58,8 @@ class Pager {
   }
 
   resetData(data) {
-		return this.setData(data, true);
-	}
+    return this.setData(data, true)
+  }
 
   setPages(pages) {
     this.pages = pages
@@ -67,6 +68,7 @@ class Pager {
 
   setTotal(total) {
     this.total = total
+    this.setPages(getPages(this))
     return this
   }
 
@@ -135,6 +137,17 @@ function isObject(obj) {
 
 function isEmptyObject(obj) {
   return Object.keys(obj).length === 0
+}
+
+function getPages(self) {
+  let { limit, total } = self
+  let maxPage = 1
+  let total = Number(total)
+  let limit = Number(limit)
+  if (total && limit) {
+    maxPage = Math.ceil(total / pageSize)
+  }
+  return maxPage
 }
 
 export { Pager }
