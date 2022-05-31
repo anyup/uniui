@@ -51,7 +51,7 @@ export default {
       this.$refs.updater.showModal({
         url: 'http://anyup.gitee.io/uniui-docs-web/',
         content:
-          '1.新增功能模块\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化\n2.优化已知问题优化',
+          '1.新增功能模块\n2.优化已知问题优化\n3.提升应用性能',
         versionName: '1.1.9'
       })
     },

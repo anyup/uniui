@@ -3,11 +3,12 @@
     <view
       class="au-updater-modal-box"
       :class="[
+        bgShow ? '' : 'au-updater-hide-bg',
         modalVisible ? 'au-updater-modal-normal' : 'au-updater-modal-scale',
         modalVisible ? 'au-updater-modal-show' : ''
       ]"
     >
-      <image class="au-updater-modal-bg" src="../../static/images/updater/bg.png"></image>
+      <image class="au-updater-modal-bg" :src="bgImg"></image>
       <view class="au-updater-modal-title">
         <view>{{ modalTitle }}</view>
         <text v-if="versionName">{{ versionName }}</text>
@@ -51,6 +52,7 @@
 import { Http } from '../../libs/core/class/Http'
 import { Downloader } from '../../libs/core/class/Downloader'
 import auCircleProgress from '../au-circle-progress/au-circle-progress.vue'
+import bgImg from './img'
 
 export default {
   name: 'au-updater',
@@ -59,6 +61,10 @@ export default {
     auto: {
       type: Boolean,
       default: false
+    },
+    bgShow: {
+      type: Boolean,
+      default: true
     },
     request: {
       type: [Object, Array],
@@ -94,6 +100,7 @@ export default {
   },
   data() {
     return {
+      bgImg,
       modalVisible: false,
       modalContent: '',
       downloadUrl: '',
@@ -323,5 +330,17 @@ export default {
 
 .is-text-left {
   text-align: left;
+}
+
+.au-updater-hide-bg {
+  .au-updater-modal-bg {
+    display: none;
+  }
+  .au-updater-modal-title {
+    color: #323232;
+  }
+  .au-updater-modal-content {
+    margin-top: 200rpx;
+  }
 }
 </style>
