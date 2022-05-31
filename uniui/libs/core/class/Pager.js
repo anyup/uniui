@@ -11,8 +11,6 @@ class Pager {
     this.pages = 0 // 总页数
     this.total = 0 // 总数量
     this.data = [] // 数据
-    this.type = 0 // 分页模式 0:总页数分页，1:总数量分页
-    this.pages = 0 // 总页数
   }
 
   get offset() {
@@ -28,11 +26,6 @@ class Pager {
       return isEmptyObject(this.data)
     }
     return this.data.length === 0
-  }
-
-  setType(type) {
-    this.type = type
-    return this
   }
 
   setPage(page) {
@@ -78,7 +71,6 @@ class Pager {
     this.pages = 0 // 总页数
     this.total = 0 // 总数量
     this.data = [] // 数据
-    // this.type = this.type // 分页模式 0:总页数分页，1:总数量分页
     return this
   }
 
@@ -93,12 +85,7 @@ class Pager {
   }
 
   hasMore() {
-    let hasMore = false
-    if (this.type == 1) {
-      hasMore = this.offset < this.total
-    } else {
-      hasMore = this.page < this.pages
-    }
+    let hasMore = this.page < this.pages
     if (hasMore) this.page++
     return hasMore
   }
@@ -106,22 +93,12 @@ class Pager {
   // 加载状态: more,loading,noMore
   loadmore() {
     let status = ''
-    if (this.type == 1) {
-      if (this.total <= this.limit) {
-        status = ''
-      } else if (this.offset >= this.total) {
-        status = 'nomore'
-      } else {
-        status = 'loading'
-      }
+    if (this.empty() || this.pages <= 1) {
+      status = ''
+    } else if (this.page >= this.pages) {
+      status = 'nomore'
     } else {
-      if (this.empty || this.pages <= 1) {
-        status = ''
-      } else if (this.page >= this.pages) {
-        status = 'nomore'
-      } else {
-        status = 'loading'
-      }
+      status = 'loading'
     }
     return status
   }
@@ -142,10 +119,10 @@ function isEmptyObject(obj) {
 function getPages(self) {
   let { limit, total } = self
   let maxPage = 1
-  let total = Number(total)
-  let limit = Number(limit)
+  total = Number(total)
+  limit = Number(limit)
   if (total && limit) {
-    maxPage = Math.ceil(total / pageSize)
+    maxPage = Math.ceil(total / limit)
   }
   return maxPage
 }

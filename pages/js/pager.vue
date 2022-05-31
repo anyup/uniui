@@ -39,7 +39,7 @@ export default {
     }
   },
   onLoad() {
-    this.pager = new Pager(1, this.value.limit).setType(1)
+    this.pager = new Pager(1, this.value.limit)
     this.getList()
   },
   methods: {
