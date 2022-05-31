@@ -1,3 +1,15 @@
+## 1.0.2
+
+### Features
+
+- 优化 版本更新样式
+- 新增 apis服务器选择组件
+- 优化 global css，压缩体积
+
+### BREAKING CHANGES
+
+- 优化 Pager 类分页模式，取消setType指定模式，动态计算pages页数
+
 ## 1.0.1
 
 ### Features
