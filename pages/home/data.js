@@ -71,6 +71,14 @@ export default [
         open: false,
         page: '/pages/components/updater',
       },
+      {
+        icon: '',
+        id: 10,
+        level: 2,
+        name: '服务器切换',
+        open: false,
+        page: '/pages/components/apis',
+      },
     ]
   },
   {
