@@ -1,5 +1,5 @@
 <template>
-  <view class="au-td" :style="[tdStyle]" :class="{ 'au-td-ellipsis': ellipsis }">
+  <view class="au-td" :style="[tdStyle]" :class="{ 'au-td-ellipsis': ellipsis }" @click="$emit('click')">
     <view :class="{ 'au-td-ellipsis': ellipsis }"><slot></slot></view>
   </view>
 </template>
