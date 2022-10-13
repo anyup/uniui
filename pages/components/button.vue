@@ -22,39 +22,39 @@ export default {
       list: [
         {
           type: 'type',
-          title: '类型',
+          title: '类型: type',
           tips: '支持自定义type，详细见文档',
           layout: 'radio',
           list: ['default', 'primary', 'warning', 'error', 'success', 'gold']
         },
         {
           type: 'size',
-          title: '尺寸',
+          title: '尺寸: size',
           layout: 'radio',
           list: ['default', 'medium', 'mini']
         },
         {
           type: 'shape',
-          title: '形状',
+          title: '形状: shape',
           layout: 'radio',
           list: ['square', 'circle']
         },
         {
           type: 'plain',
-          title: '镂空',
+          title: '镂空: plain',
           layout: 'radio',
           list: [false, true]
         },
         {
           type: 'hollow',
-          title: '完全镂空',
+          title: '完全镂空: hollow',
           tips: '完全镂空为显示底色，即background-color 设置为 transparent',
           layout: 'radio',
           list: [false, true]
         },
         {
           type: 'disabled',
-          title: '禁用',
+          title: '禁用: disabled',
           layout: 'radio',
           list: [false, true]
         }

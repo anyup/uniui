@@ -26,7 +26,7 @@ export default {
       list: [
         {
           type: 'sort',
-          title: '排序（年龄）',
+          title: '排序（年龄）: sort',
           tips: '配置按照某列排序',
           layout: 'radio',
           list: ['desc', 'asc', 'none']

@@ -9,6 +9,7 @@
       :request="request"
       :is-force="value.isForce"
       :modal-title="value.modalTitle"
+      :bg-show="value.bgShow"
       @result="onResult"
       @confirm="onConfirm"
     />
@@ -28,13 +29,19 @@ export default {
       list: [
         {
           type: 'modalTitle',
-          title: '弹出框title',
+          title: '弹出框标题: modalTitle',
           layout: 'radio',
           list: ['发现新版本', '版本更新']
         },
         {
+          type: 'bgShow',
+          title: '显示弹出框背景: bgShow',
+          layout: 'radio',
+          list: [false, true]
+        },
+        {
           type: 'isForce',
-          title: '强制更新',
+          title: '强制更新: isForce',
           tips: '是否强制更新，如果是，仅显示需隐藏tabbar，不允许关闭弹窗',
           layout: 'radio',
           list: [false, true]
