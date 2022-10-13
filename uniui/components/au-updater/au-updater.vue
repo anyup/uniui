@@ -64,7 +64,7 @@ export default {
     },
     bgShow: {
       type: Boolean,
-      default: true
+      default: false
     },
     request: {
       type: [Object, Array],
