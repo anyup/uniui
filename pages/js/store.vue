@@ -51,8 +51,8 @@ export default {
   methods: {
     submit() {
       new Store()
-        .set('userinfo', { name: this.form.name }, 'user/commit')
-        .set('nickname', this.form.nickname, 'user/commit')
+        .set('userinfo', { name: this.form.name }, 'user')
+        .set('nickname', this.form.nickname, 'user')
     },
     reset() {
       this.form = {

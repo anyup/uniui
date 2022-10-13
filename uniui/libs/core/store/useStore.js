@@ -1,5 +1,5 @@
-import { StoreModule } from "../class/StoreModule"
-import { Store } from "../class/Store"
+import { StoreModule } from '../class/StoreModule'
+import { Store } from '../class/Store'
 
 const store = new Store()
 
@@ -8,7 +8,11 @@ const state = {
   token: store.getStorage('token', ''),
   bundle: {}, // 页面携带信息
   loading: false, // 页面加载
-  toast: {} // 弹窗
+  toast: {}, // 弹窗
+  dev: {
+    open: false,
+    logs: []
+  }
 }
 
 const baseModule = {

@@ -12,8 +12,7 @@ function saveStorageData(key, value, saveKeys) {
   if (saveKeys.indexOf(key) != -1) {
     try {
       uni.setStorageSync(`anyup_${key}`, value)
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 }
 // 递归获取变量
@@ -38,27 +37,35 @@ class StoreModule {
     this.namespaced = true
     this.state = state
     this.mutations = {
+      /**
+       *
+       * @param {*} state : state
+       * @param {*} payload ：{ name: value }
+       */
       commit(state, payload) {
-        // 判断是否多层级调用，state中为对象存在的情况，诸如user.info.score = 1
-        let nameStr = Object.keys(payload)[0]
-        let nameArr = nameStr.split('.')
-        let saveKey = ''
-        let len = nameArr.length
-        if (len >= 2) {
-          let key = nameArr[len - 1]
-          let obj = { [key]: payload[nameStr] }
-          for (let i = len - 2; i > 0; i--) {
-            obj = getObj([nameArr[i]], obj)
+        let arr = Object.keys(payload)
+        arr.forEach(nameStr => {
+          // 判断是否多层级调用，state中为对象存在的情况，诸如user.info.score = 1
+          // let nameStr = Object.keys(payload)[0]
+          let nameArr = nameStr.split('.')
+          let saveKey = ''
+          let len = nameArr.length
+          if (len >= 2) {
+            let key = nameArr[len - 1]
+            let obj = { [key]: payload[nameStr] }
+            for (let i = len - 2; i > 0; i--) {
+              obj = getObj([nameArr[i]], obj)
+            }
+            saveKey = nameArr[0]
+            state[saveKey] = deepClone(deepMerge(state[saveKey] || {}, obj))
+          } else {
+            // 单层级变量，在state就是一个普通变量的情况
+            saveKey = nameStr
+            state[saveKey] = deepClone(payload[saveKey])
           }
-          saveKey = nameArr[0]
-          state[saveKey] = deepClone(deepMerge(state[saveKey] || {}, obj))
-        } else {
-          // 单层级变量，在state就是一个普通变量的情况
-          saveKey = nameStr
-          state[saveKey] = deepClone(payload[saveKey])
-        }
-        // 保存变量到本地，见顶部函数定义
-        saveStorageData(saveKey, state[saveKey], saveKeys)
+          // 保存变量到本地，见顶部函数定义
+          saveStorageData(saveKey, state[saveKey], saveKeys)
+        })
       },
       reset(state) {
         // 重置vuex变量
@@ -69,8 +76,7 @@ class StoreModule {
         saveKeys.forEach(key => {
           try {
             uni.removeStorageSync(`anyup_${key}`)
-          } catch (error) {
-          }
+          } catch (error) {}
         })
       }
     }

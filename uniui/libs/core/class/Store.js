@@ -26,8 +26,8 @@ class Store {
     return this.store.getters[`g_${name}`]
   }
 
-  set(name, value, method = 'anyup/commit') {
-    this.store.commit(method, { [name]: value })
+  set(name, value, namespace = 'anyup') {
+    this.store.commit(`${namespace}/commit`, { [name]: value })
     return this
   }
 
@@ -46,23 +46,31 @@ class Store {
   getStorage(key, defaultValue) {
     try {
       return uni.getStorageSync(`anyup_${key}`) || defaultValue
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   removeStorage(key) {
     try {
       uni.removeStorageSync(`anyup_${key}`)
-    } catch (error) {
-    }
+    } catch (error) {}
     return this
   }
 
   clearStorage() {
     try {
       uni.clearStorageSync()
-    } catch (error) {
-    }
+    } catch (error) {}
+    return this
+  }
+
+  setDev(logs, open = true) {
+    const olds = this.get('dev').logs || []
+    this.set('dev', { open, logs: Array.isArray(logs) ? [...olds, ...logs] : [...olds, ...[logs]] })
+    return this
+  }
+
+  closeDev() {
+    this.set('dev', { open: false, logs: [] })
     return this
   }
 }
