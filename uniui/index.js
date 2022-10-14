@@ -1,5 +1,6 @@
 // class
 import { Bluetooth } from './libs/core/class/Bluetooth'
+import { Downloader } from './libs/core/class/Downloader'
 import { HttpHeader, Http } from './libs/core/class/Http'
 import { Mixin } from './libs/core/class/Mixin'
 import { Optimize } from './libs/core/class/Optimize'
@@ -67,6 +68,7 @@ const install = (Vue, { store } = {}) => {
 
 export {
   Bluetooth,
+  Downloader,
   HttpHeader,
   Http,
   Mixin,
