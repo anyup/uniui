@@ -9,7 +9,7 @@
 <p align="center">
   🔥 <a href="https://uniapp.anyup.cn/">文档网站（国内）</a>
   &nbsp;
-  🔥 <a href="https://anyup.cn/">文档网站（国外源）</a>
+  🔥 <a href="https://www.anyup.cn/">文档网站（国外源）</a>
 </p>
 
 ### 介绍
