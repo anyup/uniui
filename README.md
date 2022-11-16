@@ -7,9 +7,7 @@
 <p align="center">简洁、高效的前端工程化框架库</p>
 
 <p align="center">
-  🔥 <a href="https://uniapp.anyup.cn/">文档网站（国内）</a>
-  &nbsp;
-  🔥 <a href="https://anyup.cn/">文档网站（国外源）</a>
+  🔥 <a href="https://www.anyup.cn/">在线文档网站</a>
 </p>
 
 ### 介绍
