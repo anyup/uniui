@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="logo" src="https://static.anyup.cn/anyup/images/logo.png" width="120" style="margin-bottom: 10px;">
+    <img alt="logo" src="https://www.anyup.cn/static/anyup/images/logo.png" width="120" style="margin-bottom: 10px;">
 </p>
 
 <h1 align="center">anyup design</h1>
@@ -57,9 +57,9 @@ anyup 支持按需引用、单独引用等方式，详细说明见 [快速上手
 
 <table class="table table-bordered table-striped table-condensed">
     <tr>
-        <td><img src="https://static.anyup.cn/anyup/images/qr_wx.png" width="150" height="150" ></td>
-	      <td><img src="https://static.anyup.cn/anyup/images/qr_h5.png" width="150" height="150" ></td>
-	      <td><img src="https://static.anyup.cn/anyup/images/qr_android.png" width="150" height="150" ></td>
+        <td><img src="https://www.anyup.cn/static/anyup/images/qr_wx.png" width="150" height="150" ></td>
+	      <td><img src="https://www.anyup.cn/static/anyup/images/qr_h5.png" width="150" height="150" ></td>
+	      <td><img src="https://www.anyup.cn/static/anyup/images/qr_android.png" width="150" height="150" ></td>
     </tr>
     <tr>
         <td align="center">微信小程序</td>

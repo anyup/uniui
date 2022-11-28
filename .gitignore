@@ -36,3 +36,6 @@ unpackage/debug
 unpackage/dist
 unpackage/resources
 unpackage/cache
+
+*/demo
+fly.js
