@@ -37,7 +37,7 @@ export default {
           title: '显示时间: duration',
           tips: '单位毫秒，0为一直显示',
           layout: 'radio',
-          list: [3000, 5000]
+          list: [0, 3000, 5000]
         },
         {
           type: 'cancelTime',
@@ -51,7 +51,7 @@ export default {
         show: false,
         direction: 'veritical',
         text: '加载中',
-        duration: 3000,
+        duration: 0,
         cancelTime: 3000
       }
     }
