@@ -3,6 +3,7 @@
     <view v-if="show" class="au-loading-init" :class="[direction]">
       <view class="au-loading-center"></view>
       <view v-if="text" class="au-loading-tips">{{ text }}</view>
+      <!-- <text class="au-icon-close auicon-iconfont auicon-iconfont-fail-circle" @click="loaded()"></text> -->
     </view>
     <view class="au-loading-mask" :class="[show ? 'au-mask-show' : '']" @click="maskClick"></view>
   </view>
@@ -75,6 +76,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../libs/css/iconfont.css';
+
 .au-loading-mask {
   position: fixed;
   top: 0;
@@ -94,6 +97,7 @@ export default {
 }
 
 .au-loading-init {
+  position: relative;
   min-width: 200rpx;
   min-height: 200rpx;
   max-width: 500rpx;
@@ -110,6 +114,13 @@ export default {
   color: #fff;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 7px;
+  .au-icon-close {
+    position: absolute;
+    top: 4rpx;
+    right: 2rpx;
+    color: #ffffff;
+    opacity: 0.8;
+  }
   &.horizontal {
     flex-direction: row;
     align-items: center;
