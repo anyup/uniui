@@ -34,18 +34,15 @@ npm update @anyup/uniui
 ```js
 // 项目中最好使用Vuex Store，因为部分功能依赖
 import store from './store'
-Vue.prototype.$store = store
-
-// 必须在绑定prototype之后注册uniui
 import uniUI from '@anyup/uniui'
-Vue.use(uniUI)
+Vue.use(uniUI, { store })
 ```
 
 anyup 支持按需引用、单独引用等方式，详细说明见 [快速上手](https://www.anyup.cn/docs/zh/guide/quickstart.html).
 
 ## 贡献代码
 
-使用过程中发现任何问题都可以提 [Issue](https://github.com/anyup/uniui/issues) 给我们，当然，我们也非常欢迎你给我们发 [PR](https://github.com/anyup/uniui/pulls)。
+使用过程中发现任何问题都可以提 [Issue](https://gitee.com/anyup/uniui/issues) 给我们，当然，我们也非常欢迎你给我们发 [PR](https://gitee.com/anyup/uniui/pulls)。
 
 ## 浏览器支持
 
@@ -58,13 +55,13 @@ anyup 支持按需引用、单独引用等方式，详细说明见 [快速上手
 <table class="table table-bordered table-striped table-condensed">
     <tr>
         <td><img src="https://www.anyup.cn/static/anyup/images/qr_wx.png" width="150" height="150" ></td>
-	      <td><img src="https://www.anyup.cn/static/anyup/images/qr_h5.png" width="150" height="150" ></td>
-	      <td><img src="https://www.anyup.cn/static/anyup/images/qr_android.png" width="150" height="150" ></td>
+	    <td><img src="https://www.anyup.cn/static/anyup/images/qr_h5.png" width="150" height="150" ></td>
+	    <td><img src="https://www.anyup.cn/static/anyup/images/qr_android.png" width="150" height="150" ></td>
     </tr>
     <tr>
         <td align="center">微信小程序</td>
-	      <td align="center">H5</td>
-	      <td align="center">Android</td>
+	    <td align="center">H5</td>
+	    <td align="center">Android</td>
     </tr>
 </table>
 
