@@ -41,7 +41,7 @@ import uniUI from '@anyup/uniui'
 Vue.use(uniUI)
 ```
 
-anyup 支持按需引用、单独引用等方式，详细说明见 [快速上手](https://anyup.gitee.io/zh/guide/quickstart.html).
+anyup 支持按需引用、单独引用等方式，详细说明见 [快速上手](https://www.anyup.cn/docs/zh/guide/quickstart.html).
 
 ## 贡献代码
 
