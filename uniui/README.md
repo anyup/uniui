@@ -52,16 +52,16 @@ anyup 支持按需引用、单独引用等方式，详细说明见 [快速上手
 
 可以手机扫码以下二维码访问手机端 demo：
 
-<table class="table table-bordered table-striped table-condensed">
+<table class="table">
     <tr>
         <td><img src="https://www.anyup.cn/static/anyup/images/qr_wx.png" width="150" height="150" ></td>
-	      <td><img src="https://www.anyup.cn/static/anyup/images/qr_h5.png" width="150" height="150" ></td>
-	      <td><img src="https://www.anyup.cn/static/anyup/images/qr_android.png" width="150" height="150" ></td>
+	    <td><img src="https://www.anyup.cn/static/anyup/images/qr_h5.png" width="150" height="150" ></td>
+	    <td><img src="https://www.anyup.cn/static/anyup/images/qr_android.png" width="150" height="150" ></td>
     </tr>
     <tr>
         <td align="center">微信小程序</td>
-	      <td align="center">H5</td>
-	      <td align="center">Android</td>
+	    <td align="center">H5</td>
+	    <td align="center">Android</td>
     </tr>
 </table>
 
