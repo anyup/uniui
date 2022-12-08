@@ -69,6 +69,12 @@ export function pastTime(timestamp = null, format = 'yyyy-MM-dd') {
 	return tips
 }
 
+/**
+ * 获取指定日期的格式化时间
+ * @param {*} day -1为1天前，0为当天
+ * @param {*} fmt 日期格式
+ * @returns 
+ */
 export function getDate(day = 0, fmt = 'yyyy-MM-dd') {
 	var d = new Date()
 	var t = d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * Number(day))
