@@ -122,7 +122,7 @@ export default {
       downloadUrl: '',
       versionCode: '',
       versionName: '',
-      isHot: false,
+      hot: false,
       promises: [],
       percent: 0, // 下载百分比
       flag: 0 // -1.下载失败，1.下载完成，2.下载中
@@ -163,10 +163,10 @@ export default {
       this.closeModal()
     },
     // 显示弹窗
-    showModal({ url, content, isHot, versionName }) {
+    showModal({ url, content, hot, versionName }) {
       this.downloadUrl = url
       this.modalContent = content
-      this.isHot = isHot
+      this.hot = hot
       this.versionName = versionName
       this.modalVisible = true
     },
@@ -177,7 +177,7 @@ export default {
     // 确定更新App
     confirmModal() {
       this.$emit('modalConfirm', { url: this.downloadUrl, ref: this })
-      if (this.isHot) {
+      if (this.hot) {
         this.hotUpdate(this.downloadUrl)
         return
       }
@@ -185,7 +185,7 @@ export default {
     // 检测更新
     checkUpdate() {
       Promise.all(this.promises).then(values => {
-        const data = Array.isArray(this.request) ? values : values[0]
+        const data = this.requests.length > 1 ? values : values[0]
         this.$emit('result', data)
       })
     },
