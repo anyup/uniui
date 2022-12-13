@@ -1,3 +1,13 @@
+## 1.0.4
+
+### Features
+
+- 优化 版本更新样式
+
+### BREAKING CHANGES
+
+- 优化App Updater 版本更新工具参数传递，支持热更新，支持primise request方式
+
 ## 1.0.2
 
 ### Features

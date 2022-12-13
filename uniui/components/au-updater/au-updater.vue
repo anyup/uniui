@@ -3,7 +3,7 @@
     <view
       class="au-updater-modal-box"
       :class="[
-        bgShow ? '' : 'au-updater-hide-bg',
+        modalIcon ? '' : 'au-updater-hide-bg',
         modalVisible ? 'au-updater-modal-normal' : 'au-updater-modal-scale',
         modalVisible ? 'au-updater-modal-show' : ''
       ]"
@@ -62,14 +62,12 @@ export default {
   name: 'au-updater',
   components: { auCircleProgress },
   props: {
+    // 是否自动检测更新
     auto: {
       type: Boolean,
       default: false
     },
-    bgShow: {
-      type: Boolean,
-      default: false
-    },
+    // 请求队列
     request: {
       type: [Object, Array],
       default() {
@@ -81,7 +79,13 @@ export default {
         }
       }
     },
+    // 强制更新
     force: {
+      type: Boolean,
+      default: false
+    },
+    // 静默更新，仅热更新支持
+    slient: {
       type: Boolean,
       default: false
     },
@@ -89,14 +93,22 @@ export default {
       type: Boolean,
       default: false
     },
+    // 弹窗标题
     modalTitle: {
       type: String,
       default: '发现新版本'
     },
+    // 弹窗背景是否展示
+    modalIcon: {
+      type: Boolean,
+      default: false
+    },
+    // 弹窗确认文案
     confirmText: {
       type: String,
       default: '立即更新'
     },
+    // 弹窗取消文案
     cancelText: {
       type: String,
       default: '以后再说'
@@ -164,7 +176,7 @@ export default {
     },
     // 确定更新App
     confirmModal() {
-      this.$emit('confirm', { url: this.downloadUrl, ref: this })
+      this.$emit('modalConfirm', { url: this.downloadUrl, ref: this })
       if (this.isHot) {
         this.hotUpdate(this.downloadUrl)
         return
@@ -174,7 +186,7 @@ export default {
     checkUpdate() {
       Promise.all(this.promises).then(values => {
         const data = Array.isArray(this.request) ? values : values[0]
-        this.$emit('result', { data, ref: this })
+        this.$emit('result', data)
       })
     },
     // 热更新
@@ -199,7 +211,7 @@ export default {
         }
       })
     },
-    //热更新
+    // 热更新
     hotInstall(tempPath) {
       plus.runtime.install(
         tempPath,
