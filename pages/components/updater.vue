@@ -34,7 +34,7 @@ export default {
     return {
       request: {
         header: { 'Content-Type': 'application/json' },
-        url: 'https://update.haierbiomedical.com/api/appVersionInfo/getAppUpgradeInfo',
+        url: '/api/appVersionInfo/getAppUpgradeInfo',
         params: { applicationCode: 'BiolinkApp', versionNum: 1, platformType: 0 },
         method: 'POST'
       },
