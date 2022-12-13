@@ -54,6 +54,10 @@ import { Downloader } from '../../libs/core/class/Downloader'
 import auCircleProgress from '../au-circle-progress/au-circle-progress.vue'
 import bgImg from './img'
 
+function isPromise(p) {
+  return p && p.then && p.catch
+}
+
 export default {
   name: 'au-updater',
   components: { auCircleProgress },
@@ -107,7 +111,7 @@ export default {
       versionCode: '',
       versionName: '',
       isHot: false,
-      http: [],
+      promises: [],
       percent: 0, // 下载百分比
       flag: 0 // -1.下载失败，1.下载完成，2.下载中
     }
@@ -128,7 +132,12 @@ export default {
   },
   mounted() {
     this.requests.forEach(r => {
-      this.http.push(new Http().setHeader(r.header))
+      if (isPromise(r)) {
+        this.promises.push(r)
+      } else {
+        const { url, header, params, method } = r
+        this.promises.push(new Http().setHeader(header).request(url, params, { method }))
+      }
     })
     if (this.auto) {
       this.checkUpdate()
@@ -163,12 +172,7 @@ export default {
     },
     // 检测更新
     checkUpdate() {
-      let promises = []
-      this.requests.forEach((r, i) => {
-        const { url, params, method } = r
-        promises.push(this.http[i].request(url, params, { method }))
-      })
-      Promise.all(promises).then(values => {
+      Promise.all(this.promises).then(values => {
         const data = Array.isArray(this.request) ? values : values[0]
         this.$emit('result', { data, ref: this })
       })
