@@ -16,12 +16,11 @@
     <au-updater
       ref="updater"
       :auto="false"
-      :request="requestPrimises"
-      :force="value.force"
+      :request="request"
       :modalTitle="value.modalTitle"
       :modalIcon="value.modalIcon"
-      @result="onResult"
-      @modalConfirm="onConfirm"
+      @success="onResult"
+      @modal-confirm="onConfirm"
     />
   </app-layout>
 </template>
@@ -81,7 +80,7 @@ export default {
       },
       appVersion: '',
       wgtVersion: '',
-      requestPrimises: []
+      request: undefined
     }
   },
   onLoad(options) {
@@ -92,14 +91,8 @@ export default {
     setRequest() {
       const url = '/api/appVersionInfo/getAppUpgradeInfo'
       const header = { 'Content-Type': 'application/json' }
-      const http = new Http().setHeader(header)
-      let params = [
-        // { applicationCode: 'BiolinkApp', versionNum: 1, platformType: 0 },
-        { applicationCode: 'BiolinkApp', versionNum: 1, platformType: 2 }
-      ]
-      params.forEach(p => {
-        this.requestPrimises.push(http.post(url, p))
-      })
+      const params = { applicationCode: 'BiolinkApp', versionNum: 1, platformType: 2 }
+      this.request = () => new Http().setHeader(header).post(url, params)
     },
     // 获取应用信息
     getAppInfo() {
@@ -127,6 +120,7 @@ export default {
     },
     // 接口请求成功回调
     onResult(response) {
+      console.log(response)
       /* #ifdef H5 */
       this.$tips.toast('请在真机环境下测试')
       /* #endif */
@@ -143,8 +137,9 @@ export default {
     showModal({ versionDownloadUrl, versionDesc, versionName }) {
       this.$refs.updater.showModal({
         url: versionDownloadUrl,
-        content: versionDesc.replace(/<zh>(.*?)<\/zh>/g, '$1'),
-        versionName
+        version: versionName,
+        content: versionDesc.replace(/<zh>(.*?)<\/zh>/g, '$1').replace(/\|/g, '\n'),
+        force: this.value.force
       })
     },
     // 弹窗确认事件
