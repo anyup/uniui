@@ -11,7 +11,7 @@
       <image class="au-updater-modal-bg" :src="bgImg"></image>
       <view class="au-updater-modal-title">
         <view>{{ modalTitle }}</view>
-        <text v-if="versionName">{{ versionName }}</text>
+        <text v-if="modalExtra">{{ modalExtra }}</text>
       </view>
       <view class="au-updater-modal-container">
         <scroll-view scroll-y :scroll-top="0" class="au-updater-modal-content">
@@ -51,11 +51,18 @@
 <script>
 import { Http } from '../../libs/core/class/Http'
 import { Downloader } from '../../libs/core/class/Downloader'
+import { Optimize } from '../../libs/core/class/Optimize'
 import auCircleProgress from '../au-circle-progress/au-circle-progress.vue'
 import bgImg from './img'
 
-function isPromise(p) {
-  return p && p.then && p.catch
+const optimize = new Optimize.Builder(500)
+
+function isPromise(d) {
+  return d && d.then && d.catch
+}
+
+function isFunction(d) {
+  return typeof d === 'function'
 }
 
 export default {
@@ -67,22 +74,12 @@ export default {
       type: Boolean,
       default: false
     },
-    // 请求队列
+    // 请求配置 header, url, params, method
     request: {
-      type: [Object, Array],
+      type: [Object, Function, Promise],
       default() {
-        return {
-          header: '',
-          url: '',
-          params: '',
-          method: ''
-        }
+        return undefined
       }
-    },
-    // 强制更新
-    force: {
-      type: Boolean,
-      default: false
     },
     // 静默更新，仅热更新支持
     slient: {
@@ -121,38 +118,44 @@ export default {
       modalContent: '',
       downloadUrl: '',
       versionCode: '',
-      versionName: '',
+      modalExtra: '',
+      force: false,
       hot: false,
-      promises: [],
+      functions: [],
       percent: 0, // 下载百分比
       flag: 0 // -1.下载失败，1.下载完成，2.下载中
     }
   },
   computed: {
-    requests() {
-      return Array.isArray(this.request) ? this.request : [this.request]
+    getRequest() {
+      if (isFunction(this.request)) {
+        return this.request
+      }
+      if (isPromise(this.request)) {
+        return () => this.request
+      }
+      if (this.request) {
+        const { url, method, header, params } = this.request
+        return () => new Http().setHeader(header).request(url, params, { method })
+      }
+      return () => {}
     }
   },
   watch: {
-    modalVisible(newValue, oldValue) {
+    request: {
+      deep: true,
+      handler: function (newValue, oldValue) {
+        if (newValue && !oldValue && this.auto) {
+          this.checkUpdate()
+        }
+      }
+    },
+    modalVisible(newValue) {
       if (newValue) {
         if (this.force) uni.hideTabBar()
       } else {
         uni.showTabBar()
       }
-    }
-  },
-  mounted() {
-    this.requests.forEach(r => {
-      if (isPromise(r)) {
-        this.promises.push(r)
-      } else {
-        const { url, header, params, method } = r
-        this.promises.push(new Http().setHeader(header).request(url, params, { method }))
-      }
-    })
-    if (this.auto) {
-      this.checkUpdate()
     }
   },
   methods: {
@@ -163,11 +166,12 @@ export default {
       this.closeModal()
     },
     // 显示弹窗
-    showModal({ url, content, hot, versionName }) {
+    showModal({ url, version, content, hot, force }) {
       this.downloadUrl = url
+      this.modalExtra = version
       this.modalContent = content
       this.hot = hot
-      this.versionName = versionName
+      this.force = force
       this.modalVisible = true
     },
     // 隐藏更新弹窗
@@ -176,7 +180,7 @@ export default {
     },
     // 确定更新App
     confirmModal() {
-      this.$emit('modalConfirm', { url: this.downloadUrl, ref: this })
+      this.$emit('modal-confirm', this.downloadUrl)
       if (this.hot) {
         this.hotUpdate(this.downloadUrl)
         return
@@ -184,9 +188,14 @@ export default {
     },
     // 检测更新
     checkUpdate() {
-      Promise.all(this.promises).then(values => {
-        const data = this.requests.length > 1 ? values : values[0]
-        this.$emit('result', data)
+      optimize.debounce(() => {
+        this.getRequest()
+          .then(data => {
+            this.$emit('success', data)
+          })
+          .catch(e => {
+            this.$emit('fail', e)
+          })
       })
     },
     // 热更新
@@ -200,14 +209,16 @@ export default {
         success: filePath => {
           this.flag = 1
           this.percent = 100
+          this.$emit('download-success', err)
           this.hotInstall(filePath)
         },
         fail: err => {
           this.flag = -1
-          this.$emit('error', err)
+          this.$emit('download-fail', err)
         },
         progress: p => {
           this.percent = p
+          this.$emit('download-progress', p)
         }
       })
     },
@@ -223,7 +234,7 @@ export default {
         },
         function (e) {
           // 安装失败
-          this.$emit('error', e)
+          this.$emit('install-fail', e)
         }
       )
     }
