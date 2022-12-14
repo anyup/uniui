@@ -193,8 +193,8 @@ export default {
           .then(data => {
             this.$emit('success', data)
           })
-          .catch(e => {
-            this.$emit('fail', e)
+          .catch(error => {
+            this.$emit('fail', error)
           })
       })
     },
@@ -205,38 +205,46 @@ export default {
     // 下载包
     download(url) {
       this.flag = 2
-      new Downloader.Builder(url).start({
-        success: filePath => {
-          this.flag = 1
-          this.percent = 100
-          this.$emit('download-success', err)
-          this.hotInstall(filePath)
-        },
-        fail: err => {
-          this.flag = -1
-          this.$emit('download-fail', err)
-        },
-        progress: p => {
-          this.percent = p
-          this.$emit('download-progress', p)
-        }
-      })
+      try {
+        new Downloader.Builder(url).start({
+          success: filePath => {
+            this.flag = 1
+            this.percent = 100
+            this.$emit('download-success')
+            this.hotInstall(filePath)
+          },
+          fail: err => {
+            this.flag = -1
+            this.$emit('download-fail', err)
+          },
+          progress: p => {
+            this.percent = p
+            this.$emit('download-progress', p)
+          }
+        })
+      } catch (error) {
+        this.$emit('download-fail', error)
+      }
     },
     // 热更新
     hotInstall(tempPath) {
-      plus.runtime.install(
-        tempPath,
-        { force: true },
-        function () {
-          setTimeout(() => {
-            plus.runtime.restart()
-          }, 100)
-        },
-        function (e) {
-          // 安装失败
-          this.$emit('install-fail', e)
-        }
-      )
+      try {
+        plus.runtime.install(
+          tempPath,
+          { force: true },
+          function () {
+            setTimeout(() => {
+              plus.runtime.restart()
+            }, 100)
+          },
+          function (error) {
+            // 安装失败
+            this.$emit('install-fail', error)
+          }
+        )
+      } catch (error) {
+        this.$emit('install-fail', error)
+      }
     }
   }
 }
