@@ -177,6 +177,7 @@ export default {
     // 隐藏更新弹窗
     closeModal() {
       this.modalVisible = false
+      this.$emit('modal-close')
     },
     // 确定更新App
     confirmModal() {
@@ -280,7 +281,7 @@ export default {
   z-index: 9;
   color: #fff;
   top: 60rpx;
-  left: 40rpx;
+  left: 30rpx;
 
   view {
     font-size: 50rpx;
@@ -302,9 +303,9 @@ export default {
   font-size: 28rpx;
   display: flex;
   align-items: center;
-  margin-top: 340rpx;
-  margin-bottom: 130rpx;
-  min-height: 280rpx;
+  margin-top: 360rpx;
+  margin-bottom: 150rpx;
+  min-height: 40rpx;
   max-height: 400rpx;
   padding: 0 30rpx;
   box-sizing: border-box;
@@ -375,7 +376,7 @@ export default {
     color: #323232;
   }
   .au-updater-modal-content {
-    margin-top: 200rpx;
+    margin-top: 220rpx;
   }
 }
 </style>
