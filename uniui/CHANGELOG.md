@@ -1,8 +1,8 @@
-## 1.0.4
+## 1.0.5
 
 ### BREAKING CHANGES
 
-- 优化 `App Updater` 版本更新工具参数传递，支持热更新，支持primise request方式
+- 优化 `App Updater` 版本更新组件优化，样式优化，支持热更新，支持primise request方式，详细见文档
 
 ## 1.0.3
 
