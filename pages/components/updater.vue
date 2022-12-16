@@ -1,6 +1,6 @@
 <template>
   <app-layout>
-    <config-demo v-model="value" :list="list">
+    <config-demo v-model="value" :list="list" tips="为保证演示的正确性，请在真机环境下测试，H5仅为演示">
       <!-- #ifdef APP-PLUS -->
       <view class="is-flex is-flex-column is-pd-10 is-mgtb-10 is-border is-radius-8 is-text-left">
         <view>App版本</view>
@@ -108,9 +108,9 @@ export default {
     },
     checkUpdate() {
       // #ifdef H5
-      this.$refs.updater.showModal({
-        url: 'https://www.anyup.cn/docs/',
-        content: '1.新增功能模块\n2.优化已知问题优化\n3.提升应用性能',
+      this.showModal({
+        versionDownloadUrl: 'https://www.anyup.cn/docs/',
+        versionDesc: '1.新增功能模块\n2.优化已知问题优化\n3.提升应用性能',
         versionName: '1.1.9'
       })
       // #endif
