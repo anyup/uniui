@@ -2,7 +2,7 @@
   <view class="container">
     <view class="page_hd">
       <view class="page_desc">
-        uniapp demo
+        uni-app 应用示例
         <u-icon
           class="toggle_icon"
           :name="isGrid ? 'grid' : 'list'"
