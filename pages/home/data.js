@@ -1,6 +1,6 @@
 export default [
   {
-    icon: 'star',
+    icon: 'gift',
     id: 1,
     level: 1,
     name: '基础组件',
@@ -8,7 +8,7 @@ export default [
     page: '',
     children: [
       {
-        icon: '',
+        icon: 'gift',
         id: 2,
         level: 2,
         name: '基础布局',
@@ -16,7 +16,7 @@ export default [
         page: '/pages/components/layout',
       },
       {
-        icon: '',
+        icon: 'tags',
         id: 3,
         level: 2,
         name: '按钮',
@@ -24,7 +24,7 @@ export default [
         page: '/pages/components/button',
       },
       {
-        icon: '',
+        icon: 'clock',
         id: 4,
         level: 2,
         name: '加载框',
@@ -32,7 +32,7 @@ export default [
         page: '/pages/components/loading',
       },
       {
-        icon: '',
+        icon: 'reload',
         id: 5,
         level: 2,
         name: '加载图标',
@@ -40,7 +40,7 @@ export default [
         page: '/pages/components/loader',
       },
       {
-        icon: '',
+        icon: 'list',
         id: 6,
         level: 2,
         name: '表格',
@@ -48,7 +48,7 @@ export default [
         page: '/pages/components/table',
       },
       {
-        icon: '',
+        icon: 'question-circle',
         id: 7,
         level: 2,
         name: '提示',
@@ -56,7 +56,7 @@ export default [
         page: '/pages/components/toast',
       },
       {
-        icon: '',
+        icon: 'ie',
         id: 8,
         level: 2,
         name: '网页视图',
@@ -64,7 +64,7 @@ export default [
         page: '/pages/components/webview',
       },
       {
-        icon: '',
+        icon: 'bag',
         id: 9,
         level: 2,
         name: '应用更新',
@@ -72,7 +72,7 @@ export default [
         page: '/pages/components/updater',
       },
       {
-        icon: '',
+        icon: 'zhuanfa',
         id: 10,
         level: 2,
         name: '服务器切换',
@@ -82,7 +82,7 @@ export default [
     ]
   },
   {
-    icon: 'level',
+    icon: 'order',
     id: 20,
     level: 1,
     name: '表单校验',
@@ -90,7 +90,7 @@ export default [
     page: '',
     children: [
       {
-        icon: '',
+        icon: 'order',
         id: 21,
         level: 2,
         name: '表单校验',
@@ -100,7 +100,7 @@ export default [
     ]
   },
   {
-    icon: 'chat',
+    icon: 'thumb-up',
     id: 30,
     level: 1,
     name: '工具类',
@@ -116,7 +116,7 @@ export default [
       //   page: '/pages/js/bluetooth',
       // },
       {
-        icon: '',
+        icon: 'chrome-circle-fill',
         id: 32,
         level: 2,
         name: '网路请求',
@@ -124,7 +124,7 @@ export default [
         page: '/pages/js/http',
       },
       {
-        icon: '',
+        icon: 'integral',
         id: 34,
         level: 2,
         name: '优化类',
@@ -132,7 +132,7 @@ export default [
         page: '/pages/js/optimize',
       },
       {
-        icon: '',
+        icon: 'list-dot',
         id: 35,
         level: 2,
         name: '分页',
@@ -140,7 +140,7 @@ export default [
         page: '/pages/js/pager',
       },
       {
-        icon: '',
+        icon: 'pushpin',
         id: 36,
         level: 2,
         name: '状态管理',
@@ -148,7 +148,7 @@ export default [
         page: '/pages/js/store',
       },
       {
-        icon: '',
+        icon: 'bell',
         id: 37,
         level: 2,
         name: '提示类',

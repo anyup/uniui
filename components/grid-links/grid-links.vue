@@ -20,7 +20,7 @@
         <u-grid :col="2">
           <u-grid-item v-for="(page, index2) in item.children" :key="index2" @click="$u.route(page.page)">
             <view class="is-text-center" hover-class="none">
-              <u-icon :name="oneIcon(index2)" :size="46" color="#999999"></u-icon>
+              <u-icon :name="oneIcon(page, index2)" :size="46" color="#999999"></u-icon>
               <view class="grid-text">{{ page.name }}</view>
             </view>
           </u-grid-item>
@@ -87,7 +87,8 @@ export default {
       }
       this.$emit('input', list)
     },
-    oneIcon(i) {
+    oneIcon(v, i) {
+      if (v.icon) return v.icon
       let min = i
       let max = icons.list.length - 1
       let index = Math.floor(Math.random() * (max - min + 1) + min)
