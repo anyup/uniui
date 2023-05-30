@@ -1,7 +1,7 @@
 <template>
   <app-layout>
     <config-demo v-model="value" :list="list" @change="change" content-height="300rpx">
-      <u-empty v-if="pager.empty()"></u-empty>
+      <u-empty v-if="pager.empty"></u-empty>
       <scroll-view v-else scroll-y style="height: 300rpx" @scrolltolower="lower">
         <view v-for="item in pager.data" :key="item" class="is-bordertb is-pd-10">第{{ item }}条数据</view>
         <u-gap height="40" bg-color=""></u-gap>

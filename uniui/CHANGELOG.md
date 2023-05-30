@@ -1,3 +1,9 @@
+## 1.0.7
+
+### BREAKING CHANGES
+
+- 优化 `Pager` 类，Pager.empty()方法修改为Pager.empty属性值获取，兼容App和小程序异常问题
+
 ## 1.0.5
 
 ### BREAKING CHANGES

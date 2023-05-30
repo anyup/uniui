@@ -21,7 +21,7 @@ class Pager {
     return (this.page - 1) * this.limit
   }
 
-  empty() {
+  get empty() {
     if (isObject(this.data)) {
       return isEmptyObject(this.data)
     }
@@ -93,7 +93,7 @@ class Pager {
   // 加载状态: more,loading,noMore
   loadmore() {
     let status = ''
-    if (this.empty() || this.pages <= 1) {
+    if (this.empty || this.pages <= 1) {
       status = ''
     } else if (this.page >= this.pages) {
       status = 'nomore'
