@@ -24,6 +24,14 @@ export default [
         page: '/pages/components/button',
       },
       {
+        icon: 'grid-fill',
+        id: 4,
+        level: 2,
+        name: '图标',
+        open: false,
+        page: '/pages/components/icons',
+      },
+      {
         icon: 'clock',
         id: 4,
         level: 2,
@@ -155,6 +163,14 @@ export default [
         open: false,
         page: '/pages/js/tips',
       },
+      {
+        icon: 'scan',
+        id: 38,
+        level: 2,
+        name: 'mPaaS 扫码',
+        open: false,
+        page: '/pages/js/mpaas-scan',
+      }
     ]
   }
 ]
