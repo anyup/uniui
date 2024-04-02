@@ -105,13 +105,16 @@
       "style": {
         "navigationBarTitleText": "Tips-提示"
       }
-    },
+    }
+    // #ifdef APP-PLUS
+    ,
     {
       "path": "pages/js/mpaas-scan",
       "style": {
         "navigationBarTitleText": "mPaaS-扫码插件"
       }
     }
+    // #endif
   ],
   "subPackages": [
     // #ifdef H5-CUSTOM
