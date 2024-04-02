@@ -12,7 +12,7 @@
           <au-td>张三</au-td>
           <au-td>男</au-td>
           <au-td>18</au-td>
-          <au-td>山东青岛</au-td>
+          <au-td>北京市</au-td>
         </au-tr>
       </au-table>
     </config-demo>
