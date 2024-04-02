@@ -162,7 +162,9 @@ export default [
         name: '提示类',
         open: false,
         page: '/pages/js/tips',
-      },
+      }
+      // #ifdef APP-PLUS
+      ,
       {
         icon: 'scan',
         id: 38,
@@ -171,6 +173,7 @@ export default [
         open: false,
         page: '/pages/js/mpaas-scan',
       }
+      // #endif
     ]
   }
 ]
