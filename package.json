@@ -37,6 +37,29 @@
     "anyup",
     "demo"
   ],
-  "author": "qiaomingxing",
-  "license": "MIT"
+  "author": "anyup",
+  "license": "MIT",
+  "uni-app": {
+    "scripts": {
+      "h5-custom": {
+        "title": "自定义H5平台",
+        "browser": "chrome",
+        "env": {
+          "UNI_PLATFORM": "h5"
+        },
+        "define": {
+          "H5-CUSTOM": true
+        }
+      },
+      "mp-weixin-custom": {
+        "title": "自定义小程序平台",
+        "env": {
+          "UNI_PLATFORM": "mp-weixin"
+        },
+        "define": {
+          "MP-WEIXIN-CUSTOM": true
+        }
+      }
+    }
+  }
 }
