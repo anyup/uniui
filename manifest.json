@@ -149,7 +149,18 @@
             "urlCheck" : false,
             "minified" : true
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "你的位置信息将用于小程序位置接口的效果展示"
+            }
+        },
+        "requiredPrivateInfos": [
+            "getLocation",
+            "chooseLocation",
+            "choosePoi",
+            "chooseAddress"
+        ]
     },
     "mp-alipay" : {
         "usingComponents" : true
