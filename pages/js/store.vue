@@ -1,15 +1,15 @@
 <template>
   <app-layout>
-    <config-demo :list="list" align="left">
-      <view class="is-pdt-10">姓名：{{ g_userinfo.name }}</view>
-      <view class="is-pdt-10">昵称：{{ g_nickname }}</view>
+    <config-demo :list="list" align="left" tips="不会存储任何用户信息，只用来演示">
+      <view class="is-pdt-10">昵称：{{ g_userinfo.name }}</view>
+      <view class="is-pdt-10">简介：{{ g_nickname }}</view>
     </config-demo>
     <view class="is-pd-20">
       <u-form :model="form" ref="uForm" :label-width="115">
-        <u-form-item label="姓名">
+        <u-form-item label="昵称">
           <u-input v-model="form.name" placeholder="请输入姓名(持久化，刷新不丢失)" />
         </u-form-item>
-        <u-form-item label="昵称">
+        <u-form-item label="简介">
           <u-input v-model="form.nickname" placeholder="请输入昵称（未持久化，刷新丢失）" />
         </u-form-item>
       </u-form>
