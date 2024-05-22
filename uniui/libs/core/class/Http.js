@@ -1,7 +1,7 @@
 /**
- * 通用uni-app网络请求
+ * 通用 uni-app 网络请求，uni.request
  * 基于 Promise 对象实现更简单的 request 使用方式，支持请求和响应拦截
- * @author qiaomingxing
+ * @author anyup
  */
 const CONTENT_TYPE = {
   json: 'application/json;charset=UTF-8',
@@ -56,7 +56,7 @@ class Builder {
     const callbackFn = function (res) {
       return successFn(res, defaultFn)
     }
-    return this.http.request(url, data, { ...urlConfig, ...config }).then(callbackFn)
+    return this.http.request({ url, data, ...urlConfig, ...config }).then(callbackFn)
   }
 }
 
@@ -108,10 +108,18 @@ class Http {
     }
     return this
   }
-  request(url, data, options) {
+  /**
+   * 请求主方法
+   * @param {Object} options 实时传递的配置
+   * @returns Promise
+   * 说明：配置优先级 实时传递的 options > 公共配置的 config
+   */
+  request(options) {
     if (!options) options = {}
     // 请求URL
-    options.url = url
+    let url = options.url
+    // 请求体
+    let data = options.data || {}
     // 请求baseURL：优先级为：实时传递的 > 公共配置的
     options.baseURL = options.baseURL !== undefined ? options.baseURL : this.config.baseURL
     // 请求头：合并公共配置与实时设置的header， 且优先级实时设置会覆盖公共配置的
@@ -250,7 +258,7 @@ class Http {
 
 ;['get', 'post', 'put', 'patch', 'head', 'delete', 'upload'].forEach(e => {
   Http.prototype[e] = function (url, data, option) {
-    return this.request(url, data, merge({ method: e }, option))
+    return this.request(merge({ url, data, method: e }, option))
   }
 })
 ;['lock', 'unlock', 'clear'].forEach(e => {
