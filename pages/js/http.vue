@@ -1,7 +1,9 @@
 <template>
   <app-layout>
     <config-demo v-model="value" :list="list">
-      <app-button type="primary" @click="request">发起请求</app-button>
+      <app-button type="primary" @click="requestDemo">发起请求</app-button>
+      <app-button v-if="false" class="is-mgt-10" type="primary" @click="requestLogin">登录请求</app-button>
+
       <view class="is-text-left" v-if="showView">
         <view class="is-mgt-10">请求拦截：</view>
         <block v-for="(key, index) in Object.keys(view)" :key="index">
@@ -15,6 +17,7 @@
 
 <script>
 import { Http } from '@/uniui/index.js'
+import userApi from '@/api/modules/user'
 
 export default {
   data() {
@@ -22,9 +25,10 @@ export default {
       http: new Http(),
       view: {},
       value: {
-        baseURL: 'http://api.demo.com',
+        baseURL: 'https://api.demo.com',
         method: 'get',
-        header: 'token1'
+        header: 'token1',
+        url: '/user/login'
       },
       list: [
         {
@@ -32,7 +36,7 @@ export default {
           title: 'baseURL',
           tips: '设置统一请求接口地址',
           layout: 'radio',
-          list: ['https://api.demo.com', 'https://api.example.com']
+          list: ['https://api.demo.com', 'http://api.example.com']
         },
         {
           type: 'method',
@@ -69,17 +73,21 @@ export default {
     isFunction(func) {
       return typeof func === 'function'
     },
-    request() {
+    async requestDemo() {
       const config = this.$u.deepClone(this.value)
       config.header = { token: config.header }
-
-      this.http.request({
-        url: this.value.url,
-        method: this.value.method,
-        data: { name: '123' },
+      const params = {
+        data: { name: 'admin' },
         ...config
-      })
+      }
+      console.log(params)
+      this.http.request(params)
     },
+
+    async requestLogin() {
+      await userApi.login({ name: 'admin' }, { method: 'get' })
+    },
+
     setInterceptor() {
       // 请求前
       this.http.interceptors.request.use(
