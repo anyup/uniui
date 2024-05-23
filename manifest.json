@@ -155,12 +155,7 @@
                 "desc" : "你的位置信息将用于小程序位置接口的效果展示"
             }
         },
-        "requiredPrivateInfos": [
-            "getLocation",
-            "chooseLocation",
-            "choosePoi",
-            "chooseAddress"
-        ]
+        "requiredPrivateInfos" : [ "getLocation", "chooseLocation", "choosePoi", "chooseAddress" ]
     },
     "mp-alipay" : {
         "usingComponents" : true
@@ -179,7 +174,7 @@
         "template" : "template.h5.html",
         "router" : {
             "mode" : "hash",
-            "base" : "./"
+            "base" : "/h5/"
         },
         "optimization" : {
             "treeShaking" : {
