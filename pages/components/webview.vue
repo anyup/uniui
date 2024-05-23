@@ -1,7 +1,16 @@
 <template>
-  <au-webview src="https://www.anyup.cn/docs/" />
+  <au-webview :src="src" />
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      src: ''
+    }
+  },
+  onLoad(options) {
+    this.src = options.src || 'https://www.anyup.cn/site/index.html'
+  }
+}
 </script>
