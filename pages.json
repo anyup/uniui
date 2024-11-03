@@ -5,9 +5,16 @@
   },
   "pages": [
     {
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "Anyup Colorful UI 演示",
+        "navigationStyle": "custom"
+      }
+    },
+    {
       "path": "pages/home/home",
       "style": {
-        "navigationBarTitleText": "AnyupUI 演示"
+        "navigationBarTitleText": "Anyup Colorful UI 演示"
       }
     },
     {
@@ -61,7 +68,7 @@
     {
       "path": "pages/components/webview",
       "style": {
-        "navigationBarTitleText": "Webview-网页试图"
+        "navigationBarTitleText": ""
       }
     },
     {
@@ -105,16 +112,21 @@
       "style": {
         "navigationBarTitleText": "Tips-提示"
       }
-    }
+    },
     // #ifdef APP-PLUS
-    ,
     {
       "path": "pages/js/mpaas-scan",
       "style": {
         "navigationBarTitleText": "mPaaS-扫码插件"
       }
-    }
+    },
     // #endif
+    {
+      "path": "pages/examples/ble",
+      "style": {
+        "navigationBarTitleText": "BLE-低功耗蓝牙打印机"
+      }
+    }
   ],
   "subPackages": [
     // #ifdef H5-CUSTOM
@@ -130,7 +142,7 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "AnyupUI Demo 演示",
+    "navigationBarTitleText": "Anyup Colorful UI Demo 演示",
     "navigationBarBackgroundColor": "#ffffff",
     "backgroundColor": "#ffffff",
     "navigationStyle": "default",

@@ -18,7 +18,7 @@
           v-for="(item2, index2) in item.list"
           :key="index2"
           :name="item2 | _yn"
-          active-color="#0098dd"
+          active-color="#2979ff"
           @change="radioChange(item.type, item2)"
         >
           {{ item2 | _yn }}
@@ -89,9 +89,10 @@ export default {
 <style lang="scss">
 .config-demo {
   .config-demo-item {
-    border: 1px solid #f3f4f5;
-    padding: 30rpx 20rpx;
+    border: 1px dashed #2979ff;
+    padding: 30rpx 30rpx;
     margin-top: 30rpx;
+    border-radius: 7px;
 
     .title {
       position: relative;
