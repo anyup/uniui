@@ -162,9 +162,8 @@ export default [
         name: '提示类',
         open: false,
         page: '/pages/js/tips',
-      }
+      },
       // #ifdef APP-PLUS
-      ,
       {
         icon: 'scan',
         id: 38,
@@ -172,8 +171,16 @@ export default [
         name: 'mPaaS 扫码',
         open: false,
         page: '/pages/js/mpaas-scan',
-      }
+      },
       // #endif
+      {
+        icon: 'bell',
+        id: 38,
+        level: 2,
+        name: '蓝牙打印',
+        open: false,
+        page: '/pages/examples/ble',
+      }
     ]
   }
 ]

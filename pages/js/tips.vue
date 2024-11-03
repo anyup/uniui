@@ -1,5 +1,5 @@
 <template>
-  <au-layout :toast-duration="3000" toast-position="bottom" loading-text="3秒后消失">
+  <au-layout padding="20rpx" :toast-duration="3000" toast-position="bottom" loading-text="3秒后消失">
     <config-demo title="说明" :tips="tips" :list="list" @btn-click="btnClick"> </config-demo>
   </au-layout>
 </template>
