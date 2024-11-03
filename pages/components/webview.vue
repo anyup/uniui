@@ -10,7 +10,16 @@ export default {
     }
   },
   onLoad(options) {
-    this.src = options.src || 'https://www.anyup.cn/site/index.html'
+    if (options.src) {
+      this.src = options.src
+    } else {
+      // #ifdef H5
+      this.src = 'https://www.anyup.cn/site/index.html'
+      // #endif
+      // #ifdef MP-WEIXIN
+      this.src = 'https://mp.weixin.qq.com/s/bgkhC02WPlEHmGnCbSmDcg'
+      // #endif
+    }
   }
 }
 </script>
