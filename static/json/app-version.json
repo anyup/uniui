@@ -1,0 +1,13 @@
+{
+  "msg": "获取应用版本成功",
+  "code": 200,
+  "data": {
+    "versionCode": 6,
+    "versionName": "3.6.0",
+    "languageType": "zh-CN",
+    "versionContent": "1.新增功能模块\n2.优化已知问题优化\n3.提升应用性能",
+    "versionDownloadUrl": "https://mp.weixin.qq.com/s/bgkhC02WPlEHmGnCbSmDcg",
+    "platformType": 0,
+    "isForceUpdate": 0
+  }
+}
