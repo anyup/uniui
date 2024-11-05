@@ -1,6 +1,6 @@
 <template>
   <app-layout>
-    <config-demo :list="list" tips="低功耗蓝牙打印机 API 演示">
+    <config-demo :list="[]" tips="低功耗蓝牙打印机 API 演示">
       <ble-connect ref="ble" :is-quick="false" @print="print()"> </ble-connect>
     </config-demo>
   </app-layout>
