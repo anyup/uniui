@@ -1,8 +1,13 @@
 <template name="components">
   <view>
     <u-navbar :is-back="false" title="Colorful UI 示例项目" title-width="350" :background="background" title-color="#fff"></u-navbar>
-    <!-- <image src="/static/images/BasicsBg.png" mode="widthFix" class="response"></image> -->
-    <u-swiper :list="swiperList" :effect3d="false" :title="false" :interval="5000" :height="320" img-mode="aspectFit" @click="swiperClick"></u-swiper>
+    <!-- <image src="/static/h5/images/BasicsBg.png" mode="widthFix" class="response"></image> -->
+    <u-gap></u-gap>
+    <view class="group-title">
+      <view>示例项目</view>
+      <view class="nav-title is-mgl-10">Project</view>
+    </view>
+    <u-swiper :list="swiperList" :effect3d="true" :title="false" :interval="5000" :height="320" img-mode="aspectFit" @click="swiperClick"></u-swiper>
     <u-gap></u-gap>
     <view v-for="(menu, mIndex) in menuList" :key="mIndex">
       <view class="group-title">
@@ -60,8 +65,16 @@ const menuList = [
       { title: '优化类', name: 'Optimize', color: 'red', icon: '', path: '/pages/js/optimize' },
       { title: '分页', name: 'Pager', color: 'brown', icon: '', path: '/pages/js/pager' },
       { title: '状态管理', name: 'Store', color: 'olive', icon: '', path: '/pages/js/store' },
-      { title: '提示类', name: 'Tips', color: 'yellow', icon: '', path: '/pages/js/tips' },
-      { title: '蓝牙打印', name: 'Bluetooth', color: 'blue', icon: '', path: '/pages/examples/ble' }
+      { title: '提示类', name: 'Tips', color: 'yellow', icon: '', path: '/pages/js/tips' }
+    ]
+  },
+  {
+    title: '解决方案示例',
+    name: 'Demos',
+    children: [
+      { title: 'mPaaS扫码', name: 'mPaaS Scan', color: 'orange', icon: '', path: '/pages/examples/mpaas-scan' },
+      { title: 'BLE蓝牙连接', name: 'Bluetooth', color: 'pink', icon: '', path: '/pages/examples/ble' },
+      { title: 'BLE蓝牙打印', name: 'Bluetooth', color: 'olive', icon: '', path: '/pages/examples/ble-print' }
     ]
   }
 ]
