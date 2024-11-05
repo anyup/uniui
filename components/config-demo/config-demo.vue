@@ -71,7 +71,7 @@ export default {
     },
     align: {
       type: String,
-      default: 'center'
+      default: 'left'
     }
   },
   data() {
