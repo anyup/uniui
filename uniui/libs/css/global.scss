@@ -11,7 +11,7 @@ $width-min: 10;
 $width-max: 100;
 $width-step: 10;
 // 字体
-$font-min: 12;
+$font-min: 10;
 $font-max: 40;
 $font-step: 1;
 // 圆角
@@ -31,7 +31,7 @@ $main: #ffffff, $is-type-primary, $is-type-success, $is-type-warning, $is-type-e
 @for $i from $font-min through $font-max {
   @if $i % $font-step == 0 {
     .is-font-#{$i} {
-      width: $i * $rate + $unit;
+      font-size: $i * $rate + $unit;
     }
   }
 }
