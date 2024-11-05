@@ -113,16 +113,20 @@
         "navigationBarTitleText": "Tips-提示"
       }
     },
-    // #ifdef APP-PLUS
     {
-      "path": "pages/js/mpaas-scan",
+      "path": "pages/examples/mpaas-scan",
       "style": {
         "navigationBarTitleText": "mPaaS-扫码插件"
       }
     },
-    // #endif
     {
       "path": "pages/examples/ble",
+      "style": {
+        "navigationBarTitleText": "BLE-低功耗蓝牙连接"
+      }
+    },
+    {
+      "path": "pages/examples/ble-print",
       "style": {
         "navigationBarTitleText": "BLE-低功耗蓝牙打印机"
       }
