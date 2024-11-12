@@ -1,13 +1,20 @@
 <template name="components">
   <view>
     <u-navbar :is-back="false" title="Colorful UI 示例项目" title-width="350" :background="background" title-color="#fff"></u-navbar>
-    <!-- <image src="/static/h5/images/BasicsBg.png" mode="widthFix" class="response"></image> -->
+    <u-gap></u-gap>
+    <view class="group-title">
+      <view>公告栏</view>
+      <view class="nav-title is-mgl-10">Advs</view>
+    </view>
+    <u-notice-bar type="error" mode="vertical" :more-icon="true" :list="noticeList" @click="noticeClick"></u-notice-bar>
     <u-gap></u-gap>
     <view class="group-title">
       <view>示例项目</view>
       <view class="nav-title is-mgl-10">Project</view>
     </view>
-    <u-swiper :list="swiperList" :effect3d="true" :title="false" :interval="5000" :height="320" img-mode="aspectFit" @click="swiperClick"></u-swiper>
+    <view class="is-pdlr-10">
+      <u-swiper :list="swiperList" :effect3d="false" :title="false" :interval="5000" :height="320" img-mode="aspectFit" @click="swiperClick"></u-swiper>
+    </view>
     <u-gap></u-gap>
     <view v-for="(menu, mIndex) in menuList" :key="mIndex">
       <view class="group-title">
@@ -86,14 +93,10 @@ export default {
         // 渐变色
         backgroundImage: 'linear-gradient(90deg, #2979ff, #1cbbb4)'
       },
+      noticeList: ['软考刷题工具上线啦，关注公众号可获取', '软考刷题工具上线啦，关注公众号可获取'],
       swiperList: [
         {
-          image: 'https://mmbiz.qpic.cn/mmbiz_png/XTwjYITHToCiaLWS7iaicdNrsCdjUFWfgHwkSJh2UtszKw9EAib9caA2Fc2U08kQo572j5icWAyyZ6icdQqQ9Uf8bStg/640',
-          title: '有题记，最好用的软考刷题工具',
-          url: 'https://mp.weixin.qq.com/s/bgkhC02WPlEHmGnCbSmDcg'
-        },
-        {
-          image: 'https://mmbiz.qpic.cn/mmbiz_png/XTwjYITHToBXysqCKM1AmmfoAzZl5iaa05jwWREAU8JbJMKscSvLYKtbRmHuh35JeVGrUobfa4U8AwWxia9dQ2cw/640',
+          image: 'https://mmbiz.qpic.cn/mmbiz_png/XTwjYITHToB1JhibXHhPGFeW2a6aRTmkDnxc25p3FXs8jTHNOTrLXkyibR2SKdfI1uJJibUvGAFaE9iaSo3CM001Ew/640',
           title: '欢迎关注公众号',
           url: 'https://mp.weixin.qq.com/s/kHQ9Db0QUvpxDh1nhJEP2g'
         }
@@ -113,11 +116,26 @@ export default {
       let index = Math.floor(Math.random() * (max - min + 1) + min)
       return this.colors[index]
     },
+    // 广告栏点击事件
+    noticeClick(index) {
+      const url = 'https://mp.weixin.qq.com/s/kHQ9Db0QUvpxDh1nhJEP2g'
+      // #ifdef H5
+      window.open(url)
+      // #endif
+      // #ifndef H5
+      this.$u.route(`/pages/components/webview?src=${url}`)
+      // #endif
+    },
     // 轮播图点击事件
     swiperClick(index) {
       const url = this.swiperList[index].url
       if (url) {
+        // #ifdef H5
+        window.open(url)
+        // #endif
+        // #ifndef H5
         this.$u.route(`/pages/components/webview?src=${url}`)
+        // #endif
       }
     }
   }
