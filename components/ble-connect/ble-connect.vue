@@ -1,6 +1,6 @@
 <template>
   <view>
-    <view v-if="!isQuick" class="has-pd-20">
+    <view v-if="!isQuick" class="is-pd-20">
       <view> 本蓝牙协议只支持低功耗蓝牙协议ble。如果想连接非ble蓝牙设备，请在社区搜索 Native.js 蓝牙。 </view>
       <view class="uni-btn-v">
         <button type="primary" :disabled="disabled[0]" @click="openBluetoothAdapter">初始化蓝牙模块</button>
@@ -43,9 +43,9 @@
       <view v-if="equipment.length > 0">
           {{ (connected ? '已连接设备' : '已选择设备') + ' : ' + equipment[0].name + ' (' + equipment[0].deviceId + ')' }}
         </view>
-      <button class="has-mglr-20 has-mgtb-20" type="primary" @click="quickInit">连接蓝牙设备</button>
-      <button class="has-mglr-20 has-mgtb-20" type="primary" :disabled="!connected" @click="closeBLEConnection">断开蓝牙设备</button>
-      <button class="has-mglr-20 has-mgtb-20" type="primary" :disabled="!(connected && !!characteristicId)" @click="$emit('print')">开始打印</button>
+      <button class="is-mglr-20 is-mgtb-20" type="primary" @click="quickInit">连接蓝牙设备</button>
+      <button class="is-mglr-20 is-mgtb-20" type="primary" :disabled="!connected" @click="closeBLEConnection">断开蓝牙设备</button>
+      <button class="is-mglr-20 is-mgtb-20" type="primary" :disabled="!(connected && !!characteristicId)" @click="$emit('print')">开始打印</button>
     </view>
     <!-- 遮罩 -->
     <view v-if="maskShow" class="uni-mask" @touchmove.stop.prevent="moveHandle" @click="maskShow = false">
@@ -295,7 +295,7 @@ export default {
             return true
           })
         })
-        .chatch(e => {
+        .catch(e => {
           if (e.errCode !== 0) {
             initTypes(e.errCode)
           }
