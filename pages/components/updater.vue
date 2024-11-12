@@ -103,21 +103,22 @@ export default {
     },
     // 检查更新
     checkUpdate() {
-      // #ifndef MP-WEIXIN
-      this.$tips.loading()
-      this.$refs.updater.checkUpdate()
-      // #endif
-      // #ifdef MP-WEIXIN
+      // #ifdef MP-WEIXIN || APP-PLUS
       this.showModal({
         versionName: '3.6.0',
         versionContent: '1.新增功能模块\n2.优化已知问题优化\n3.提升应用性能',
         versionDownloadUrl: 'https://mp.weixin.qq.com/s/bgkhC02WPlEHmGnCbSmDcg'
       })
+      return
+      // #endif
+      // #ifndef MP-WEIXIN
+      this.$tips.loading()
+      this.$refs.updater.checkUpdate()
       // #endif
     },
     // 请求接口
     doRequest() {
-      // #ifdef MP-WEIXIN
+      // #ifdef MP-WEIXIN || APP-PLUS
       this.onResult({
         data: {
           versionCode: 6,
