@@ -1,4 +1,4 @@
-import { Http } from '@/uniui/index.js'
+import { Http } from '@/uniui'
 
 const header = { 'Content-type': 'application/json' }
 const baseURL = 'https://api.example.com'

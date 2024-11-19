@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import { checker } from '@/uniui/index.js'
 
 export default {
   data() {
@@ -59,7 +58,7 @@ export default {
           msg: ['请输入手机号', '请输入正确手机号']
         }
       ]
-      let checkRes = checker.validation(this.form, rules)
+      let checkRes = this.$_u.checker.validation(this.form, rules)
       if (checkRes) {
         this.$tips.toast(checkRes, 'info')
         return

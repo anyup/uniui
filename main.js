@@ -10,7 +10,7 @@ import filters from './filters'
 import uView from 'uview-ui'
 Vue.use(uView)
 
-import uniUI from '@/uniui/index.js'
+import uniUI, { Tips } from '@/uniui'
 Vue.use(uniUI, { store })
 
 // 将过滤器注册到全局使用
@@ -25,6 +25,7 @@ Vue.prototype.$api = api
 Vue.prototype.$utils = utils
 Vue.prototype.$env = env
 Vue.prototype.$wxapi = wxapi
+Vue.prototype.$tips = new Tips(store)
 
 App.mpType = 'app'
 

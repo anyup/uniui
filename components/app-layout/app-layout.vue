@@ -76,13 +76,13 @@ export default {
     },
     pageShow() {
       // if (this.checkLogin) {
-      //   return !!this.g_token
+      //   return !!this.getter_base.token
       // }
       return true
     }
   },
   created() {
-    // if (this.checkLogin && !this.g_token) {
+    // if (this.checkLogin && !this.getter_base.token) {
     //   setTimeout(() => {
     //     uni.reLaunch({ url: '/pages/login/login'})
     //   }, 100)
