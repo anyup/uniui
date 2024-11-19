@@ -42,3 +42,5 @@ fly.js
 .VSCodeCounter
 
 pagesMap/
+uniui-libs/
+!uniui/dist/

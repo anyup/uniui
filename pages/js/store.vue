@@ -1,8 +1,8 @@
 <template>
   <app-layout>
     <config-demo :list="list" align="left" tips="不会存储任何用户信息，只用来演示">
-      <view class="is-pdt-10">昵称：{{ g_userinfo.name }}</view>
-      <view class="is-pdt-10">简介：{{ g_nickname }}</view>
+      <view class="is-pdt-10">昵称：{{ getter_user.userinfo.name }}</view>
+      <view class="is-pdt-10">简介：{{ getter_user.nickname }}</view>
     </config-demo>
     <view class="is-pd-20">
       <u-form :model="form" ref="uForm" :label-width="115">
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { Store } from '@/uniui/index.js'
+import { Store } from '@/uniui'
 const store = new Store()
 
 export default {
@@ -46,13 +46,14 @@ export default {
     }
   },
   onLoad() {
-    this.form = Object.assign({}, this.g_userinfo || {})
+    console.log(this.getter_user)
+    this.form = Object.assign({}, this.getter_user.userinfo || {})
   },
   methods: {
     submit() {
-      new Store()
-        .set('userinfo', { name: this.form.name }, 'user')
-        .set('nickname', this.form.nickname, 'user')
+      new Store().set('userinfo', { name: this.form.name }, 'user').set('nickname', this.form.nickname, 'user')
+      this.$_u.tips.success('保存成功，可刷新页面查看数据！')
+      console.log(this.getter_user)
     },
     reset() {
       this.form = {

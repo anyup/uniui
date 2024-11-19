@@ -4,33 +4,19 @@
   "description": "uniapp-demo",
   "main": "main.js",
   "scripts": {
-    "serve": "npm run dev:h5",
-    "build": "npm run build:h5",
-    "build:app-plus": "cross-env NODE_ENV=production UNI_PLATFORM=app-plus vue-cli-service uni-build",
-    "build:custom": "cross-env NODE_ENV=production uniapp-cli custom",
-    "build:h5": "cross-env NODE_ENV=production UNI_PLATFORM=h5 vue-cli-service uni-build",
-    "build:mp-alipay": "cross-env NODE_ENV=production UNI_PLATFORM=mp-alipay vue-cli-service uni-build",
-    "build:mp-baidu": "cross-env NODE_ENV=production UNI_PLATFORM=mp-baidu vue-cli-service uni-build",
-    "build:mp-qq": "cross-env NODE_ENV=production UNI_PLATFORM=mp-qq vue-cli-service uni-build",
-    "build:mp-toutiao": "cross-env NODE_ENV=production UNI_PLATFORM=mp-toutiao vue-cli-service uni-build",
-    "build:mp-weixin": "cross-env NODE_ENV=production UNI_PLATFORM=mp-weixin vue-cli-service uni-build",
-    "dev:app-plus": "cross-env NODE_ENV=development UNI_PLATFORM=app-plus vue-cli-service uni-build --watch",
-    "dev:custom": "cross-env NODE_ENV=development uniapp-cli custom",
-    "dev:h5": "cross-env NODE_ENV=development UNI_PLATFORM=h5 vue-cli-service uni-serve",
-    "dev:mp-alipay": "cross-env NODE_ENV=development UNI_PLATFORM=mp-alipay vue-cli-service uni-build --watch",
-    "dev:mp-baidu": "cross-env NODE_ENV=development UNI_PLATFORM=mp-baidu vue-cli-service uni-build --watch",
-    "dev:mp-qq": "cross-env NODE_ENV=development UNI_PLATFORM=mp-qq vue-cli-service uni-build --watch",
-    "dev:mp-toutiao": "cross-env NODE_ENV=development UNI_PLATFORM=mp-toutiao vue-cli-service uni-build --watch",
-    "dev:mp-weixin": "cross-env NODE_ENV=development UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch",
-    "info": "node node_modules/@dcloudio/vue-cli-plugin-uni/commands/info.js",
-    "sass:global": "sass --style compressed uniui/libs/css/global.scss uniui/libs/css/global.css",
-    "build:h5:release": "cross-env NODE_ENV=release UNI_PLATFORM=h5 UNI_OUTPUT_DIR=dist/release/h5 vue-cli-service uni-build --mode release"
+    "commit": "git-cz",
+    "commit:all": "git add . && git-cz"
   },
   "dependencies": {
-    "uview-ui": "^1.8.4"
+    "uview-ui": "^1.8.8"
   },
   "devDependencies": {
-    "sass": "^1.42.1"
+    "sass": "^1.42.1",
+    "husky": "^8.0.3",
+    "commitizen": "^4.3.0",
+    "commitlint": "^17.4.4",
+    "commitlint-config-cz": "^0.13.3",
+    "cz-customizable": "^7.0.0"
   },
   "keywords": [
     "uniapp",
@@ -39,6 +25,11 @@
   ],
   "author": "anyup",
   "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
   "uni-app": {
     "scripts": {
       "h5-custom": {
