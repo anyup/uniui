@@ -1,6 +1,6 @@
 {
   "id": "anyup-uniui",
-  "displayName": "anyup-uniui 是基于Vue 2 + uView 1.0 的快速开发工具库框架，内含多种快速构建工具类",
+  "displayName": "anyup uniui是基于Vue2+uView1.0的快速开发工具库框架，内含多种快速构建工具类",
   "version": "1.2.2",
   "description": "一款简洁、高效的前端工程化框架库，uni-app 最佳实践解决方案，基于Vue2 + uView 1.0开发的快速实践库",
   "keywords": [
