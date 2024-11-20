@@ -1,45 +1,24 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
-
-# Other files and folders
-.settings/
-
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
-*.vscode
-.idea
-.history
 .DS_Store
-
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
-
-dist/
-rev/
-sign/
-unpackage/
-
-# pageage
-package-lock.json
 node_modules/
+unpackage/
+dist/
+yarn.lock
 
-# HBuilder
-.hbuilderx
-unpackage/debug
-unpackage/dist
-unpackage/resources
-unpackage/cache
+# local env files
+.env.local
+.env.*.local
 
-*/demo
-fly.js
-.VSCodeCounter
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-pagesMap/
-Mpaas-Scan/
+# Editor directories and files
+.project
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
