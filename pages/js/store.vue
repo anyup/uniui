@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { Store } from '@/uniui'
+import { Store } from '@/uni_modules/anyup-uniui'
 const store = new Store()
 
 export default {

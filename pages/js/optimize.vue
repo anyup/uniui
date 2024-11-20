@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { Pager, Optimize } from '@/uniui'
+import { Pager, Optimize } from '@/uni_modules/anyup-uniui'
 export default {
   data() {
     return {

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { Http } from '@/uniui'
+import { Http } from '@/uni_modules/anyup-uniui'
 
 export default {
   data() {

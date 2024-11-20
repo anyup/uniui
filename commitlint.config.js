@@ -1,3 +1,7 @@
+/*
+ * @Author: anyup
+ * @Description: 代码提交规范
+ */
 module.exports = {
   extends: ['cz'],
   rules: {
