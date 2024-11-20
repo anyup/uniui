@@ -1,3 +1,7 @@
+/*
+ * @Author:anyup
+ * @Description:代码提交规范
+ */
 module.exports = {
   types: [
     { value: '🚀 功能  ', name: '功能:  功能性更新' },
@@ -27,8 +31,8 @@ module.exports = {
   skipEmptyScopes: true,
   skipQuestions: ['scopes', 'breaking', 'body', 'footer'],
   // 设置为 true，在 scope 选择的时候，会有 empty 和 custom 可以选择
-  // 顾名思义，选择 empty 表示 scope 缺省，如果选择 custom，则可以自己输入信息
+  // 选择 empty 表示 scope 缺省，如果选择 custom，则可以自己输入信息
   allowCustomScopes: true,
-  // 只有我们 type 选择了 feat 或者是 fix，才会询问我们 breaking message.
+  // 只有type 选择了 feat 或者是 fix，才会询问 breaking message.
   allowBreakingChanges: ['feat', 'fix'],
 };
