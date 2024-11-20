@@ -42,6 +42,4 @@ fly.js
 .VSCodeCounter
 
 pagesMap/
-uniui-libs/
-!uniui/dist/
-wot-design-uni/
+Mpaas-Scan/
