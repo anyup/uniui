@@ -10,7 +10,7 @@ import filters from './filters'
 import uView from 'uview-ui'
 Vue.use(uView)
 
-import uniUI, { Tips } from '@/uniui'
+import uniUI, { Tips } from '@/uni_modules/anyup-uniui'
 Vue.use(uniUI, { store })
 
 // 将过滤器注册到全局使用

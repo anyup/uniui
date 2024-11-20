@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { Http } from '@/uniui'
+import { Http } from '@/uni_modules/anyup-uniui'
 import userApi from '@/api/modules/user'
 
 export default {

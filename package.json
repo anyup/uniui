@@ -4,6 +4,7 @@
   "description": "uniapp-demo",
   "main": "main.js",
   "scripts": {
+    "prepare": "husky install",
     "commit": "git-cz",
     "commit:all": "git add . && git-cz"
   },
@@ -11,12 +12,15 @@
     "uview-ui": "^1.8.8"
   },
   "devDependencies": {
-    "sass": "^1.42.1",
-    "husky": "^8.0.3",
     "commitizen": "^4.3.0",
     "commitlint": "^17.4.4",
     "commitlint-config-cz": "^0.13.3",
-    "cz-customizable": "^7.0.0"
+    "cz-customizable": "^7.0.0",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0"
   },
   "keywords": [
     "uniapp",
@@ -29,6 +33,11 @@
     "commitizen": {
       "path": "node_modules/cz-customizable"
     }
+  },
+  "lint-staged": {
+    "*.{js,json}": [
+      "eslint --fix"
+    ]
   },
   "uni-app": {
     "scripts": {
