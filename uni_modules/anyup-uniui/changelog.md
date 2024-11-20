@@ -1,5 +1,4 @@
 ## 1.2.2（2024-11-20）
-
 ### 🚀 Features | 新功能
 
 - 🚀 新增 `anyup-uniui` 引用方式，支持 `uni_modules` 引用方式、npm 引用方式
@@ -18,7 +17,6 @@
 
 - 🐛 修复 `global.css` font 字体公共样式声明错误问题
 - 🐛 修复 `Vue Cli` 方式创建的项目引入 `anyup-uniui` 库会报错的问题
-
 ## 1.0.7
 
 ### BREAKING CHANGES
