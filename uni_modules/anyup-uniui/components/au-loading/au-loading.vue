@@ -2,7 +2,7 @@
   <view @touchmove.stop.prevent>
     <view v-if="show" class="au-loading-init" :class="[direction]">
       <view class="au-loading-center"></view>
-      <view v-if="text" class="au-loading-tips">{{ text }}1111</view>
+      <view v-if="text" class="au-loading-tips">{{ text }}</view>
       <!-- <text v-if="closeShow" class="au-icon-close auicon-iconfont auicon-iconfont-fail-circle" @click="loaded()"></text> -->
     </view>
     <view class="au-loading-mask" :class="[show ? 'au-mask-show' : '']" @click="maskClick"></view>
