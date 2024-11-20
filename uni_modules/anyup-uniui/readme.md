@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="logo" src="https://www.anyup.cn/static/anyup/images/logo.png" width="120" style="margin-bottom: 10px;">
+    <img alt="logo" src="https://www.anyup.cn/static/anyup/images/logo-heart-transparent.png" width="120" style="margin-bottom: 10px;">
 </p>
 
 <h1 align="center">anyup design uniui</h1>
@@ -87,7 +87,7 @@ $is-form-item-height: 70rpx;
 
 ```
 
-anyup-uniui 支持按需引用、单独引用等方式，详细说明见 [快速上手](https://www.anyup.cn/docs/zh/guide/quickstart.html).
+anyup-uniui 支持按需引用、单独引用等方式，详细说明见 [快速上手](https://www.anyup.cn/site/zh/uniui/guide/quickstart.html).
 
 ## 开源项目
 
@@ -120,7 +120,7 @@ Gitee 提 [Issue](https://gitee.com/anyup/uniui/issues) ，也非常欢迎您发
 	    <td><img src="https://www.anyup.cn/static/anyup/images/qr_android.png" width="150" height="150" ></td>
     </tr>
     <tr>
-        <td align="center">微信小程序</td>
+        <td align="center">示例小程序</td>
 	    <td align="center">软考小程序</td>
 	    <td align="center">H5</td>
 	    <td align="center">Android</td>
