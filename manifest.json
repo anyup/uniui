@@ -1,7 +1,7 @@
 {
-    "name" : "Anyup Colorful UI Demo",
-    "appid" : "__UNI__6F80200",
-    "description" : "anyup design uniui demo",
+    "name" : "Anyup Colorful UI Template",
+    "appid" : "",
+    "description" : "Anyup Colorful UI Template",
     "versionName" : "1.2.0",
     "versionCode" : 3,
     "transformPx" : false,
@@ -23,9 +23,7 @@
             "delay" : 0
         },
         /* 模块配置 */
-        "modules" : {
-            "Push" : {}
-        },
+        "modules" : {},
         /* 应用发布信息 */
         "distribute" : {
             /* android打包配置 */
@@ -57,14 +55,7 @@
                 "dSYMs" : false
             },
             /* SDK配置 */
-            "sdkConfigs" : {
-                "maps" : {},
-                "oauth" : {},
-                "push" : {
-                    "unipush" : {}
-                },
-                "ad" : {}
-            },
+            "sdkConfigs" : {},
             "icons" : {
                 "android" : {
                     "xxhdpi" : "unpackage/res/icons/144x144.png",
@@ -104,58 +95,18 @@
                 "androidStyle" : "common"
             }
         },
-        "nativePlugins" : {
-            "Mpaas-Scan" : {
-                "AppId" : "ONEX082032A121127",
-                "WorkspaceId" : "default",
-                "License" : "zZ2KWiFNY6cNfrgPQF+niQpAapnk5zkCU++FmfBZ7cXFOjNY+8BrfcW3Lp9x2oL6olrdepB+QD9BNMJfTeETdu5UNvqaUd8HVoPnpvuH9knig7phBj6tQHI4laCLait8EZu2rThqqCdOmQ+bw4Kczy0olhesvCVAYECFm1uwj6DqJeM4Y1058Z+B6BVkrPyeHwynQ30vgiyzkSyCXrpsmxv0WT4SjE78MXV2RBHE9K3qb+m+ItaqyrYieGl7g3MdlFj9TWIHwf2IkENcf2ZKwjmWnCXn9jzIBGFLIGDEXAB2JRjxjB1SLOAh1azOmTGliCq8iZ8N8GD9jtlqJ6oyKw==",
-                "__plugin_info__" : {
-                    "name" : "支付宝原生扫码插件",
-                    "description" : "支付宝原生扫码组件，包体积仅0.7MB，15分钟即可完成接入。同时，mPaaS提供「扫码分析」大盘，",
-                    "platforms" : "Android,iOS",
-                    "url" : "",
-                    "android_package_name" : "",
-                    "ios_bundle_id" : "",
-                    "isCloud" : false,
-                    "bought" : -1,
-                    "pid" : "",
-                    "parameters" : {
-                        "AppId" : {
-                            "des" : "ONEX082032A121127",
-                            "key" : "mobilegw.appid",
-                            "value" : ""
-                        },
-                        "WorkspaceId" : {
-                            "des" : "default",
-                            "key" : "workspaceId",
-                            "value" : ""
-                        },
-                        "License" : {
-                            "des" : "zZ2KWiFNY6cNfrgPQF+niQpAapnk5zkCU++FmfBZ7cXFOjNY+8BrfcW3Lp9x2oL6olrdepB+QD9BNMJfTeETdu5UNvqaUd8HVoPnpvuH9knig7phBj6tQHI4laCLait8EZu2rThqqCdOmQ+bw4Kczy0olhesvCVAYECFm1uwj6DqJeM4Y1058Z+B6BVkrPyeHwynQ30vgiyzkSyCXrpsmxv0WT4SjE78MXV2RBHE9K3qb+m+ItaqyrYieGl7g3MdlFj9TWIHwf2IkENcf2ZKwjmWnCXn9jzIBGFLIGDEXAB2JRjxjB1SLOAh1azOmTGliCq8iZ8N8GD9jtlqJ6oyKw==",
-                            "key" : "mpaasConfigLicense",
-                            "value" : ""
-                        }
-                    }
-                }
-            }
-        }
+        "nativePlugins" : {}
     },
     /* 快应用特有相关 */
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wxbb176981bffc17fe",
+        "appid" : "",
         "setting" : {
             "urlCheck" : false,
             "minified" : true
         },
-        "usingComponents" : true,
-        "permission" : {
-            "scope.userLocation" : {
-                "desc" : "你的位置信息将用于小程序位置接口的效果展示"
-            }
-        },
-        "requiredPrivateInfos" : [ "getLocation", "chooseLocation", "choosePoi", "chooseAddress" ]
+        "usingComponents" : true
     },
     "mp-alipay" : {
         "usingComponents" : true
@@ -170,7 +121,7 @@
         "enable" : false
     },
     "h5" : {
-        "title" : "uniui-demo-preview",
+        "title" : "Anyup Colorful UI Template",
         "template" : "template.h5.html",
         "router" : {
             "mode" : "hash",
