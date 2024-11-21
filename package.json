@@ -17,6 +17,12 @@
   ],
   "author": "anyup",
   "license": "MIT",
+  "homepage": "https://github.com/anyup/uniui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anyup/uniui.git"
+  },
+  "bugs": "https://github.com/anyup/uniui/issues",
   "uni-app": {
     "scripts": {
       "h5-custom": {
