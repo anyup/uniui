@@ -2,6 +2,11 @@
 node_modules/
 unpackage/
 dist/
+nativeplugins/
+sign/
+pagesMap/
+.hbuilderx/
+
 yarn.lock
 
 # local env files
