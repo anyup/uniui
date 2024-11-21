@@ -6,6 +6,8 @@
   "scripts": {
   },
   "dependencies": {
+    "@anyup/uni-http": "^1.1.2",
+    "@anyup/uniui": "^1.2.2",
     "uview-ui": "^1.8.8"
   },
   "devDependencies": {
