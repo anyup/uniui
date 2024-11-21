@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@anyup/uni-http": "^1.1.2",
-    "@anyup/uniui": "1.2.2",
+    "@anyup/uniui": "^1.2.2",
     "@dcloudio/uni-app": "^2.0.2-4020420240722004",
     "@dcloudio/uni-app-plus": "^2.0.2-4020420240722004",
     "@dcloudio/uni-h5": "^2.0.2-4020420240722004",
