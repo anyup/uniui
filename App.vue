@@ -15,7 +15,7 @@ export default {
 <style lang="scss">
 /*每个页面公共css */
 @import 'uview-ui/index.scss';
-@import '@anyup/uniui/dist/index.scss';
+@import 'colorful-uni/dist/index.scss';
 page {
   height: 100%;
   font-size: 28rpx;

@@ -1,7 +1,7 @@
 {
-    "name" : "Anyup Colorful UI Template",
+    "name" : "Colorful Uni App Template",
     "appid" : "",
-    "description" : "Anyup Colorful UI Template",
+    "description" : "Colorful Uni App Template",
     "versionName" : "1.2.0",
     "versionCode" : 3,
     "transformPx" : false,
@@ -121,7 +121,7 @@
         "enable" : false
     },
     "h5" : {
-        "title" : "Anyup Colorful UI Template",
+        "title" : "Colorful Uni App Template",
         "template" : "template.h5.html",
         "router" : {
             "mode" : "hash",

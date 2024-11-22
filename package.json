@@ -3,15 +3,12 @@
   "version": "1.0.0",
   "description": "uniapp-demo",
   "main": "main.js",
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
-    "@anyup/uni-http": "^1.1.2",
-    "@anyup/uniui": "^1.2.2",
+    "colorful-uni": "^1.0.0",
     "uview-ui": "^1.8.8"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "keywords": [
     "uniapp",
     "anyup",
@@ -19,12 +16,12 @@
   ],
   "author": "anyup",
   "license": "MIT",
-  "homepage": "https://github.com/anyup/uniui#readme",
+  "homepage": "https://github.com/anyup/colorful-uni#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anyup/uniui.git"
+    "url": "git+https://github.com/anyup/colorful-uni.git"
   },
-  "bugs": "https://github.com/anyup/uniui/issues",
+  "bugs": "https://github.com/anyup/colorful-uni/issues",
   "uni-app": {
     "scripts": {
       "h5-custom": {

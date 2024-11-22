@@ -1,4 +1,4 @@
-import { Http, Optimize, _u } from '@anyup/uniui'
+import { Http, Optimize, _u } from 'colorful-uni'
 import env from '@/config/env'
 
 // 请求标头
