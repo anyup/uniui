@@ -1,0 +1,25 @@
+/* start--微信小程序编译后页面有组件名的元素，特别处理--start */
+/* #ifdef MP-WEIXIN || MP-QQ */
+col-td, col-th {
+	flex: 1;
+	align-self: stretch;
+}
+
+.col-th, .col-td {
+	height: 100%;
+}
+/* #endif */
+/* end-微信小程序编译后页面有组件名的元素，特别处理--end */
+
+/* start--头条小程序编译后页面有组件名的元素，特别处理--start */
+// 由于头条小程序不支持直接组件名形式写样式，目前只能在写组件的时候给组件加上对应的类名
+/* #ifdef MP-TOUTIAO */
+.col-td, .col-th, .col-tr {
+	flex: 1;
+	align-self: stretch;
+}
+/* #endif */
+/* end-头条小程序编译后页面有组件名的元素，特别处理--end */
+
+
+

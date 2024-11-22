@@ -1,0 +1,63 @@
+// 定义混入指令，用于在非nvue环境下的flex定义，因为nvue没有display属性，会报错
+@mixin vue-flex($direction: row) {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  flex-direction: $direction;
+  /* #endif */
+}
+
+// 增加button theme type
+@mixin add-btn-theme($type, $color, $main, $light, $disabled, $dark) {
+  $default: $type == 'default';
+
+  &--#{$type} {
+    color: $color;
+    border-color: $main;
+    background-color: $main;
+  }
+
+  &--#{$type}--disabled {
+    @if not($default) {
+      color: $color !important;
+      border-color: $disabled !important;
+      background-color: $disabled !important;
+    }
+  }
+
+  &--#{$type}--plain {
+    @if not($default) {
+      color: $main !important;
+      border-color: $disabled !important;
+      background-color: $light !important;
+    }
+  }
+
+  &--#{$type}--hollow {
+    @if not($default) {
+      color: $main !important;
+      border-color: $disabled !important;
+      background-color: transparent !important;
+    }
+  }
+
+  &.col-#{$type}-plain-hover {
+    color: $main !important;
+    background-color: $dark !important;
+  }
+
+  &.col-#{$type}-hover {
+    color: $main;
+    background-color: $dark !important;
+  }
+}
+
+// 生成主题色 .is-
+@mixin add-type-color($type, $main) {
+  .is-bg-#{$type} {
+    background-color: $main;
+  }
+
+  .is-#{$type} {
+    color: $main;
+  }
+}
