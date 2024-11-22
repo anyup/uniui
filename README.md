@@ -2,7 +2,7 @@
     <img alt="logo" src="https://www.anyup.cn/static/anyup/images/logo-heart-transparent.png" width="120" style="margin-bottom: 10px;">
 </p>
 
-<h1 align="center">anyup design uniui</h1>
+<h1 align="center">Colorful Uni App</h1>
 
 <p align="center">简洁、高效的前端工程化框架库</p>
 
@@ -12,7 +12,7 @@
 
 ### 介绍
 
-anyup uniui，是 uni-app 项目的最佳实践框架，包含最佳的组件实现和便捷的工具类封装。
+Colorful Uni，是 uni-app 项目的最佳实践框架，包含最佳的组件实现和便捷的工具类封装。
 
 ## 特性
 
@@ -23,7 +23,7 @@ anyup uniui，是 uni-app 项目的最佳实践框架，包含最佳的组件实
 ## 安装
 
 ```bash
-npm install @anyup/colorful-uni
+npm install colorful-uni
 ```
 
 ## 快速上手
@@ -33,7 +33,7 @@ npm install @anyup/colorful-uni
 ```js
 // 项目中最好使用Vuex Store，因为部分功能依赖
 import store from './store';
-import ColorfulUni from '@anyup/colorful-uni';
+import ColorfulUni from 'colorful-uni';
 Vue.use(ColorfulUni, { store });
 ```
 
@@ -42,7 +42,8 @@ Vue.use(ColorfulUni, { store });
 如果你需要自定义主题样式，可引入 uni.scss 全局样式文件
 
 ```scss
-// 主题颜色
+@import 'colorful-uni/dist/theme.scss';
+// 自定义主题颜色
 $is-type-primary: #2979ff;
 $is-type-primary-light: #ecf5ff;
 $is-type-primary-disabled: #a0cfff;
@@ -82,12 +83,12 @@ $is-form-item-height: 70rpx;
 
 ```html
 <style lang="scss">
-@import '@anyup/colorful-uni/dist/index.scss';
+@import 'colorful-uni/dist/index.scss';
 </style>
 
 ```
 
-anyup-uniui 支持按需引用、单独引用等方式，详细说明见 [快速上手](https://www.anyup.cn/site/zh/uniui/guide/quickstart.html).
+Colorful Uni 支持按需引用、单独引用等方式，详细说明见 [快速上手](https://www.anyup.cn/site/zh/colorful-uni/guide/quickstart.html).
 
 ## 开源项目
 
