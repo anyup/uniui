@@ -16,7 +16,7 @@
     </view>
     <view class="is-pd-10">
       <view class="group-title">文档链接</view>
-      <u-link href="https://www.anyup.cn/site/zh/uniui/guide/introduce.html" :under-line="true">官网文档</u-link><br /><br />
+      <u-link href="https://www.anyup.cn/" :under-line="true">官网文档</u-link><br /><br />
       <u-link href="https://ext.dcloud.net.cn/plugin?id=7144" :under-line="true">uni-app 插件市场</u-link><br />
     </view>
     <view class="is-pd-10">

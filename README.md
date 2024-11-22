@@ -87,7 +87,7 @@ $is-form-item-height: 70rpx;
 
 ```
 
-Colorful Uni 支持按需引用、单独引用等方式，详细说明见 [快速上手](https://www.anyup.cn/site/zh/uniui/guide/quickstart.html).
+Colorful Uni 支持按需引用、单独引用等方式，详细说明见 [快速上手](https://www.anyup.cn/site/zh/colorful-uni/guide/quickstart.html).
 
 ## 开源项目
 
