@@ -17,12 +17,12 @@
   ],
   "author": "anyup",
   "license": "MIT",
-  "homepage": "https://github.com/anyup/uniui#readme",
+  "homepage": "https://github.com/anyup/colorful-uni#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anyup/uniui.git"
+    "url": "git+https://github.com/anyup/colorful-uni.git"
   },
-  "bugs": "https://github.com/anyup/uniui/issues",
+  "bugs": "https://github.com/anyup/colorful-uni/issues",
   "uni-app": {
     "scripts": {
       "h5-custom": {

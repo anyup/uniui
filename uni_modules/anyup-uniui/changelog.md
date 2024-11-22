@@ -65,7 +65,7 @@
 
 ### BREAKING CHANGES
 
-- 相比0.x版本，优化目录结构src->libs，easycom 配置路径修改为`^au-(.*)": "@anyup/uniui/components/au-$1/au-$1.vue`
+- 相比0.x版本，优化目录结构src->libs，easycom 配置路径修改为`^au-(.*)": "@anyup/colorful-uni/components/au-$1/au-$1.vue`
 
 ### Features
 

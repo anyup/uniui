@@ -23,7 +23,7 @@ anyup uniui，是 uni-app 项目的最佳实践框架，包含最佳的组件实
 ## 安装
 
 ```bash
-npm install @anyup/uniui
+npm install @anyup/colorful-uni
 ```
 
 ## 快速上手
@@ -33,8 +33,8 @@ npm install @anyup/uniui
 ```js
 // 项目中最好使用Vuex Store，因为部分功能依赖
 import store from './store';
-import uniUI from '@anyup/uniui';
-Vue.use(uniUI, { store });
+import ColorfulUni from '@anyup/colorful-uni';
+Vue.use(ColorfulUni, { store });
 ```
 
 2. 在 uni.scss 自定义主题样式
@@ -82,7 +82,7 @@ $is-form-item-height: 70rpx;
 
 ```html
 <style lang="scss">
-@import '@anyup/uniui/dist/index.scss';
+@import '@anyup/colorful-uni/dist/index.scss';
 </style>
 
 ```
@@ -91,18 +91,18 @@ anyup-uniui 支持按需引用、单独引用等方式，详细说明见 [快速
 
 ## 开源项目
 
-[Github：https://github.com/anyup/uniui](https://github.com/anyup/uniui)
+[Github：https://github.com/anyup/colorful-uni](https://github.com/anyup/colorful-uni)
 
-[Gitee：https://gitee.com/anyup/uniui](https://gitee.com/anyup/uniui)
+[Gitee：https://gitee.com/anyup/colorful-uni](https://gitee.com/anyup/colorful-uni)
 
 
 ## 贡献代码
 
 使用过程中发现任何问题都可以通过以下方式贡献代码：
 
-Github 提 [Issue](https://github.com/anyup/uniui/issues) ，也非常欢迎您发 [PR](https://github.com/anyup/uniui/pulls)。
+Github 提 [Issue](https://github.com/anyup/colorful-uni/issues) ，也非常欢迎您发 [PR](https://github.com/anyup/colorful-uni/pulls)。
 
-Gitee 提 [Issue](https://gitee.com/anyup/uniui/issues) ，也非常欢迎您发 [PR](https://gitee.com/anyup/uniui/pulls)。
+Gitee 提 [Issue](https://gitee.com/anyup/colorful-uni/issues) ，也非常欢迎您发 [PR](https://gitee.com/anyup/colorful-uni/pulls)。
 
 ## 浏览器支持
 
