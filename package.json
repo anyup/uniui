@@ -71,7 +71,7 @@
     "@dcloudio/uni-stacktracey": "^2.0.2-4020420240722004",
     "@dcloudio/uni-stat": "^2.0.2-4020420240722004",
     "@vue/shared": "^3.0.0",
-    "colorful-uni": "^1.2.2",
+    "colorful-uni": "^1.0.0",
     "core-js": "^3.6.5",
     "sass": "1.69.5",
     "uview-ui": "1.8.8",

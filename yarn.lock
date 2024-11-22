@@ -19,16 +19,6 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
-"@anyup/uni-http@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.npmmirror.com/@anyup/uni-http/-/uni-http-1.1.2.tgz#f1feb04c1892726b6751bff2ff0908d4d9cd3c98"
-  integrity sha512-hjNmRgWCq27FbqoxnUn2nq+kzLL6ry2wnrD3yOQqeUq+d8LALWBkYYBMwAZkFimAYa+rLmrJ3/ujEg19AAmB1w==
-
-"@anyup/uniui@1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@anyup/uniui/-/uniui-1.2.2.tgz#f74ec8b5a34844daabb223d46497a721c316ca24"
-  integrity sha512-2RA04V+UBdkccTOoNu2iBoQAWilD19GsLkotbnYa4dFpi+BnL2IidK7bB6qglSBs7axZXSsSOdv37XWhX9SitQ==
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.24.7", "@babel/code-frame@^7.25.9", "@babel/code-frame@^7.26.0":
   version "7.26.2"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.26.2.tgz#4b5fab97d33338eff916235055f0ebc21e573a85"
@@ -4516,6 +4506,11 @@ color@^3.0.0:
     color-convert "^1.9.3"
     color-string "^1.6.0"
 
+colorful-uni@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/colorful-uni/-/colorful-uni-1.0.0.tgz#437d9e03cb62223f46dee7843246eeda921803a8"
+  integrity sha512-Cau7JAfcWxTxK6jGS3L7wn0aD0NzqIvJ5OukJctYRwSp0kiOjieJwkq9aHFM022vpDxEAxgILf4fZbMrq4QO6w==
+
 combined-stream@^1.0.6, combined-stream@~1.0.6:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.8.tgz#c3d45a8b34fd730631a110a8a2520682b31d5a7f"
@@ -4937,11 +4932,6 @@ crypto-browserify@^3.11.0:
     public-encrypt "^4.0.3"
     randombytes "^2.1.0"
     randomfill "^1.0.4"
-
-crypto-js@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.npmmirror.com/crypto-js/-/crypto-js-4.1.1.tgz#9e485bcf03521041bd85844786b83fb7619736cf"
-  integrity sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==
 
 css-color-names@0.0.4, css-color-names@^0.0.4:
   version "0.0.4"
@@ -6422,13 +6412,6 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
-
-flyio@^0.6.2:
-  version "0.6.14"
-  resolved "https://registry.npmmirror.com/flyio/-/flyio-0.6.14.tgz#c5d83eb7a9b4fc1c915a463d2ea6dfce755c2d6f"
-  integrity sha512-RE2OXE1ZZmcXOKb0jCtGyquHDxpAqHg17CZ8lmQKRfl3x1kP+NBpaQDx4WgN7DNpLJjFnspTzTEQpwRGg6/xaA==
-  dependencies:
-    request "^2.85.0"
 
 follow-redirects@^1.0.0, follow-redirects@^1.15.6:
   version "1.15.9"
@@ -11403,7 +11386,7 @@ request-promise-native@^1.0.7:
     stealthy-require "^1.1.1"
     tough-cookie "^2.3.3"
 
-request@^2.85.0, request@^2.88.0, request@^2.88.2:
+request@^2.88.0, request@^2.88.2:
   version "2.88.2"
   resolved "https://registry.npmmirror.com/request/-/request-2.88.2.tgz#d73c918731cb5a87da047e207234146f664d12b3"
   integrity sha512-MsvtOrfG9ZcrOwAW+Qi+F6HbD0CWXEh9ou77uOb7FM2WPhwT7smM833PzanhJLsgXjN89Ir6V2PczXNnMpwKhw==

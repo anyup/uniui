@@ -1,9 +1,9 @@
 <template>
-  <au-layout class="app-layout" ref="AuLayout" :page-show="pageShow" :bg-color="bgColor" :custom-style="customStyle" loading-text="加载中...">
+  <col-layout class="app-layout" :page-show="pageShow" :bg-color="bgColor" :custom-style="customStyle" loading-text="加载中...">
     <slot></slot>
     <view v-if="loadmore" class="is-pd-10"> <u-loadmore :status="loadmore" /> </view>
     <view v-if="empty" class="is-pdtb-50"> <u-empty text="无数据" mode="history" /> </view>
-  </au-layout>
+  </col-layout>
 </template>
 
 <script>

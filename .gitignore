@@ -6,6 +6,7 @@ nativeplugins/
 sign/
 pagesMap/
 .hbuilderx/
+uni_modules/
 
 yarn.lock
 
