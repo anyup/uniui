@@ -1,4 +1,4 @@
-import { Http, Tips, Store, Optimize } from '@/uni_modules/anyup-uniui'
+import { Http, Tips, Store, Optimize } from '@/uni_modules/colorful-uni'
 import { baseURL, routeURL, isWhiteList } from '@/config'
 
 const header = {}

@@ -3,13 +3,13 @@
     <config-demo v-model="value" :list="list">
       <app-button type="primary" @click="toast = value">显示</app-button>
     </config-demo>
-    <au-toast
+    <col-toast
       ref="toast"
       :toast="toast"
       :duration="value.duration"
       :position="value.position"
       @cancel="toast = {}"
-    ></au-toast>
+    ></col-toast>
   </app-layout>
 </template>
 

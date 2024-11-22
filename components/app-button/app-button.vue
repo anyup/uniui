@@ -1,5 +1,5 @@
 <template>
-  <au-button
+  <col-button
     :type="type"
     :size="size"
     :shape="shape"
@@ -14,7 +14,7 @@
     @click="$emit('click')"
   >
     <slot></slot>
-  </au-button>
+  </col-button>
 </template>
 
 <script>
@@ -57,9 +57,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/uni_modules/anyup-uniui/css/mixin.scss';
+@import '@/uni_modules/colorful-uni/css/mixin.scss';
 
-.au-btn {
+.col-btn {
   $type: darkblue gold;
   $color: $u-type-gold, #ffffff;
   $main: $u-type-darkblue, $u-type-gold;

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { Http } from '@/uni_modules/anyup-uniui'
+import { Http } from '@/uni_modules/colorful-uni'
 import userApi from '@/api/modules/user'
 
 export default {

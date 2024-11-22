@@ -14,7 +14,7 @@ export default {
 <style lang="scss">
 @import 'colorui/main.css';
 @import 'colorui/icon.css';
-@import 'uni_modules/anyup-uniui/index.scss';
+@import 'uni_modules/colorful-uni/index.scss';
 @import 'uview-ui/index.scss';
 @import 'assets/font/iconfont.css';
 @import 'assets/style/index.scss';

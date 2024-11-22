@@ -1,5 +1,5 @@
 <template>
-  <au-webview :src="src" />
+  <col-webview :src="src" />
 </template>
 
 <script>

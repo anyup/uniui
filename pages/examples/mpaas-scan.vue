@@ -1,7 +1,7 @@
 <template>
   <app-layout>
     <config-demo title="说明" :tips="tips" v-model="value" :list="list">
-      <au-button type="primary" @click="btnClick">扫码</au-button>
+      <col-button type="primary" @click="btnClick">扫码</col-button>
     </config-demo>
   </app-layout>
 </template>

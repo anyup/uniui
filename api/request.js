@@ -1,4 +1,4 @@
-import { Http } from '@/uni_modules/anyup-uniui'
+import { Http } from '@/uni_modules/colorful-uni'
 
 const header = { 'Content-type': 'application/json' }
 const baseURL = 'https://api.example.com'

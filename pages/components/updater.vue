@@ -14,12 +14,12 @@
       <app-button type="primary" @click="checkUpdate">检测版本更新</app-button>
       <view class="is-text-center is-font-12">请求接口仅作为测试展示效果</view>
     </config-demo>
-    <au-updater ref="updater" :auto="false" :request="request" :modalTitle="value.modalTitle" :modalIcon="value.modalIcon" @success="onResult" @modal-confirm="onConfirm" />
+    <col-updater ref="updater" :auto="false" :request="request" :modalTitle="value.modalTitle" :modalIcon="value.modalIcon" @success="onResult" @modal-confirm="onConfirm" />
   </app-layout>
 </template>
 
 <script>
-import { Http } from '@/uni_modules/anyup-uniui'
+import { Http } from '@/uni_modules/colorful-uni'
 
 export default {
   data() {

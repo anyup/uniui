@@ -25,14 +25,14 @@
         </u-radio>
       </u-radio-group>
       <view v-else-if="item.layout === 'button'">
-        <au-button
+        <col-button
           v-for="(item2, index2) in item.list"
           :key="index2"
           type="primary"
           @click="$emit('btn-click', { type: item.type, index: index2 })"
         >
           {{ item2 }}
-        </au-button>
+        </col-button>
       </view>
     </view>
   </view>

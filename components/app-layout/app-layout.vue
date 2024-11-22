@@ -1,5 +1,5 @@
 <template>
-  <au-layout
+  <col-layout
     class="app-layout"
     ref="AuLayout"
     :page-show="pageShow"
@@ -15,7 +15,7 @@
     <view v-if="empty" class="is-pdtb-50">
       <u-empty v-if="empty" />
     </view>
-  </au-layout>
+  </col-layout>
 </template>
 
 <script>

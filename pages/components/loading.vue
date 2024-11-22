@@ -3,7 +3,7 @@
     <config-demo v-model="value" :list="list">
       <app-button type="primary" @click="value.show = true">显示加载框</app-button>
     </config-demo>
-    <au-loading
+    <col-loading
       :text="value.text"
       :show="value.show"
       :direction="value.direction"

@@ -1,20 +1,20 @@
 <template>
   <app-layout>
     <config-demo v-model="value" :list="list">
-      <au-table padding="10rpx">
-        <au-tr :fixed="false">
-          <au-th>姓名</au-th>
-          <au-th>性别</au-th>
-          <au-th :sort="value.sort">年龄</au-th>
-          <au-th>居住地</au-th>
-        </au-tr>
-        <au-tr v-for="(value, key) in 2" :key="key">
-          <au-td>张三</au-td>
-          <au-td>男</au-td>
-          <au-td>18</au-td>
-          <au-td>北京市</au-td>
-        </au-tr>
-      </au-table>
+      <col-table padding="10rpx">
+        <col-tr :fixed="false">
+          <col-th>姓名</col-th>
+          <col-th>性别</col-th>
+          <col-th :sort="value.sort">年龄</col-th>
+          <col-th>居住地</col-th>
+        </col-tr>
+        <col-tr v-for="(value, key) in 2" :key="key">
+          <col-td>张三</col-td>
+          <col-td>男</col-td>
+          <col-td>18</col-td>
+          <col-td>北京市</col-td>
+        </col-tr>
+      </col-table>
     </config-demo>
   </app-layout>
 </template>

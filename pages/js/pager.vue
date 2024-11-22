@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { Pager, Optimize } from '@/uni_modules/anyup-uniui'
+import { Pager, Optimize } from '@/uni_modules/colorful-uni'
 export default {
   data() {
     return {

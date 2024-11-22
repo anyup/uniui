@@ -3,8 +3,8 @@
     <config-demo :list="[]" tips="快速连接蓝牙打印机，实现打印，支持低功耗热敏打印机，部分型号打印指令可能有偏差">
       <view class="is-flex is-align-center is-mgtb-10 is-text-left">
         <view class="is-flex-1"> 连接打印机：{{ connectedDevice && connectedDevice.name ? connectedDevice.name : '未连接' }} </view>
-        <au-button v-if="connectedDevice" type="error" size="mini" @click="closeBLEConnection()">断开连接</au-button>
-        <au-button v-else type="primary" size="mini" :custom-style="{ 'margin-left': '20rpx' }" @click="quickInit()"> 快速连接 </au-button>
+        <col-button v-if="connectedDevice" type="error" size="mini" @click="closeBLEConnection()">断开连接</col-button>
+        <col-button v-else type="primary" size="mini" :custom-style="{ 'margin-left': '20rpx' }" @click="quickInit()"> 快速连接 </col-button>
       </view>
       <view class="is-mgt-20">
         <view>

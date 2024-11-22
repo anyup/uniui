@@ -1,14 +1,14 @@
 <template>
   <app-layout>
     <config-demo v-model="value" :list="list" @change="change">
-      <au-button type="primary" :throttle-time="0" @click="click">点击</au-button>
+      <col-button type="primary" :throttle-time="0" @click="click">点击</col-button>
       <view class="is-pd-10">点击次数：{{ times }}</view>
     </config-demo>
   </app-layout>
 </template>
 
 <script>
-import { Pager, Optimize } from '@/uni_modules/anyup-uniui'
+import { Pager, Optimize } from '@/uni_modules/colorful-uni'
 export default {
   data() {
     return {

@@ -2,7 +2,7 @@
   <app-layout>
     <config-demo>
       <view class="is-pdb-10 is-border is-text-left">
-        <au-apis :list="apiList" @select="setServer" />
+        <col-apis :list="apiList" @select="setServer" />
       </view>
       <view v-if="value" class="is-pd-10 is-mgt-20 is-border is-text-left">
         <view>名称：{{ value.name }}</view>
