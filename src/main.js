@@ -7,9 +7,9 @@ import './uni.promisify.adaptor'
 import uView from 'uview-ui'
 Vue.use(uView)
 
-import uniUI from '@anyup/uniui'
+import ColorfulUni from 'colorful-uni'
 
-Vue.use(uniUI, { store })
+Vue.use(ColorfulUni, { store })
 
 Vue.prototype.$store = store
 Vue.prototype.$api = api

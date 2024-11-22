@@ -14,7 +14,7 @@ export default {
 
 <style lang="scss">
 /*每个页面公共css */
-@import '@anyup/uniui/dist/index.scss';
+@import 'colorful-uni/dist/index.scss';
 @import 'uview-ui/index.scss';
 page {
   height: 100%;

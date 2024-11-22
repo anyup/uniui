@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { useStore, StoreModule, Store } from '@anyup/uniui'
+import { useStore, StoreModule, Store } from 'colorful-uni'
 
 Vue.use(Vuex)
 
