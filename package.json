@@ -4,6 +4,7 @@
   "description": "uniapp-demo",
   "main": "main.js",
   "scripts": {
+    "preview:h5": "npx http-server unpackage/dist/build/web -p 8888"
   },
   "dependencies": {
     "uview-ui": "^1.8.8"
