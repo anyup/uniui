@@ -4,7 +4,7 @@
       <view class="is-flex is-align-center is-mgtb-10 is-text-left">
         <view class="is-flex-1"> 连接打印机：{{ connectedDevice && connectedDevice.name ? connectedDevice.name : '未连接' }} </view>
         <col-button v-if="connectedDevice" type="error" size="mini" @click="closeBLEConnection()">断开连接</col-button>
-        <col-button v-else type="primary" size="mini" :custom-style="{ 'margin-left': '20rpx' }" @click="quickInit()"> 快速连接 </col-button>
+        <col-button v-else type="primary" size="mini" :custom-style="{ 'margin-left': '20rpx' }" @click="checkAndRequestPermissions()"> 快速连接 </col-button>
       </view>
       <view class="is-mgt-20">
         <view>
@@ -62,38 +62,136 @@ export default {
   onLoad(options) {
     this.options = options
   },
-  destroyed() {
+  beforeDestroy() {
     this.bluetooth.closeBLEConnection()
     setTimeout(() => {
       this.bluetooth.closeBluetoothAdapter()
     }, 500)
   },
   methods: {
-    // 快速初始化蓝牙
-    async quickInit() {
-      if (!this.bluetooth.adapterState.available) {
-        // 初始化蓝牙设备
-        await this.bluetooth.openBluetoothAdapter().catch(e => {
-          if (e.errno == 103 || e.errMsg.indexOf('authdeny') !== -1) {
-            this.$tips.confirm('蓝牙授权被拒绝，请在设置中允许使用蓝牙', { showCancel: false })
+  // 检验是否有蓝牙权限
+  checkAndRequestPermissions() {
+      this.$tips.loading()
+      const permissions = ['scope.bluetooth']
+      // 检查权限
+      uni.getSetting({
+        success: res => {
+          let authResult = true
+          permissions.forEach(permission => {
+            if (!res.authSetting[permission]) {
+              authResult = false
+              return
+            }
+          })
+
+          if (!authResult) {
+            setTimeout(() => {
+              this.$tips.loaded()
+            }, 1500)
+            // 请求权限
+            this.requestPermissions()
+          } else {
+            // 已经有权限，可以进行蓝牙操作
+            this.quickInit()
+          }
+        },
+        fail: err => {
+          this.$tips.loaded()
+        }
+      })
+    },
+    // 申请蓝牙权限
+    requestPermissions() {
+      const permissions = ['scope.bluetooth']
+
+      permissions.forEach(permission => {
+        uni.authorize({
+          scope: permission,
+          success: () => {
+            console.log(`权限 ${permission} 请求成功`)
+            // 已经有权限，可以进行蓝牙操作
+            this.quickInit()
+          },
+          fail: err => {
+            console.error(`权限 ${permission} 请求失败`, err)
+            uni.showModal({
+              title: '提示',
+              content: '请在设置中开启蓝牙和位置权限',
+              showCancel: false
+            })
           }
         })
-      }
-      await this.bluetooth.getBluetoothAdapterState() // 获取本机蓝牙适配器状态
-      if (this.bluetooth.adapterState.available) {
-        this.maskShow = true
-        await this.bluetooth.startBluetoothDevicesDiscovery() // 开始搜索蓝牙设备
-        this.bluetooth.onBluetoothDeviceFound(res => {
-          this.deviceList = res.filter(item => {
-            if (this.filterName) {
-              return item.name === this.filterName
-            }
-            return true
+      })
+    },
+    // 快速初始化蓝牙
+    async quickInit() {
+      try {
+        if (!this.bluetooth.adapterState.available) {
+          await this.bluetooth.openBluetoothAdapter() // 初始化蓝牙适配器
+        }
+        await this.bluetooth.getBluetoothAdapterState() // 获取本机蓝牙适配器状态
+        this.$tips.loaded()
+        if (this.bluetooth.adapterState.available) {
+          this.maskShow = true
+          await this.bluetooth.startBluetoothDevicesDiscovery() // 开始搜索蓝牙设备
+          this.bluetooth.onBluetoothDeviceFound(res => {
+            this.deviceList = res.filter(item => {
+              if (this.filterName) {
+                return item.name === this.filterName
+              }
+              return true
+            })
           })
-        })
-      } else {
-        this.$tips.confirm('蓝牙适配器不可用，请确认是否已经打开系统蓝牙', { showCancel: false })
+        } else {
+          this.toast('蓝牙适配器不可用，请确认开启蓝牙和位置权限')
+        }
+      } catch (e) {
+        this.$tips.loaded()
+        console.error('蓝牙连接失败', e)
+        this.initTypes(e.errCode || -1, e.errMsg || '出现未知错误')
       }
+    },
+    initTypes(code, errMsg) {
+      switch (code) {
+        case 10000:
+          this.toast('未初始化蓝牙适配器')
+          break
+        case 10001:
+          this.toast('未检测到蓝牙，请打开蓝牙重试！')
+          break
+        case 10002:
+          this.toast('没有找到指定设备')
+          break
+        case 10003:
+          this.toast('连接失败')
+          break
+        case 10004:
+          this.toast('没有找到指定服务')
+          break
+        case 10005:
+          this.toast('没有找到指定特征值')
+          break
+        case 10006:
+          this.toast('当前连接已断开')
+          break
+        case 10007:
+          this.toast('当前特征值不支持此操作')
+          break
+        case 10008:
+          this.toast('其余所有系统上报的异常')
+          break
+        case 10009:
+          this.toast('Android 系统特有，系统版本低于 4.3 不支持 BLE')
+          break
+        case 10012:
+          this.toast('连接超时，请重试')
+          break
+        default:
+          this.toast(errMsg)
+      }
+    },
+    toast(errMsg) {
+      this.$tips.confirm(errMsg, { showCancel: false })
     },
     // 断开蓝牙连接
     closeBLEConnection() {
@@ -103,8 +201,8 @@ export default {
         this.connectedDevice = null
       })
     },
-    // 选择 设备、服务、特征值
-    async tapQuery(item) {
+     // 选择 设备、服务、特征值
+     async tapQuery(item) {
       this.maskShow = false
       this.$tips.loading('蓝牙连接中...')
       try {
@@ -119,11 +217,11 @@ export default {
             .then(res => {
               this.connectedDevice = this.bluetooth.device
               console.log('getReadWriteBLEValue then', JSON.stringify(res))
-              this.$tips.toast('获取读写值成功')
+              this.$tips.toast('初始化设备成功')
             })
             .catch(err => {
               console.log('getReadWriteBLEValue catch', JSON.stringify(err))
-              this.$tips.toast('获取读写值失败')
+              this.$tips.toast('初始化设备失败')
             })
         })
       } catch (error) {
@@ -143,12 +241,16 @@ export default {
         .printFill()
         .printLR('左侧文字', '右侧文字')
         .printLCR('左侧文字', '中间文字', '右侧文字')
+        .setSize(2, 1)
+        .print('宽度放大文字')
+        .setSize(1, 2)
+        .print('高度放大文字')
+        .setSize(2, 2)
+        .print('等比放大文字')
+        .setSize(1, 1)
         .printFill()
         .print('打印时间：' + this.$_u.formatTime(new Date().getTime(), 'yyyy-MM-dd hh:mm:ss'))
         .println()
-        .setSize(2, 2)
-        .print('二倍放大：')
-        .setSize(1, 1)
         .end()
 
       this.bluetooth.writeBLEValueLoop(buffer).then(res => {
