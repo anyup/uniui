@@ -1,7 +1,7 @@
 {
-  "name": "uniapp-demo",
+  "name": "colorful-uni-demo",
   "version": "1.0.0",
-  "description": "uniapp-demo",
+  "description": "colorful-uni-demo",
   "main": "main.js",
   "scripts": {
     "preview:h5": "npx http-server unpackage/dist/build/web -p 8888"

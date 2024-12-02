@@ -6,14 +6,14 @@
     {
       "path": "pages/home/index",
       "style": {
-        "navigationBarTitleText": "Anyup Colorful UI 演示",
+        "navigationBarTitleText": "Colorful Uni 演示",
         "navigationStyle": "custom"
       }
     },
     {
       "path": "pages/home/home",
       "style": {
-        "navigationBarTitleText": "Anyup Colorful UI 演示"
+        "navigationBarTitleText": "Colorful Uni 演示"
       }
     },
     {
@@ -145,7 +145,7 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Anyup Colorful UI Demo 演示",
+    "navigationBarTitleText": "Colorful Uni Demo 演示",
     "navigationBarBackgroundColor": "#ffffff",
     "backgroundColor": "#ffffff",
     "navigationStyle": "default",

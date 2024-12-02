@@ -1,6 +1,6 @@
 <template name="components">
   <view>
-    <u-navbar :is-back="false" title="Colorful UI 示例项目" title-width="350" :background="background" title-color="#fff"></u-navbar>
+    <u-navbar :is-back="false" title="Colorful Uni 示例项目" title-width="350" :background="background" title-color="#fff"></u-navbar>
     <u-gap></u-gap>
     <view class="group-title">
       <view>公告栏</view>
